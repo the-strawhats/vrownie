@@ -1,24 +1,19 @@
 const theme = {
   colors: {
     red: {
-      light: '#CE0F02',
-      main: '#FF4E42',
-      dark: '#832626'
+      one: '#A4351D'
     },
-    blue: {
-      main: '#1820EF',
-      dark: '#000699'
-    },
-    yellow: {
-      main: '#FFC024',
-      dark: '#F4AE00'
+    green: {
+      one: '#D8E0C5',
+      two: '#8CB175',
+      three: '#438124'
     },
     vanilla: {
-      main: '#FAFAED',
-      dark: '#E1DDC4'
-
+      one: '#FFFBF4',
+      two: '#FFF9F0'
     },
-    black: '#000000',
+    black: '#3D3B38',
+    gray: '#C4C4C4'
   }
 }
 
