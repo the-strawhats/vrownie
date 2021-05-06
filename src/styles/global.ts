@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
   * {
@@ -8,8 +8,8 @@ export default createGlobalStyle`
   }
 
   body {
-    font-family: 'M PLUS Rounded 1c', sans-serif;
-    background: ${({theme}) =>  theme.colors.red.main};
-    color: ${({theme}) => theme.colors.vanilla.main};
+    font-family: 'M PLUS 1p', sans-serif;
+    background: ${({ theme }) => theme.colors.red.one};
+    color: ${({ theme }) => theme.colors.vanilla.one};
   }
 `
