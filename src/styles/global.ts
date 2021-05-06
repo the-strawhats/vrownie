@@ -9,7 +9,7 @@ export default createGlobalStyle`
 
   body {
     font-family: 'M PLUS 1p', sans-serif;
-    background: ${({ theme }) => theme.colors.red.one};
-    color: ${({ theme }) => theme.colors.vanilla.one};
+    background: ${({ theme }) => theme.colors.red.main};
+    color: ${({ theme }) => theme.colors.vanilla.main};
   }
 `
