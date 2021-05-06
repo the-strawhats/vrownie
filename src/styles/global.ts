@@ -5,11 +5,10 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'M PLUS 1p', sans-serif;
   }
 
   body {
-    font-family: 'M PLUS 1p', sans-serif;
-    background: ${({ theme }) => theme.colors.red.main};
-    color: ${({ theme }) => theme.colors.vanilla.main};
+    background: ${({ theme }) => theme.colors.vanilla.main};
   }
 `

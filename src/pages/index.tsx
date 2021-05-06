@@ -10,7 +10,11 @@ const Home: React.FC = () => {
         <title>Typeboiler</title>
       </Head>
 
-      <HeadlineOne> Hello world </HeadlineOne>
+      <HeadlineOne>
+        {' '}
+        Brownies <span className="green">veganos</span> de respeito
+        <span className="red">.</span>{' '}
+      </HeadlineOne>
     </Container>
   )
 }
