@@ -14,6 +14,12 @@ export const ButtonContainer = styled.button<ButtonContainerInterface>`
   box-shadow: ${({ theme }) => `-4px 8px 4px ${theme.colors.green.dark}36`};
   border-radius: 8px;
   width: ${({ fixed }) => fixed && '100%'};
+  cursor: pointer;
+  transition: all ease 0.3s;
+
+  :hover {
+    transform: translateY(3px);
+  }
 
   @media ${devices.tablet} {
     padding: ${({ fixed }) => (fixed ? '16px' : '12px 18px')};
