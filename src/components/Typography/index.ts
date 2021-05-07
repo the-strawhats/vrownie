@@ -4,6 +4,13 @@ import { devices } from '../../constants/devices'
 interface TypographyInterface {
   color?: string
   variant?: string
+  weigth?: 'light' | 'medium' | 'bold'
+}
+
+const typographyWeigthMapper = {
+  light: 300,
+  medium: 500,
+  bold: 700
 }
 
 export const HeadlineOne = styled.h1<TypographyInterface>`
@@ -78,14 +85,13 @@ export const HeadlineFour = styled.h4<TypographyInterface>`
 `
 export const BodyOne = styled.p<TypographyInterface>`
   font-size: 24px;
-  font-weight: 300;
+  font-weight: ${({ weigth = 'light' }) => typographyWeigthMapper[weigth]};
   line-height: 34px;
   color: ${({ theme, color = 'black', variant = 'main' }) =>
     theme.colors[color][variant]};
 
   @media ${devices.tablet} {
     font-size: 16px;
-    font-weight: 300;
     line-height: 22px;
   }
 `

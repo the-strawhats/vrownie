@@ -2,12 +2,13 @@ import Head from 'next/head'
 import React from 'react'
 import { Container } from '../styles/pages/Home'
 import { HeadlineOne } from '../components/Typography'
+import Button from '../components/Button'
 
 const Home: React.FC = () => {
   return (
     <Container>
       <Head>
-        <title>Typeboiler</title>
+        <title>Vrownie</title>
       </Head>
 
       <HeadlineOne>
@@ -15,6 +16,7 @@ const Home: React.FC = () => {
         Brownies <span className="green">veganos</span> de respeito
         <span className="red">.</span>{' '}
       </HeadlineOne>
+      <Button label='Pedir agora!' />
     </Container>
   )
 }
