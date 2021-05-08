@@ -21,9 +21,9 @@ export const InputContainer = styled.input<InputContainerInterface>`
   height: 40px;
   border: ${({ theme, active }) => active ? `2px solid ${theme.colors.green.main}` : `2px solid ${theme.colors.gray.main}`};
   border-radius: 10px;
-  background: ${({ theme }) => theme.colors.vanilla.main};
+  background: ${({ theme }) => theme.colors.vanilla.light};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
-  padding: 16px;
+  padding: 8px 16px;
   font-size: 16px;
   transition: all ease 0.3s;
 

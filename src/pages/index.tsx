@@ -4,6 +4,7 @@ import { Container } from '../styles/pages/Home'
 import { HeadlineOne } from '../components/Typography'
 import Button from '../components/Button'
 import Input from '../components/Input'
+import SelectInput from '../components/SelectInput'
 
 const Home: React.FC = () => {
   return (
@@ -19,6 +20,10 @@ const Home: React.FC = () => {
       </HeadlineOne>
       <Button label="Pedir agora!" />
       <Input label="Complemento" />
+      <SelectInput
+        options={['Endereço', 'Metrô', 'Retirada']}
+        label="Opção de entrega"
+      />
     </Container>
   )
 }
