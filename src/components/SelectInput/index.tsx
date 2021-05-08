@@ -11,25 +11,25 @@ import enhancer from './logic/index'
 
 interface SelectInputInterface {
   label?: string
-  isSelectActive: boolean
-  selectedValue: string
+  isActive: boolean
+  currentValue: string
   options: Array<string>
   handleOptionAction: (option: string) => null
   handleOpenSelect: () => null
-  isSelectOpened: boolean
-  selectOptions: Array<string>
+  isOpened: boolean
+  inputOption: Array<string>
 }
 
 const NOOP = () => null
 
 const SelectInput: React.FC<SelectInputInterface> = ({
   label,
-  isSelectActive = true,
-  selectedValue,
+  isActive = true,
+  currentValue,
   handleOptionAction,
   handleOpenSelect,
-  isSelectOpened,
-  selectOptions
+  isOpened,
+  inputOption
 }) => {
   return (
     <SelectInputContent>
@@ -38,18 +38,15 @@ const SelectInput: React.FC<SelectInputInterface> = ({
         <span className="red">:</span>
       </Label>
       <SelectInputWrapper>
-        <SelectInputContainer
-          onClick={handleOpenSelect}
-          active={isSelectActive}
-        >
-          {selectedValue}
+        <SelectInputContainer onClick={handleOpenSelect} active={isActive}>
+          {currentValue}
         </SelectInputContainer>
-        <SelectInputOptions active={isSelectOpened}>
-          {isSelectOpened ? (
-            selectOptions.map(option => {
+        <SelectInputOptions active={isOpened}>
+          {isOpened ? (
+            inputOption.map(item => {
               return (
-                <SelectInputOptionsItem onClick={handleOptionAction(option)}>
-                  {option}
+                <SelectInputOptionsItem onClick={handleOptionAction(item)}>
+                  {item}
                 </SelectInputOptionsItem>
               )
             })

@@ -2,31 +2,31 @@ import composer from '../../../utils/composer'
 import { useState } from 'react'
 
 const useSelectInput = ({ options }) => {
-  const [selectOptions, setSelectOptions] = useState([...options])
-  const [isSelectOpened, setIsSelectOpened] = useState(false)
-  const [selectedValue, setSelectedValue] = useState('Selecione...')
-  const [isSelectActive, setIsSelectActive] = useState(false)
+  const [inputOption, setInputOption] = useState([...options])
+  const [isOpened, setIsOpened] = useState(false)
+  const [currentValue, setCurrentValue] = useState('Selecione...')
+  const [isActive, setIsActive] = useState(false)
 
   const handleOpenSelect = () => {
-    setIsSelectActive(!isSelectActive)
-    setIsSelectOpened(!isSelectOpened)
+    setIsActive(!isActive)
+    setIsOpened(!isOpened)
   }
 
   const handleOptionAction = (option: string) => () => {
-    setSelectedValue(option)
-    const filteredList = options.filter(e => e !== option)
-    setSelectOptions(filteredList)
-    setIsSelectOpened(false)
-    setIsSelectActive(true)
+    setCurrentValue(option)
+    const filteredList = options.filter((e: String) => e !== option)
+    setInputOption(filteredList)
+    setIsOpened(false)
+    setIsActive(true)
   }
 
   return {
-    selectedValue,
+    currentValue,
     handleOptionAction,
-    isSelectActive,
+    isActive,
     handleOpenSelect,
-    isSelectOpened,
-    selectOptions
+    isOpened,
+    inputOption
   }
 }
 
