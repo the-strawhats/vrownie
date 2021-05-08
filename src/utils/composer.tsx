@@ -3,7 +3,7 @@ import React from 'react'
 const composer = (...functions) => (Component: React.FC) => {
   return props => {
     const composeProps = functions.reduce((enhacerFunction, func) => {
-      const functionsProps = func(enhacerFunction)
+      const functionsProps = func({ ...enhacerFunction, ...props })
       return {
         ...enhacerFunction,
         ...functionsProps
