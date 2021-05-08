@@ -5,6 +5,7 @@ import { HeadlineOne } from '../components/Typography'
 import Button from '../components/Button'
 import Input from '../components/Input'
 import SelectInput from '../components/SelectInput'
+import Icon from '../components/Icon'
 
 const Home: React.FC = () => {
   return (
@@ -24,6 +25,7 @@ const Home: React.FC = () => {
         options={['Endereço', 'Metrô', 'Retirada']}
         label="Opção de entrega"
       />
+      <Icon id="hamburguer" />
     </Container>
   )
 }
