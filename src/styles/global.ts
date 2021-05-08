@@ -8,6 +8,10 @@ export default createGlobalStyle`
     font-family: 'M PLUS 1p', sans-serif;
   }
 
+  *:focus {
+    outline: none;
+}
+
   body {
     background: ${({ theme }) => theme.colors.vanilla.main};
   }
