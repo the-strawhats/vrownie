@@ -12,10 +12,9 @@ const useSelectInput = ({ options }) => {
     setIsSelectOpened(!isSelectOpened)
   }
 
-  console.log({ options })
   const handleOptionAction = (option: string) => () => {
     setSelectedValue(option)
-    const filteredList = selectOptions.filter(e => e !== option)
+    const filteredList = options.filter(e => e !== option)
     setSelectOptions(filteredList)
     setIsSelectOpened(false)
     setIsSelectActive(true)
@@ -27,7 +26,7 @@ const useSelectInput = ({ options }) => {
     isSelectActive,
     handleOpenSelect,
     isSelectOpened,
-    selectOptions,
+    selectOptions
   }
 }
 
