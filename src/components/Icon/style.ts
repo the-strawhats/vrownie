@@ -11,7 +11,7 @@ export const IconContainer = styled.div<IconContainerInterface>`
   transition: all ease 0.3s;
 
   svg {
-    height: ${({ height = 48 }) => `${height}px`};
-    width: ${({ width = 48 }) => `${width}px`};
+    height: ${({ height = 24 }) => `${height}px`};
+    width: ${({ width = 24 }) => `${width}px`};
   }
 `
