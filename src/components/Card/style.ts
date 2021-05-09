@@ -16,7 +16,7 @@ export const CardContainer = styled.div`
   transition: all ease 0.3s;
 
   :hover {
-    transform: scaleY(1.05) scaleX(1.05);
+    transform: scaleY(1.03) scaleX(1.03);
   }
 `
 
