@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import React from 'react'
 import { Container } from '../styles/pages/Home'
 import { HeadlineOne } from '../components/Typography'
@@ -14,7 +15,12 @@ const Home: React.FC = () => {
       <Head>
         <title>Vrownie</title>
       </Head>
-
+      <Image
+        src="/brownie.png"
+        alt="Picture of a brownie"
+        width={654}
+        height={521}
+      />
       <HeadlineOne>
         {' '}
         Brownies <span className="green">veganos</span> de respeito
