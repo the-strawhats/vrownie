@@ -6,6 +6,7 @@ import Button from '../components/Button'
 import Input from '../components/Input'
 import SelectInput from '../components/SelectInput'
 import Icon from '../components/Icon'
+import Counter from '../components/Counter'
 
 const Home: React.FC = () => {
   return (
@@ -26,6 +27,7 @@ const Home: React.FC = () => {
         label="Opção de entrega"
       />
       <Icon id="hamburguer" />
+      <Counter />
     </Container>
   )
 }
