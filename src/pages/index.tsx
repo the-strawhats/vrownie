@@ -16,7 +16,11 @@ const Home: React.FC = () => {
       <Head>
         <title>Vrownie</title>
       </Head>
-      <Card title="Tradicional" price={12.0} />
+      <Card
+        title="Castanhas"
+        description="Castanha do Pará, nozes, macadâmia, avelã ou mix da sua escolha."
+        price={12}
+      />
 
       <HeadlineOne>
         {' '}

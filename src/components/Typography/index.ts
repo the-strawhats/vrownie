@@ -97,11 +97,15 @@ export const BodyOne = styled.p<TypographyInterface>`
 `
 
 export const Caption = styled.p<TypographyInterface>`
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 500;
   line-height: 10px;
   color: ${({ theme, color = 'black', variant = 'main' }) =>
     theme.colors[color][variant]};
+
+  @media ${devices.tablet} {
+    font-size: 8px;
+  }
 `
 
 export const Label = styled.label<TypographyInterface>`
