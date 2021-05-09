@@ -8,6 +8,7 @@ import Input from '../components/Input'
 import SelectInput from '../components/SelectInput'
 import Icon from '../components/Icon'
 import Counter from '../components/Counter'
+import Card from '../components/Card'
 
 const Home: React.FC = () => {
   return (
@@ -15,12 +16,8 @@ const Home: React.FC = () => {
       <Head>
         <title>Vrownie</title>
       </Head>
-      <Image
-        src="/brownie.png"
-        alt="Picture of a brownie"
-        width={654}
-        height={521}
-      />
+      <Card title="Tradicional" price={12.0} />
+
       <HeadlineOne>
         {' '}
         Brownies <span className="green">veganos</span> de respeito
