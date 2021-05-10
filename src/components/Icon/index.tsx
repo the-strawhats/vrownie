@@ -3,7 +3,14 @@ import iconMapper from '../../assets/icons'
 import { IconContainer } from './style'
 
 interface IconInterface {
-  id: string
+  id:
+    | 'eco'
+    | 'facebook'
+    | 'instagram'
+    | 'vegan'
+    | 'hamburguer'
+    | 'shop'
+    | 'whatsapp'
   height?: number
   width?: number
 }
