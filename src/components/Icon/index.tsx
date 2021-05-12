@@ -2,15 +2,10 @@ import React from 'react'
 import iconMapper from '../../assets/icons'
 import { IconContainer } from './style'
 
+type IconKeys = keyof typeof iconMapper;
+
 interface IconInterface {
-  id:
-    | 'eco'
-    | 'facebook'
-    | 'instagram'
-    | 'vegan'
-    | 'hamburguer'
-    | 'shop'
-    | 'whatsapp'
+  id: IconKeys,
   height?: number
   width?: number
 }
