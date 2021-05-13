@@ -5,6 +5,7 @@ interface TypographyInterface {
   color?: string
   variant?: string
   weigth?: 'light' | 'medium' | 'bold'
+  fontSize?: number
 }
 
 const typographyWeigthMapper = {
@@ -84,7 +85,7 @@ export const HeadlineFour = styled.h4<TypographyInterface>`
   }
 `
 export const BodyOne = styled.p<TypographyInterface>`
-  font-size: 24px;
+  font-size: ${({ fontSize = 24 }) => `${fontSize}px`};
   font-weight: ${({ weigth = 'light' }) => typographyWeigthMapper[weigth]};
   line-height: 34px;
   color: ${({ theme, color = 'black', variant = 'main' }) =>
