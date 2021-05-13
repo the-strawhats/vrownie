@@ -4,77 +4,73 @@ import { ParallaxContainer } from './style'
 import enhancer from './logic/index'
 
 interface ParallaxInterface {
-  parallaxEffect: (e: React.MouseEvent<HTMLInputElement>) => null
   parallaxContainerRef: () => null
 }
 
-const Parallax: React.FC<ParallaxInterface> = ({
-  parallaxEffect,
-  parallaxContainerRef
-}) => {
+const Parallax: React.FC<ParallaxInterface> = ({ parallaxContainerRef }) => {
   return (
     <ParallaxContainer ref={parallaxContainerRef}>
       <Image
         data-speed="1.5"
         className="layer"
         src="/heroBrownie.png"
-        height={629}
-        width={445}
+        height={445}
+        width={629}
       />
       <Image
         data-speed="9"
         className="layer"
         src="/chocolateOne.png"
-        height={111}
-        width={125}
+        height={465}
+        width={613}
         objectFit="contain"
       />
       <Image
         data-speed="-2"
         className="layer"
         src="/chocolateTwo.png"
-        height={122}
-        width={114}
+        height={465}
+        width={613}
         objectFit="contain"
       />
       <Image
         data-speed="2"
         className="layer"
         src="/chocolateThree.png"
-        height={101}
-        width={121}
+        height={465}
+        width={613}
         objectFit="contain"
       />
       <Image
         data-speed="1.5"
         className="layer"
         src="/chocolateFour.png"
-        height={55}
-        width={79}
+        height={465}
+        width={613}
         objectFit="contain"
       />
       <Image
         data-speed="-2"
         className="layer"
         src="/chocolateFive.png"
-        height={123}
-        width={164}
+        height={465}
+        width={613}
         objectFit="contain"
       />
       <Image
         data-speed="-5"
         className="layer"
         src="/chocolateSix.png"
-        height={114}
-        width={101}
+        height={465}
+        width={613}
         objectFit="contain"
       />
       <Image
         data-speed="4"
         className="layer"
         src="/chocolateSeven.png"
-        height={102}
-        width={114}
+        height={465}
+        width={613}
         objectFit="contain"
       />
     </ParallaxContainer>

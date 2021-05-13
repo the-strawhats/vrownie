@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import composer from '../../../utils/composer'
 
 const useParallax = () => {
@@ -19,7 +19,6 @@ const useParallax = () => {
   }, [parallaxContainerRef])
 
   return {
-    parallaxEffect,
     parallaxContainerRef
   }
 }
