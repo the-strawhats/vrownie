@@ -4,11 +4,7 @@ import { devices } from '../../constants/devices'
 
 export const Container = styled.div`
   width: 100vw;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  min-height: 150vh;
 
   > ${HeadlineOne} {
     max-width: 453px;

@@ -4,6 +4,7 @@ import React from 'react'
 import { Container } from '../styles/pages/Home'
 import { HeadlineOne } from '../components/Typography'
 import Parallax from '../components/Parallax'
+import Nav from '../components/Nav'
 
 const Home: React.FC = () => {
   return (
@@ -11,12 +12,7 @@ const Home: React.FC = () => {
       <Head>
         <title>Vrownie</title>
       </Head>
-      <HeadlineOne>
-        {' '}
-        Brownies <span className="green">veganos</span> de respeito
-        <span className="red">.</span>{' '}
-      </HeadlineOne>
-      <Parallax />
+      <Nav />
     </Container>
   )
 }
