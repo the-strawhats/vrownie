@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { IconContainer } from '../Icon/style'
 import { ImageWrapper } from '../Image/style'
 import { BodyOne } from '../Typography'
+import { devices } from '../../constants/devices'
 
 interface NavShopButtonInterface {
   isDown: boolean
@@ -18,6 +19,15 @@ export const NavContainer = styled.nav`
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
+
+    @media ${devices.laptop} {
+      width: 100px;
+      height: 47px;
+    }
+  }
+
+  @media ${devices.laptop} {
+    padding: 20px 24px 24px;
   }
 `
 export const Navlist = styled.div`
@@ -27,6 +37,12 @@ export const Navlist = styled.div`
 
   > ${IconContainer} {
     margin-right: 75px;
+
+    @media ${devices.laptop} {
+      width: 24px;
+      height: 24px;
+      margin: 0px;
+    }
   }
 
   > ul {
@@ -44,6 +60,10 @@ export const Navlist = styled.div`
         }
       }
     }
+
+    @media ${devices.laptop} {
+      display: none;
+    }
   }
 `
 
@@ -60,10 +80,23 @@ export const NavShopButton = styled.button<NavShopButtonInterface>`
   background-color: ${({ theme }) => theme.colors.green.dark};
   border: none;
   cursor: pointer;
-  transition: all ease 0.8s;
-  transition-delay: 400ms;
+  transition-property: top, background-color;
+  transition-timing-function: ease;
+  transition-duration: 0.8s, 0.3s;
+  transition-delay: 400ms, 0s;
 
   :hover {
     background-color: ${({ theme }) => theme.colors.green.main};
+  }
+
+  @media ${devices.tablet} {
+    right: 20px;
+    height: 40px;
+    width: 40px;
+
+    > ${IconContainer} {
+      height: 13px;
+      width: 13px;
+    }
   }
 `

@@ -3,7 +3,7 @@ import composer from '../../../utils/composer'
 
 const useNavbar = () => {
   const navRef = useRef<HTMLElement | null>()
-  const [isStoreDown, setIsStoreDown] = useState<boolean>(true)
+  const [isStoreDown, setIsStoreDown] = useState<boolean>(false)
 
   const options = {
     root: null,
@@ -23,7 +23,7 @@ const useNavbar = () => {
 
   return {
     navRef,
-    isStoreDown
+    isStoreDown,
   }
 }
 

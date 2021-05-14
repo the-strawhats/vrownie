@@ -4,12 +4,16 @@ import Icon from '../Icon'
 import { BodyOne } from '../Typography'
 import Image from '../Image'
 import enhancer from './logic/index'
+
 interface NavInterface {
   navRef: () => null
   isStoreDown: boolean
 }
 
-const Nav: React.FC<NavInterface> = ({ navRef, isStoreDown }) => {
+const Nav: React.FC<NavInterface> = ({
+  navRef,
+  isStoreDown
+}) => {
   return (
     <NavContainer ref={navRef}>
       <Navlist>
