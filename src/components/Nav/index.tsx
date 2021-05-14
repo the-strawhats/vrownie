@@ -3,10 +3,15 @@ import { NavContainer, Navlist, NavShopButton } from './style'
 import Icon from '../Icon'
 import { BodyOne } from '../Typography'
 import Image from '../Image'
+import enhancer from './logic/index'
+interface NavInterface {
+  navRef: () => null
+  isStoreDown: boolean
+}
 
-const Nav: React.FC = ({}) => {
+const Nav: React.FC<NavInterface> = ({ navRef, isStoreDown }) => {
   return (
-    <NavContainer>
+    <NavContainer ref={navRef}>
       <Navlist>
         <Icon id="vegan" height={40} width={40} />
 
@@ -35,11 +40,11 @@ const Nav: React.FC = ({}) => {
         containerX={140}
         containerY={67}
       />
-      <NavShopButton>
+      <NavShopButton isDown={isStoreDown}>
         <Icon id="shop" height={20} width={20} />
       </NavShopButton>
     </NavContainer>
   )
 }
 
-export default Nav
+export default enhancer(Nav)

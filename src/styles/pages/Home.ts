@@ -3,7 +3,6 @@ import { HeadlineOne } from '../../components/Typography'
 import { devices } from '../../constants/devices'
 
 export const Container = styled.div`
-  width: 100vw;
   min-height: 150vh;
 
   > ${HeadlineOne} {
