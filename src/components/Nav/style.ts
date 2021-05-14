@@ -54,13 +54,14 @@ export const NavShopButton = styled.button<NavShopButtonInterface>`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   border-radius: 100%;
   background-color: ${({ theme }) => theme.colors.green.dark};
   border: none;
   cursor: pointer;
-  transition: all ease-in-out 0.8s;
+  transition: all ease 0.8s;
+  transition-delay: 400ms;
 
   :hover {
     background-color: ${({ theme }) => theme.colors.green.main};
