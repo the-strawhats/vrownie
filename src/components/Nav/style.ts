@@ -100,15 +100,17 @@ export const NavShopButton = styled.button<NavShopButtonInterface>`
     background-color: ${({ theme }) => theme.colors.green.main};
   }
 
-  @media ${devices.mobileM} {
-    top: ${({ isDown }) => (isDown ? 'calc(100vh - 120px)' : '24px')};
-    right: 20px;
+  @media ${devices.tablet} {
     height: 35px;
     width: 35px;
-
     > ${IconContainer} {
       height: 13px;
       width: 13px;
     }
+  }
+
+  @media ${devices.mobileM} {
+    top: ${({ isDown }) => (isDown ? 'calc(100vh - 120px)' : '24px')};
+    right: 20px;
   }
 `

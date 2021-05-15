@@ -13,7 +13,7 @@ export const ButtonContainer = styled.button<ButtonContainerInterface>`
   background: ${({ theme }) => theme.colors.green.dark};
   box-shadow: ${({ theme }) => `-4px 8px 4px ${theme.colors.green.dark}36`};
   border-radius: 8px;
-  width: ${({ fixed }) => fixed && '100%'};
+  width: ${({ fixed }) => fixed ? '100%' : 'fit-content'};
   cursor: pointer;
   transition: all ease 0.3s;
 

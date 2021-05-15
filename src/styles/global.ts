@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
+import { devices } from '../constants/devices'
 
 export default createGlobalStyle`
   * {
@@ -14,5 +15,20 @@ export default createGlobalStyle`
 
   body {
     background: ${({ theme }) => theme.colors.vanilla.main};
+  }
+`
+
+export const Container = styled.div`
+  @media ${devices.laptopL} {
+    padding: 0 275px;
+  }
+
+  @media ${devices.laptop} {
+    padding: 0 80px;
+  }
+  @media ${devices.tablet} {
+    display: flex;
+    justify-content: center;
+    padding: 0 51px;
   }
 `

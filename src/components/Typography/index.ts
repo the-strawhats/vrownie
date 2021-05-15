@@ -91,6 +91,10 @@ export const BodyOne = styled.p<TypographyInterface>`
   color: ${({ theme, color = 'black', variant = 'main' }) =>
     theme.colors[color][variant]};
 
+  > .red {
+    color: ${({ theme }) => theme.colors.red.main};
+  }
+
   @media ${devices.tablet} {
     font-size: 16px;
     line-height: 22px;
