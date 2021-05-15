@@ -29,7 +29,7 @@ export const HeadlineOne = styled.h1<TypographyInterface>`
     color: ${({ theme }) => theme.colors.green.dark};
   }
 
-  @media ${devices.tablet} {
+  @media ${devices.mobileL} {
     font-size: 48px;
     line-height: 60px;
   }
@@ -46,7 +46,7 @@ export const HeadlineTwo = styled.h2<TypographyInterface>`
     color: ${({ theme }) => theme.colors.red.main};
   }
 
-  @media ${devices.tablet} {
+  @media ${devices.mobileL} {
     font-size: 36px;
     line-height: 45px;
   }
@@ -63,7 +63,7 @@ export const HeadlineThree = styled.h3<TypographyInterface>`
     color: ${({ theme }) => theme.colors.red.main};
   }
 
-  @media ${devices.tablet} {
+  @media ${devices.mobileL} {
     font-size: 36px;
     line-height: 45px;
   }
@@ -79,7 +79,7 @@ export const HeadlineFour = styled.h4<TypographyInterface>`
     color: ${({ theme }) => theme.colors.red.main};
   }
 
-  @media ${devices.tablet} {
+  @media ${devices.mobileL} {
     font-size: 32px;
     line-height: 40px;
   }
@@ -95,7 +95,7 @@ export const BodyOne = styled.p<TypographyInterface>`
     color: ${({ theme }) => theme.colors.red.main};
   }
 
-  @media ${devices.tablet} {
+  @media ${devices.mobileL} {
     font-size: 16px;
     line-height: 22px;
   }
@@ -108,7 +108,7 @@ export const Caption = styled.p<TypographyInterface>`
   color: ${({ theme, color = 'black', variant = 'main' }) =>
     theme.colors[color][variant]};
 
-  @media ${devices.tablet} {
+  @media ${devices.mobileL} {
     font-size: 8px;
   }
 `

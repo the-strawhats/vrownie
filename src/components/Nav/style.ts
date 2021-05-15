@@ -101,8 +101,8 @@ export const NavShopButton = styled.button<NavShopButtonInterface>`
   }
 
   @media ${devices.tablet} {
-    height: 35px;
-    width: 35px;
+    height: 40px;
+    width: 40px;
     > ${IconContainer} {
       height: 13px;
       width: 13px;

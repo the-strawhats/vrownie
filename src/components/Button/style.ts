@@ -21,7 +21,7 @@ export const ButtonContainer = styled.button<ButtonContainerInterface>`
     transform: translateY(3px);
   }
 
-  @media ${devices.tablet} {
+  @media ${devices.mobileL} {
     padding: ${({ fixed }) => (fixed ? '16px' : '12px 18px')};
 
     > ${BodyOne} {

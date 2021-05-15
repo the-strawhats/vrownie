@@ -39,7 +39,7 @@ export const HeroTextContent = styled.div<HeroContainerInterface>`
     }
   }
 
-  @media ${devices.tablet} {
+  @media ${devices.mobileL} {
     max-width: 272px;
   }
 `

@@ -19,6 +19,7 @@ export default createGlobalStyle`
 `
 
 export const Container = styled.div`
+  padding: 0 155px;
   @media ${devices.laptopL} {
     padding: 0 275px;
   }
