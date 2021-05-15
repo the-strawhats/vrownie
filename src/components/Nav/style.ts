@@ -11,7 +11,7 @@ interface NavShopButtonInterface {
 export const NavContainer = styled.nav`
   position: relative;
   display: flex;
-  padding: 20px 40px 40px;
+  padding: 40px;
   align-items: center;
 
   > ${ImageWrapper} {
@@ -20,14 +20,14 @@ export const NavContainer = styled.nav`
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
 
-    @media ${devices.laptop} {
+    @media ${devices.mobileM} {
       width: 100px;
       height: 47px;
     }
   }
 
-  @media ${devices.laptop} {
-    padding: 20px 24px 24px;
+  @media ${devices.mobileM} {
+    padding: 24px;
   }
 `
 export const Navlist = styled.div`
@@ -39,9 +39,13 @@ export const Navlist = styled.div`
     margin-right: 75px;
 
     @media ${devices.laptop} {
-      width: 24px;
-      height: 24px;
-      margin: 0px;
+      margin-right: 24px;
+    }
+
+    @media ${devices.mobileM} {
+      width: 32px;
+      height: 32px;
+      margin-right: 40px;
     }
   }
 
@@ -53,29 +57,36 @@ export const Navlist = styled.div`
       margin-right: 40px;
       cursor: pointer;
 
+      @media ${devices.laptop} {
+        margin-right: 20px;
+      }
+
       > ${BodyOne} {
         transition: all ease 0.3s;
+        @media ${devices.laptop} {
+          font-size: 18px;
+        }
         :hover {
           color: ${({ theme }) => theme.colors.green.dark};
         }
       }
     }
 
-    @media ${devices.laptop} {
+    @media ${devices.tablet} {
       display: none;
     }
   }
 `
 
 export const NavShopButton = styled.button<NavShopButtonInterface>`
-  top: ${({ isDown }) => (isDown ? 'calc(100vh - 116px)' : '20px')};
+  top: ${({ isDown }) => (isDown ? 'calc(100vh - 116px)' : '40px')};
   right: 40px;
   position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
-  width: 50px;
+  height: 55px;
+  width: 55px;
   border-radius: 100%;
   background-color: ${({ theme }) => theme.colors.green.dark};
   border: none;
@@ -89,10 +100,11 @@ export const NavShopButton = styled.button<NavShopButtonInterface>`
     background-color: ${({ theme }) => theme.colors.green.main};
   }
 
-  @media ${devices.tablet} {
+  @media ${devices.mobileM} {
+    top: ${({ isDown }) => (isDown ? 'calc(100vh - 120px)' : '24px')};
     right: 20px;
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
 
     > ${IconContainer} {
       height: 13px;

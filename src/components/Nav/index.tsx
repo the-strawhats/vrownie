@@ -41,8 +41,8 @@ const Nav: React.FC<NavInterface> = ({
         src="/vrownie.png"
         width={1772}
         height={846}
-        containerX={140}
-        containerY={67}
+        containerX={160}
+        containerY={76}
       />
       <NavShopButton isDown={isStoreDown}>
         <Icon id="shop" height={20} width={20} />
