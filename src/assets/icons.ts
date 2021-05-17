@@ -5,6 +5,8 @@ import hamburguer from './hamburguer.svg'
 import whatsapp from './whatsapp.svg'
 import instagram from './instagram.svg'
 import facebook from './facebook.svg'
+import heroBackground from './heroBackground.svg'
+import heroBackgroundMobile from './heroBackgroundMobile.svg'
 
 const iconMapper = {
   vegan: vegan,
@@ -13,7 +15,9 @@ const iconMapper = {
   hamburguer: hamburguer,
   whatsapp: whatsapp,
   instagram: instagram,
-  facebook: facebook
+  facebook: facebook,
+  heroBackground: heroBackground,
+  heroBackgroundMobile: heroBackgroundMobile
 }
 
 export default iconMapper

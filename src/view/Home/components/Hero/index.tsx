@@ -4,18 +4,21 @@ import Parallax from '../../../../components/Parallax'
 import { HeadlineOne, BodyOne } from '../../../../components/Typography'
 import Button from '../../../../components/Button'
 import Icon from '../../../../components/Icon'
+import Image from '../../../../components/Image'
 
 interface HeroInterface {}
 
 const Hero: React.FC<HeroInterface> = ({}) => {
   return (
     <HeroContainer>
+      <Icon id="heroBackground" height={900} width={616} />
+      <Image src="/heroBackgroundMobile.png" height={2970} width={1668} />
       <HeroTextContent>
         <span>
-        <Icon id="eco" height={24} width={24} />
-        <BodyOne fontSize={16}>
-          <span className="red">Embalagens ecológicas</span>
-        </BodyOne>
+          <Icon id="eco" height={24} width={24} />
+          <BodyOne fontSize={16}>
+            <span className="red">Embalagens ecológicas</span>
+          </BodyOne>
         </span>
         <HeadlineOne>
           Brownies <span className="green">veganos</span> de respeito

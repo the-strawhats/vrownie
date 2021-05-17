@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { IconContainer } from '../../../../components/Icon/style'
+import { ImageWrapper } from '../../../../components/Image/style'
 import { ParallaxContainer } from '../../../../components/Parallax/style'
 import { BodyOne, HeadlineOne } from '../../../../components/Typography'
 import { devices } from '../../../../constants/devices'
@@ -11,6 +12,51 @@ export const HeroContainer = styled.div<HeroContainerInterface>`
   display: flex;
   justify-content: space-between;
   padding-top: 126px;
+
+  > ${ImageWrapper} {
+    position: absolute;
+    display: none;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    @media ${devices.mobileM} {
+      display: block;
+    }
+  }
+
+  > ${IconContainer} {
+    position: absolute;
+    top: -120px;
+    right: -155px;
+    z-index: -1;
+
+    > svg {
+      height: 100vh;
+    }
+
+    @media ${devices.laptopL} {
+      right: -275px;
+
+      > svg {
+        height: 900px;
+      }
+    }
+
+    @media ${devices.laptop} {
+      right: -80px;
+    }
+
+    @media ${devices.tablet} {
+      display: none;
+    }
+  }
+
+  @media ${devices.tablet} {
+    padding-top: 72px;
+  }
 `
 
 export const HeroTextContent = styled.div<HeroContainerInterface>`

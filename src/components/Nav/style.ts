@@ -100,7 +100,7 @@ export const NavShopButton = styled.button<NavShopButtonInterface>`
     background-color: ${({ theme }) => theme.colors.green.main};
   }
 
-  @media ${devices.tablet} {
+  @media ${devices.mobileL} {
     height: 40px;
     width: 40px;
     > ${IconContainer} {
