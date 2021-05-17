@@ -13,6 +13,10 @@ export const HeroContainer = styled.div<HeroContainerInterface>`
   justify-content: space-between;
   padding-top: 126px;
 
+  @media ${devices.tablet} {
+    padding-top: 72px;
+  }
+
   > ${ImageWrapper} {
     position: absolute;
     display: none;
@@ -52,10 +56,6 @@ export const HeroContainer = styled.div<HeroContainerInterface>`
     @media ${devices.tablet} {
       display: none;
     }
-  }
-
-  @media ${devices.tablet} {
-    padding-top: 72px;
   }
 `
 
