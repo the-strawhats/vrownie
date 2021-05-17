@@ -20,6 +20,7 @@ export default createGlobalStyle`
 
 export const Container = styled.div`
   padding: 0 155px;
+
   @media ${devices.laptopL} {
     padding: 0 275px;
   }
@@ -27,6 +28,7 @@ export const Container = styled.div`
   @media ${devices.laptop} {
     padding: 0 80px;
   }
+  
   @media ${devices.tablet} {
     display: flex;
     justify-content: center;
