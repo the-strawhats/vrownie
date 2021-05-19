@@ -1,10 +1,13 @@
 import styled from 'styled-components'
+import { CardContainer } from '../../../../components/Card/style'
 import { BodyOne, HeadlineTwo } from '../../../../components/Typography'
 import { devices } from '../../../../constants/devices'
 
-interface ProductsSectionContainerInterface {}
+interface AnimatedElementInterface {
+  isAnimated: boolean
+}
 
-export const ProductsSectionContainer = styled.div<ProductsSectionContainerInterface>`
+export const ProductsSectionContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +25,7 @@ export const ProductsSectionContainer = styled.div<ProductsSectionContainerInter
   }
 `
 
-export const ProductsContent = styled.div<ProductsSectionContainerInterface>`
+export const ProductsContent = styled.div<AnimatedElementInterface>`
   display: grid;
   justify-content: center;
   grid-template-columns: auto auto auto;

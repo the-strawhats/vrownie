@@ -2,10 +2,17 @@ import React from 'react'
 import Card from '../../../../components/Card'
 import { BodyOne, HeadlineTwo } from '../../../../components/Typography'
 import { ProductsSectionContainer, ProductsContent } from './style'
+import enhancer from './logic'
 
-interface ProductsSectionInterface {}
+interface ProductsSectionInterface {
+  productsContentRef: () => void
+  isAnimated: boolean
+}
 
-const ProductsSection: React.FC<ProductsSectionInterface> = ({}) => {
+const ProductsSection: React.FC<ProductsSectionInterface> = ({
+  productsContentRef,
+  isAnimated
+}) => {
   return (
     <ProductsSectionContainer>
       <HeadlineTwo>
@@ -15,7 +22,7 @@ const ProductsSection: React.FC<ProductsSectionInterface> = ({}) => {
         Trabalhamos com ingredientes de respeito, livres de qualquer tipo de
         exploração, humana ou animal.
       </BodyOne>
-      <ProductsContent>
+      <ProductsContent ref={productsContentRef} isAnimated={isAnimated}>
         <Card title="Tradicional" price={12} />
         <Card title="Tradicional" price={12} />
         <Card title="Tradicional" price={12} />
@@ -27,4 +34,4 @@ const ProductsSection: React.FC<ProductsSectionInterface> = ({}) => {
   )
 }
 
-export default ProductsSection
+export default enhancer(ProductsSection)
