@@ -12,9 +12,14 @@ export const HeroContainer = styled.div<HeroContainerInterface>`
   display: flex;
   justify-content: space-between;
   padding-top: 126px;
+  min-height: calc(100vh - 120px);
 
   @media ${devices.tablet} {
     padding-top: 72px;
+  }
+
+  @media ${devices.mobileM} {
+  min-height: calc(100vh - 72px);
   }
 
   > ${ImageWrapper} {
