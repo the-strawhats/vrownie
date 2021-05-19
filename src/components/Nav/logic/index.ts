@@ -3,17 +3,17 @@ import composer from '../../../utils/composer'
 
 const useNavbar = () => {
   const navRef = useRef<HTMLElement | null>()
-  const [isStoreDown, setIsStoreDown] = useState<boolean>(false)
+  const [isAnimated, setisAnimated] = useState<boolean>(false)
 
-  const options = {
+  const options: IntersectionObserverInit = {
     root: null,
-    thresholds: 0,
-    rootMargin: '0px'
+    rootMargin: '0px',
+    threshold: 0.75,
   }
 
   const callBack = (e: IntersectionObserverEntry[]) => {
     const isStoreVisible = e[0].isIntersecting
-    setIsStoreDown(!isStoreVisible)
+    setisAnimated(!isStoreVisible)
   }
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const useNavbar = () => {
 
   return {
     navRef,
-    isStoreDown,
+    isAnimated,
   }
 }
 
