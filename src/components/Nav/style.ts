@@ -4,11 +4,11 @@ import { ImageWrapper } from '../Image/style'
 import { BodyOne } from '../Typography'
 import { devices } from '../../constants/devices'
 
-interface NavShopButtonInterface {
-  isDown: boolean
+interface AnimatedElementInterface {
+  isAnimated: boolean
 }
 
-export const NavContainer = styled.nav`
+export const NavContainer = styled.nav<AnimatedElementInterface>`
   position: relative;
   display: flex;
   padding: 40px;
@@ -18,11 +18,15 @@ export const NavContainer = styled.nav`
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    transition: all ease 0.5s;
+    transform: ${({ isAnimated }) =>
+      isAnimated
+        ? 'translateX(-50%) translateY(-128px)'
+        : 'translateX(-50%) translateY(-50%)'};
 
     @media ${devices.mobileM} {
-      width: 100px;
-      height: 47px;
+      width: 115px;
+      height: 54px;
     }
   }
 
@@ -30,10 +34,13 @@ export const NavContainer = styled.nav`
     padding: 24px;
   }
 `
-export const Navlist = styled.div`
+export const Navlist = styled.div<AnimatedElementInterface>`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all ease 0.3s;
+  transform: ${({ isAnimated }) =>
+    isAnimated ? 'translateY(-80px)' : 'translateY(0px)'};
 
   > ${IconContainer} {
     margin-right: 75px;
@@ -43,8 +50,8 @@ export const Navlist = styled.div`
     }
 
     @media ${devices.mobileM} {
-      width: 32px;
-      height: 32px;
+      width: 24px;
+      height: 24px;
       margin-right: 40px;
     }
   }
@@ -78,8 +85,8 @@ export const Navlist = styled.div`
   }
 `
 
-export const NavShopButton = styled.button<NavShopButtonInterface>`
-  top: ${({ isDown }) => (isDown ? 'calc(100vh - 116px)' : '40px')};
+export const NavShopButton = styled.button<AnimatedElementInterface>`
+  top: ${({ isAnimated }) => (isAnimated ? 'calc(100vh - 116px)' : '40px')};
   right: 40px;
   position: fixed;
   display: flex;
@@ -110,7 +117,7 @@ export const NavShopButton = styled.button<NavShopButtonInterface>`
   }
 
   @media ${devices.mobileM} {
-    top: ${({ isDown }) => (isDown ? 'calc(100vh - 120px)' : '24px')};
+    top: ${({ isAnimated }) => (isAnimated ? 'calc(100vh - 120px)' : '24px')};
     right: 20px;
   }
 `

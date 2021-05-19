@@ -7,16 +7,13 @@ import enhancer from './logic/index'
 
 interface NavInterface {
   navRef: () => null
-  isStoreDown: boolean
+  isAnimated: boolean
 }
 
-const Nav: React.FC<NavInterface> = ({
-  navRef,
-  isStoreDown
-}) => {
+const Nav: React.FC<NavInterface> = ({ navRef, isAnimated }) => {
   return (
-    <NavContainer ref={navRef}>
-      <Navlist>
+    <NavContainer isAnimated={isAnimated} ref={navRef}>
+      <Navlist isAnimated={isAnimated}>
         <Icon id="vegan" height={40} width={40} />
 
         <ul>
@@ -44,7 +41,7 @@ const Nav: React.FC<NavInterface> = ({
         containerX={160}
         containerY={76}
       />
-      <NavShopButton isDown={isStoreDown}>
+      <NavShopButton isAnimated={isAnimated}>
         <Icon id="shop" height={20} width={20} />
       </NavShopButton>
     </NavContainer>
