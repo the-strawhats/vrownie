@@ -7,8 +7,7 @@ export const CardContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 24px 22px 10px 24px;
-  width: 100%;
-  max-width: 260px;
+  width: 260px;
   min-height: 200px;
   background: ${({ theme }) => theme.colors.vanilla.light};
   box-shadow: -4px 8px 8px rgba(0, 0, 0, 0.1);
