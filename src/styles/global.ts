@@ -28,10 +28,11 @@ export const Container = styled.div`
   @media ${devices.laptop} {
     padding: 0 80px;
   }
-  
+
   @media ${devices.tablet} {
     display: flex;
-    justify-content: center;
-    padding: 0 51px;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 32px;
   }
 `
