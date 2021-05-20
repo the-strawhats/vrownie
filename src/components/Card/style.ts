@@ -1,7 +1,12 @@
 import styled from 'styled-components'
 import { CardTitle, Caption } from '../Typography'
 
-export const CardContainer = styled.div`
+interface AnimatedElementInterface {
+  isAnimated: boolean
+  transitionDuration: number
+}
+
+export const CardContainer = styled.div<AnimatedElementInterface>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +17,10 @@ export const CardContainer = styled.div`
   background: ${({ theme }) => theme.colors.vanilla.light};
   box-shadow: -4px 8px 8px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
-  transition: all ease 0.3s;
+  transition: all ease 0.5s;
+  opacity: ${({ isAnimated }) => (isAnimated ? '1' : '0')};
+  /* transition-delay: ${({ transitionDuration }) => `${transitionDuration * 0.25}s`}; */
+  transition-duration: ${({ transitionDuration }) => `${transitionDuration}s`};
 
   :hover {
     transform: scaleY(1.03) scaleX(1.03);

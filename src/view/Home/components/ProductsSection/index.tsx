@@ -5,13 +5,15 @@ import { ProductsSectionContainer, ProductsContent } from './style'
 import enhancer from './logic'
 
 interface ProductsSectionInterface {
-  productsContentRef: () => void
-  isAnimated: boolean
+  browniesMock: Array<{
+    title: string
+    description: string
+    price: number
+  }>
 }
 
 const ProductsSection: React.FC<ProductsSectionInterface> = ({
-  productsContentRef,
-  isAnimated
+  browniesMock
 }) => {
   return (
     <ProductsSectionContainer>
@@ -22,13 +24,16 @@ const ProductsSection: React.FC<ProductsSectionInterface> = ({
         Trabalhamos com ingredientes de respeito, livres de qualquer tipo de
         exploração, humana ou animal.
       </BodyOne>
-      <ProductsContent ref={productsContentRef} isAnimated={isAnimated}>
-        <Card title="Tradicional" price={12} />
-        <Card title="Tradicional" price={12} />
-        <Card title="Tradicional" price={12} />
-        <Card title="Tradicional" price={12} />
-        <Card title="Tradicional" price={12} />
-        <Card title="Tradicional" price={12} />
+      <ProductsContent>
+        {browniesMock.map(({ title, price, description }, idx) => (
+          <Card
+            key={idx}
+            title={title}
+            price={price}
+            description={description}
+            transitionDuration={idx * 0.35}
+          />
+        ))}
       </ProductsContent>
     </ProductsSectionContainer>
   )

@@ -1,11 +1,6 @@
 import styled from 'styled-components'
-import { CardContainer } from '../../../../components/Card/style'
 import { BodyOne, HeadlineTwo } from '../../../../components/Typography'
 import { devices } from '../../../../constants/devices'
-
-interface AnimatedElementInterface {
-  isAnimated: boolean
-}
 
 export const ProductsSectionContainer = styled.div`
   display: flex;
@@ -25,7 +20,7 @@ export const ProductsSectionContainer = styled.div`
   }
 `
 
-export const ProductsContent = styled.div<AnimatedElementInterface>`
+export const ProductsContent = styled.div`
   display: grid;
   justify-content: center;
   grid-template-columns: auto auto auto;

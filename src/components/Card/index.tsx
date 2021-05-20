@@ -7,16 +7,27 @@ import {
 } from './style'
 import Image from '../Image'
 import { Caption, CardPrice, CardTitle } from '../Typography'
+import enhancer from './logic'
 
 interface CardInterface {
   title: string
-  description?: string
   price: number
+  cardRef: () => void
+  isAnimated: boolean
+  description?: string
+  transitionDuration?: number
 }
 
-const Card: React.FC<CardInterface> = ({ title, price, description }) => {
+const Card: React.FC<CardInterface> = ({
+  title,
+  price,
+  description,
+  cardRef,
+  isAnimated = true,
+  transitionDuration = 0
+}) => {
   return (
-    <CardContainer>
+    <CardContainer ref={cardRef} isAnimated={isAnimated} transitionDuration={transitionDuration}>
       <Image
         src="/tradicional-brownie.png"
         alt="Picture of a brownie"
@@ -42,4 +53,4 @@ const Card: React.FC<CardInterface> = ({ title, price, description }) => {
   )
 }
 
-export default Card
+export default enhancer(Card)

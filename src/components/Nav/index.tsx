@@ -10,7 +10,7 @@ interface NavInterface {
   isAnimated: boolean
 }
 
-const Nav: React.FC<NavInterface> = ({ navRef, isAnimated }) => {
+const Nav: React.FC<NavInterface> = ({ navRef, isAnimated = true }) => {
   return (
     <NavContainer isAnimated={isAnimated} ref={navRef}>
       <Navlist isAnimated={isAnimated}>
