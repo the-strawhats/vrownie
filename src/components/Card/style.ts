@@ -17,10 +17,10 @@ export const CardContainer = styled.div<AnimatedElementInterface>`
   background: ${({ theme }) => theme.colors.vanilla.light};
   box-shadow: -4px 8px 8px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
-  transition: all ease 0.5s;
   opacity: ${({ isAnimated }) => (isAnimated ? '1' : '0')};
-  /* transition-delay: ${({ transitionDuration }) => `${transitionDuration * 0.25}s`}; */
-  transition-duration: ${({ transitionDuration }) => `${transitionDuration}s`};
+  transition-timing-function: ease;
+  transition-property: opacity, transform;
+  transition-duration: ${({ transitionDuration }) => `${transitionDuration.toFixed(0)}s, 0.3s`};
 
   :hover {
     transform: scaleY(1.03) scaleX(1.03);
