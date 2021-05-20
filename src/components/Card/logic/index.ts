@@ -5,26 +5,29 @@ const useCard = () => {
   const cardRef = useRef<HTMLElement | null>()
   const [isAnimated, setisAnimated] = useState<boolean>(false)
 
-  const options: IntersectionObserverInit = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.9,
-  }
-
-
-  const callBack = (e: IntersectionObserverEntry[]) => {
-    const isStoreVisible = e[0].isIntersecting
-    setisAnimated(isStoreVisible)
-  }
-
   useEffect(() => {
+    const options: IntersectionObserverInit = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.9
+    }
+
+    const callBack = (entries: IntersectionObserverEntry[]) => {
+      const entry = entries[0]
+      const isStoreVisible = entry.isIntersecting
+      setisAnimated(isStoreVisible)
+      if (isStoreVisible) {
+        observer.unobserve(entry.target)
+      }
+    }
+
     const observer = new IntersectionObserver(callBack, options)
     observer.observe(cardRef.current)
   }, [])
 
   return {
     cardRef,
-    isAnimated,
+    isAnimated
   }
 }
 
