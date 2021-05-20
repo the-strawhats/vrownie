@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { devices } from '../../constants/devices'
 import { CardTitle, Caption } from '../Typography'
 
 interface AnimatedElementInterface {
@@ -20,10 +21,16 @@ export const CardContainer = styled.div<AnimatedElementInterface>`
   opacity: ${({ isAnimated }) => (isAnimated ? '1' : '0')};
   transition-timing-function: ease;
   transition-property: opacity, transform;
-  transition-duration: ${({ transitionDuration }) => `${transitionDuration.toFixed(0)}s, 0.3s`};
+  transition-duration: ${({ transitionDuration }) =>
+    `${transitionDuration.toFixed(0)}s, 0.3s`};
 
   :hover {
     transform: scaleY(1.03) scaleX(1.03);
+  }
+
+  @media ${devices.mobileL} {
+    transition-duration: 0.5s;
+    transition-delay: 100ms;
   }
 `
 
