@@ -9,7 +9,7 @@ const useCard = () => {
     const options: IntersectionObserverInit = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.9
+      threshold: 0.85
     }
 
     const callBack = (entries: IntersectionObserverEntry[]) => {
