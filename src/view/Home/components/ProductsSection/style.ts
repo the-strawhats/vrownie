@@ -1,8 +1,10 @@
 import styled from 'styled-components'
+import { ImageWrapper } from '../../../../components/Image/style'
 import { BodyOne, HeadlineTwo } from '../../../../components/Typography'
 import { devices } from '../../../../constants/devices'
 
 export const ProductsSectionContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,6 +19,21 @@ export const ProductsSectionContainer = styled.div`
     text-align: center;
     margin-bottom: 62px;
     max-width: 775px;
+  }
+
+  > ${ImageWrapper} {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+
+    > div {
+      height: 100vh;
+      width: 100vw;
+
+    }
   }
 `
 

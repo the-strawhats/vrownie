@@ -3,6 +3,7 @@ import Card from '../../../../components/Card'
 import { BodyOne, HeadlineTwo } from '../../../../components/Typography'
 import { ProductsSectionContainer, ProductsContent } from './style'
 import enhancer from './logic'
+import Image from '../../../../components/Image'
 
 interface ProductsSectionInterface {
   browniesMock: Array<{
@@ -17,6 +18,7 @@ const ProductsSection: React.FC<ProductsSectionInterface> = ({
 }) => {
   return (
     <ProductsSectionContainer>
+      <Image src="/productSectionBackground.png" height={841} width={1440} />
       <HeadlineTwo>
         Nossos brownies<span className="red">.</span>
       </HeadlineTwo>
