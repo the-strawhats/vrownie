@@ -102,7 +102,8 @@ export const NavShopButton = styled.button<AnimatedElementInterface>`
   transition-timing-function: ease;
   transition-duration: 0.8s, 0.3s;
   transition-delay: 400ms, 0s;
-
+  z-index: 1;
+  
   :hover {
     background-color: ${({ theme }) => theme.colors.green.main};
   }
