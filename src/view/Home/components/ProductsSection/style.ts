@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { IconContainer } from '../../../../components/Icon/style'
 import { ImageWrapper } from '../../../../components/Image/style'
 import { BodyOne, HeadlineTwo } from '../../../../components/Typography'
 import { devices } from '../../../../constants/devices'
@@ -21,6 +22,31 @@ export const ProductsSectionContainer = styled.div`
     max-width: 775px;
   }
 
+  > ${IconContainer} {
+    position: absolute;
+    z-index: -1;
+    display: none;
+
+    @media ${devices.mobileM} {
+      display: block;
+    }
+
+    :nth-child(1) {
+      top: 218px;
+      right: -32px;
+    }
+
+    :nth-child(2) {
+      top: 703px;
+      left: -32px;
+    }
+
+    :nth-child(3) {
+      top: 1005px;
+      right: -32px;
+    }
+  }
+
   > ${ImageWrapper} {
     position: absolute;
     left: 50%;
@@ -29,10 +55,13 @@ export const ProductsSectionContainer = styled.div`
     width: 100vw;
     z-index: -1;
 
+    @media ${devices.mobileM} {
+      display: none;
+    }
+
     > div {
       height: 100vh;
       width: 100vw;
-
     }
   }
 `
