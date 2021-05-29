@@ -3,9 +3,7 @@ import { BodyOne, HeadlineTwo } from '../../../../components/Typography'
 import { StorySectionContainer, StorySectionText } from './style'
 import Image from '../../../../components/Image'
 
-interface StorySectionInterface {}
-
-const StorySection: React.FC<StorySectionInterface> = ({}) => {
+const StorySection: React.FC= ({}) => {
   return (
     <StorySectionContainer>
       <HeadlineTwo>

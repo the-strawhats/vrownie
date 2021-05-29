@@ -3,9 +3,7 @@ import { ImageWrapper } from '../../../../components/Image/style'
 import { BodyOne, HeadlineTwo } from '../../../../components/Typography'
 import { devices } from '../../../../constants/devices'
 
-interface StorySectionContainerInterface {}
-
-export const StorySectionContainer = styled.div<StorySectionContainerInterface>`
+export const StorySectionContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -44,7 +42,7 @@ export const StorySectionContainer = styled.div<StorySectionContainerInterface>`
   }
 `
 
-export const StorySectionText = styled.div<StorySectionContainerInterface>`
+export const StorySectionText = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;
