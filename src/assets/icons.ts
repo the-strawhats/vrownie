@@ -7,6 +7,8 @@ import instagram from './instagram.svg'
 import facebook from './facebook.svg'
 import heroBackground from './heroBackground.svg'
 import heroBackgroundMobile from './heroBackgroundMobile.svg'
+import productsBackgroundOne from './productsBackgroundOne.svg'
+import productsBackgroundTwo from './productsBackgroundTwo.svg'
 
 const iconMapper = {
   vegan: vegan,
@@ -17,7 +19,9 @@ const iconMapper = {
   instagram: instagram,
   facebook: facebook,
   heroBackground: heroBackground,
-  heroBackgroundMobile: heroBackgroundMobile
+  heroBackgroundMobile: heroBackgroundMobile,
+  productsBackgroundOne: productsBackgroundOne,
+  productsBackgroundTwo: productsBackgroundTwo
 }
 
 export default iconMapper
