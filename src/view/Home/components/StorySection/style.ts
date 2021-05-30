@@ -3,7 +3,11 @@ import { ImageWrapper } from '../../../../components/Image/style'
 import { BodyOne, HeadlineTwo } from '../../../../components/Typography'
 import { devices } from '../../../../constants/devices'
 
-export const StorySectionContainer = styled.div`
+interface StorySectionInterface {
+  isAnimated: boolean
+}
+
+export const StorySectionContainer = styled.div<StorySectionInterface>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -29,6 +33,10 @@ export const StorySectionContainer = styled.div`
     position: absolute;
     left: 60px;
     z-index: -1;
+    opacity: ${({ isAnimated }) => (isAnimated ? 1 : 0)};
+    transform: ${({ isAnimated }) =>
+      isAnimated ? 'translateX(0px)' : 'translateX(-100px)'};
+    transition: all ease 0.8s;
 
     @media ${devices.laptop} {
       position: static;
@@ -39,10 +47,12 @@ export const StorySectionContainer = styled.div`
 
   > ${HeadlineTwo} {
     margin-bottom: 22px;
+    opacity: ${({ isAnimated }) => (isAnimated ? 1 : 0)};
+    transition: opacity ease-in 0.4s;
   }
 `
 
-export const StorySectionText = styled.div`
+export const StorySectionText = styled.div<StorySectionInterface>`
   display: flex;
   justify-content: flex-end;
   width: 100%;
@@ -55,6 +65,11 @@ export const StorySectionText = styled.div`
     max-width: 500px;
     margin-bottom: 104px;
     padding-right: 60px;
+    opacity: ${({ isAnimated }) => (isAnimated ? 1 : 0)};
+    transform: ${({ isAnimated }) =>
+      isAnimated ? 'translateX(0px)' : 'translateX(100px)'};
+    transition: all ease 0.3s;
+    transition-delay: 0.3s;
 
     @media ${devices.laptop} {
       margin-bottom: 64px;

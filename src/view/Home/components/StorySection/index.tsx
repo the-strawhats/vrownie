@@ -2,15 +2,27 @@ import React from 'react'
 import { BodyOne, HeadlineTwo } from '../../../../components/Typography'
 import { StorySectionContainer, StorySectionText } from './style'
 import Image from '../../../../components/Image'
+import enhancer from './logic'
 
-const StorySection: React.FC= ({}) => {
+interface StorySectionInterface {
+  storySectionContainerRef: () => null
+  isAnimated: boolean
+}
+
+const StorySection: React.FC<StorySectionInterface> = ({
+  storySectionContainerRef,
+  isAnimated
+}) => {
   return (
-    <StorySectionContainer>
+    <StorySectionContainer
+      isAnimated={isAnimated}
+      ref={storySectionContainerRef}
+    >
       <HeadlineTwo>
         Nossa história<span className="red">.</span>
       </HeadlineTwo>
       <Image src="/us.png" height={450} width={450} />
-      <StorySectionText>
+      <StorySectionText isAnimated={isAnimated}>
         <BodyOne>
           Nós somos Enzo e Samara, um casal vegetariano em transição para o
           veganismo. Entre nossos muitos hobbies está a culinária, que desde o
@@ -26,4 +38,4 @@ const StorySection: React.FC= ({}) => {
   )
 }
 
-export default StorySection
+export default enhancer(StorySection)
