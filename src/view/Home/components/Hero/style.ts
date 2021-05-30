@@ -26,6 +26,18 @@ const elementsBeforeAnimation = keyframes`
   }
 `
 
+const buttonMobileAnimation = keyframes` 
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`
+
 export const HeroContainer = styled.div`
   position: relative;
   display: flex;
@@ -166,10 +178,16 @@ export const HeroTextContent = styled.div`
     animation-duration: 1s;
     animation-delay: 0.3s;
 
+    @media ${devices.mobileM} {
+      animation-name: ${buttonMobileAnimation};
+      animation-duration: 1s;
+      animation-delay: 0s;
+    }
+
     ::before {
       position: absolute;
       top: -1px;
-      left: -5px;
+      left: -7px;
       content: '';
       height: 82px;
       width: 210px;
@@ -178,6 +196,10 @@ export const HeroTextContent = styled.div`
       animation-duration: 0.5s;
       animation-delay: 0.3s;
       animation-fill-mode: forwards;
+
+      @media ${devices.mobileM} {
+        display: none;
+      }
     }
   }
 
