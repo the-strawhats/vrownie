@@ -16,6 +16,7 @@ const Parallax: React.FC<ParallaxInterface> = ({ parallaxContainerRef }) => {
         src="/heroBrownie.png"
         height={445}
         width={629}
+        priority
       />
       <Image
         data-speed="9"
@@ -23,7 +24,9 @@ const Parallax: React.FC<ParallaxInterface> = ({ parallaxContainerRef }) => {
         src="/chocolateOne.png"
         height={465}
         width={613}
-        objectFit="contain"
+        objectFit="contain" 
+        priority
+
       />
       <Image
         data-speed="-2"
@@ -31,7 +34,7 @@ const Parallax: React.FC<ParallaxInterface> = ({ parallaxContainerRef }) => {
         src="/chocolateTwo.png"
         height={465}
         width={613}
-        objectFit="contain"
+        objectFit="contain" 
       />
       <Image
         data-speed="2"
@@ -39,7 +42,7 @@ const Parallax: React.FC<ParallaxInterface> = ({ parallaxContainerRef }) => {
         src="/chocolateThree.png"
         height={465}
         width={613}
-        objectFit="contain"
+        objectFit="contain" 
       />
       <Image
         data-speed="1.5"
@@ -47,7 +50,7 @@ const Parallax: React.FC<ParallaxInterface> = ({ parallaxContainerRef }) => {
         src="/chocolateFour.png"
         height={465}
         width={613}
-        objectFit="contain"
+        objectFit="contain" 
       />
       <Image
         data-speed="-2"
@@ -55,7 +58,7 @@ const Parallax: React.FC<ParallaxInterface> = ({ parallaxContainerRef }) => {
         src="/chocolateFive.png"
         height={465}
         width={613}
-        objectFit="contain"
+        objectFit="contain" 
       />
       <Image
         data-speed="-5"
@@ -63,7 +66,7 @@ const Parallax: React.FC<ParallaxInterface> = ({ parallaxContainerRef }) => {
         src="/chocolateSix.png"
         height={465}
         width={613}
-        objectFit="contain"
+        objectFit="contain" 
       />
       <Image
         data-speed="4"
@@ -71,7 +74,7 @@ const Parallax: React.FC<ParallaxInterface> = ({ parallaxContainerRef }) => {
         src="/chocolateSeven.png"
         height={465}
         width={613}
-        objectFit="contain"
+        objectFit="contain" 
       />
     </ParallaxContainer>
   )

@@ -27,6 +27,7 @@ const ImageComponent: React.FC<ImageInterface> = ({
         height={height}
         width={width}
         objectFit="fill"
+        priority
       />
     </ImageWrapper>
   )
