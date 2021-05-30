@@ -38,6 +38,10 @@ export const StorySectionContainer = styled.div<StorySectionInterface>`
       isAnimated ? 'translateX(0px)' : 'translateX(-100px)'};
     transition: all ease 0.8s;
 
+    @media ${devices.laptopL} {
+      left: 120px;
+    }
+
     @media ${devices.laptop} {
       position: static;
       margin-bottom: 32px;
@@ -62,18 +66,23 @@ export const StorySectionText = styled.div<StorySectionInterface>`
   }
 
   > ${BodyOne} {
-    max-width: 500px;
+    max-width: 545px;
     margin-bottom: 104px;
     padding-right: 60px;
     opacity: ${({ isAnimated }) => (isAnimated ? 1 : 0)};
     transform: ${({ isAnimated }) =>
       isAnimated ? 'translateX(0px)' : 'translateX(100px)'};
-    transition: all ease 0.3s;
-    transition-delay: 0.3s;
+    transition: ease 0.6s;
+    transition-property: transform opacity;
+    transition-delay: 0.3s, 0.3s;
 
     @media ${devices.laptop} {
       margin-bottom: 64px;
       padding-right: 0px;
+    }
+
+    @media ${devices.laptopL} {
+      max-width: 700px;
     }
   }
 `
