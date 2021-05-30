@@ -38,7 +38,6 @@ const ProductsSection: React.FC<ProductsSectionInterface> = ({
             title={title}
             price={price}
             description={description}
-            transitionDuration={idx * 0.35}
           />
         ))}
       </ProductsContent>

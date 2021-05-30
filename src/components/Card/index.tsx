@@ -24,10 +24,9 @@ const Card: React.FC<CardInterface> = ({
   description,
   cardRef,
   isAnimated = true,
-  transitionDuration = 0
 }) => {
   return (
-    <CardContainer ref={cardRef} isAnimated={isAnimated} transitionDuration={transitionDuration}>
+    <CardContainer ref={cardRef} isAnimated={isAnimated}>
       <Image
         src="/tradicional-brownie.png"
         alt="Picture of a brownie"

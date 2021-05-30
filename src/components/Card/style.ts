@@ -4,7 +4,6 @@ import { CardTitle, Caption } from '../Typography'
 
 interface AnimatedElementInterface {
   isAnimated: boolean
-  transitionDuration: number
 }
 
 export const CardContainer = styled.div<AnimatedElementInterface>`
@@ -21,8 +20,7 @@ export const CardContainer = styled.div<AnimatedElementInterface>`
   opacity: ${({ isAnimated }) => (isAnimated ? '1' : '0')};
   transition-timing-function: ease;
   transition-property: opacity, transform;
-  transition-duration: ${({ transitionDuration }) =>
-    `${transitionDuration.toFixed(0)}s, 0.3s`};
+  transition-duration: 0.8s, 0.3s;
 
   :hover {
     transform: scaleY(1.03) scaleX(1.03);
