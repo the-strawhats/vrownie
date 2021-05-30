@@ -1,13 +1,32 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+import { ButtonContainer } from '../../../../components/Button/style'
 import { IconContainer } from '../../../../components/Icon/style'
 import { ImageWrapper } from '../../../../components/Image/style'
 import { ParallaxContainer } from '../../../../components/Parallax/style'
 import { BodyOne, HeadlineOne } from '../../../../components/Typography'
 import { devices } from '../../../../constants/devices'
 
-interface HeroContainerInterface {}
+const HeroTextContentAnimation = keyframes` 
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+`
 
-export const HeroContainer = styled.div<HeroContainerInterface>`
+const elementsBeforeAnimation = keyframes` 
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+`
+
+export const HeroContainer = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -19,7 +38,7 @@ export const HeroContainer = styled.div<HeroContainerInterface>`
   }
 
   @media ${devices.mobileM} {
-  min-height: calc(100vh - 72px);
+    min-height: calc(100vh - 72px);
   }
 
   > ${ImageWrapper} {
@@ -31,6 +50,7 @@ export const HeroContainer = styled.div<HeroContainerInterface>`
     height: 100vh;
     width: 100vw;
     z-index: -1;
+
     @media ${devices.mobileM} {
       display: block;
     }
@@ -64,29 +84,100 @@ export const HeroContainer = styled.div<HeroContainerInterface>`
   }
 `
 
-export const HeroTextContent = styled.div<HeroContainerInterface>`
+export const HeroTextContent = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 453px;
 
   > ${HeadlineOne} {
+    position: relative;
     margin-bottom: 16px;
+    animation-name: ${HeroTextContentAnimation};
+    animation-duration: 0.6s;
+    animation-delay: 0.3s;
+
+    ::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      height: 100%;
+      width: 100%;
+      background-color: ${({ theme }) => theme.colors.vanilla.main};
+      animation-name: ${elementsBeforeAnimation};
+      animation-duration: 0.5s;
+      animation-delay: 0.3s;
+      animation-fill-mode: forwards;
+    }
   }
 
   > ${BodyOne} {
-    :first-of-type {
-      margin-bottom: 10px;
-    }
-    :last-of-type {
-      margin-bottom: 24px;
+    position: relative;
+    margin-bottom: 24px;
+    animation-name: ${HeroTextContentAnimation};
+    animation-duration: 0.8s;
+    animation-delay: 0.3s;
+
+    ::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      height: 100%;
+      width: 100%;
+      background-color: ${({ theme }) => theme.colors.vanilla.main};
+      animation-name: ${elementsBeforeAnimation};
+      animation-duration: 0.5s;
+      animation-delay: 0.3s;
+      animation-fill-mode: forwards;
     }
   }
 
   > span {
+    position: relative;
     display: flex;
+    margin-bottom: 10px;
+    animation-name: ${HeroTextContentAnimation};
+    animation-duration: 0.6s;
+    animation-delay: 0.3s;
+
+    ::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      height: 100%;
+      width: 100%;
+      background-color: ${({ theme }) => theme.colors.vanilla.main};
+      animation-name: ${elementsBeforeAnimation};
+      animation-duration: 0.5s;
+      animation-delay: 0.3s;
+      animation-fill-mode: forwards;
+    }
 
     ${IconContainer} {
       margin-right: 8px;
+    }
+  }
+
+  > ${ButtonContainer} {
+    position: relative;
+    animation-name: ${HeroTextContentAnimation};
+    animation-duration: 1s;
+    animation-delay: 0.3s;
+
+    ::before {
+      position: absolute;
+      top: -1px;
+      left: -5px;
+      content: '';
+      height: 82px;
+      width: 210px;
+      background-color: ${({ theme }) => theme.colors.vanilla.main};
+      animation-name: ${elementsBeforeAnimation};
+      animation-duration: 0.5s;
+      animation-delay: 0.3s;
+      animation-fill-mode: forwards;
     }
   }
 
@@ -95,7 +186,7 @@ export const HeroTextContent = styled.div<HeroContainerInterface>`
   }
 `
 
-export const HeroImageContent = styled.div<HeroContainerInterface>`
+export const HeroImageContent = styled.div`
   position: absolute;
   top: 126px;
   right: -72px;

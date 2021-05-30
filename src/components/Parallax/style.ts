@@ -1,4 +1,13 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const parallaxAnimation = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`
 
 export const ParallaxContainer = styled.div`
   position: relative;
@@ -7,6 +16,8 @@ export const ParallaxContainer = styled.div`
   align-items: center;
   width: 661px;
   height: 465px;
+  animation-name: ${parallaxAnimation};
+  animation-duration: 1.8s;
 
   > div {
     position: static !important;

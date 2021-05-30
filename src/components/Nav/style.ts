@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { IconContainer } from '../Icon/style'
 import { ImageWrapper } from '../Image/style'
 import { BodyOne } from '../Typography'
@@ -8,17 +8,29 @@ interface AnimatedElementInterface {
   isAnimated: boolean
 }
 
+const navAnimation = keyframes`
+  from {
+    transform: translateY(-25%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+`
+
 export const NavContainer = styled.nav<AnimatedElementInterface>`
   position: relative;
   display: flex;
   padding: 40px;
   align-items: center;
+  animation: ${navAnimation} 0.5s;
 
   > ${ImageWrapper} {
     position: absolute;
     left: 50%;
     top: 50%;
-    transition: all cubic-bezier(.69,.01,.25,1) 0.5s;
+    transition: all cubic-bezier(0.69, 0.01, 0.25, 1) 0.5s;
     transform: ${({ isAnimated }) =>
       isAnimated
         ? 'translateX(-50%) translateY(-128px)'
@@ -38,7 +50,7 @@ export const Navlist = styled.div<AnimatedElementInterface>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all cubic-bezier(.69,.01,.25,1) 0.3s;
+  transition: all cubic-bezier(0.69, 0.01, 0.25, 1) 0.3s;
   transform: ${({ isAnimated }) =>
     isAnimated ? 'translateY(-80px)' : 'translateY(0px)'};
 
@@ -69,7 +81,7 @@ export const Navlist = styled.div<AnimatedElementInterface>`
       }
 
       > ${BodyOne} {
-        transition: all cubic-bezier(.69,.01,.25,1) 0.3s;
+        transition: all cubic-bezier(0.69, 0.01, 0.25, 1) 0.3s;
         @media ${devices.laptop} {
           font-size: 18px;
         }
@@ -99,11 +111,11 @@ export const NavShopButton = styled.button<AnimatedElementInterface>`
   border: none;
   cursor: pointer;
   transition-property: top, background-color;
-  transition-timing-function: cubic-bezier(.69,.01,.25,1);
+  transition-timing-function: cubic-bezier(0.69, 0.01, 0.25, 1);
   transition-duration: 0.8s, 0.3s;
   transition-delay: 400ms, 0s;
   z-index: 1;
-  
+
   :hover {
     background-color: ${({ theme }) => theme.colors.green.main};
   }
