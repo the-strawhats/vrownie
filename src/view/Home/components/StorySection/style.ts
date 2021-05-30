@@ -82,7 +82,7 @@ export const StorySectionText = styled.div<StorySectionInterface>`
     }
 
     @media ${devices.laptopL} {
-      max-width: 700px;
+      max-width: 650px;
     }
   }
 `
