@@ -18,7 +18,7 @@ export const NavContainer = styled.nav<AnimatedElementInterface>`
     position: absolute;
     left: 50%;
     top: 50%;
-    transition: all ease 0.5s;
+    transition: all cubic-bezier(.69,.01,.25,1) 0.5s;
     transform: ${({ isAnimated }) =>
       isAnimated
         ? 'translateX(-50%) translateY(-128px)'
@@ -38,7 +38,7 @@ export const Navlist = styled.div<AnimatedElementInterface>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all ease 0.3s;
+  transition: all cubic-bezier(.69,.01,.25,1) 0.3s;
   transform: ${({ isAnimated }) =>
     isAnimated ? 'translateY(-80px)' : 'translateY(0px)'};
 
@@ -69,7 +69,7 @@ export const Navlist = styled.div<AnimatedElementInterface>`
       }
 
       > ${BodyOne} {
-        transition: all ease 0.3s;
+        transition: all cubic-bezier(.69,.01,.25,1) 0.3s;
         @media ${devices.laptop} {
           font-size: 18px;
         }
@@ -99,7 +99,7 @@ export const NavShopButton = styled.button<AnimatedElementInterface>`
   border: none;
   cursor: pointer;
   transition-property: top, background-color;
-  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(.69,.01,.25,1);
   transition-duration: 0.8s, 0.3s;
   transition-delay: 400ms, 0s;
   z-index: 1;
