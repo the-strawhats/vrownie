@@ -71,7 +71,7 @@ export const StorySectionText = styled.div<StorySectionInterface>`
     padding-right: 60px;
     opacity: ${({ isAnimated }) => (isAnimated ? 1 : 0)};
     transform: ${({ isAnimated }) =>
-      isAnimated ? 'translateX(0px)' : 'translateX(100px)'};
+      isAnimated ? 'translateX(0px)' : 'translateX(-100px)'};
     transition: ease 0.6s;
     transition-property: transform opacity;
     transition-delay: 0.3s, 0.3s;
