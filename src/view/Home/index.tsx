@@ -5,7 +5,7 @@ import StorySection from './components/StorySection'
 import Footer from './components/Footer'
 import { Container } from '../../styles/global'
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
     <Container>
       <Hero />

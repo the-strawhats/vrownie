@@ -10,7 +10,7 @@ import { Label } from '../Typography'
 import enhancer from './logic/index'
 
 interface SelectInputInterface {
-  label?: string
+  label: string
   isActive: boolean
   currentValue: string
   options: Array<string>

@@ -8,7 +8,7 @@ const HomeWrapper = styled.div`
   overflow: hidden;
 `
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
     <>
       <Head>
