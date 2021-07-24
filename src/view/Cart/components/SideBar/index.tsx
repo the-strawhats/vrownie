@@ -1,4 +1,4 @@
-import { SideBarContainer } from './style'
+import { SideBarContainer, SideBarInputWrapper } from './style'
 import { HeadlineThree } from '../../../../components/Typography'
 import SelectInput from '../../../../components/SelectInput'
 import Input from '../../../../components/Input'
@@ -16,8 +16,11 @@ const SideBar = () => {
       />
       <Input label="Rua" />
       <Input label="Bairro" />
+      <SideBarInputWrapper>
       <Input label="Numero" />
       <Input label="Bairro" />
+      </SideBarInputWrapper>
+      <Input label="Observações" />
       <Button label="Pedir agora!" />
     </SideBarContainer>
   )
