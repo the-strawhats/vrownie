@@ -19,6 +19,10 @@ export const SideBarContainer = styled.div<SideBarContainerInterface>`
   padding-top: 96px;
   background-color: ${({ theme }) => theme.colors.vanilla.light};
 
+  >${InputContent} {
+    margin-bottom: 8px;
+  }
+
   > ${HeadlineThree} {
     margin-bottom: 24px;
   }
