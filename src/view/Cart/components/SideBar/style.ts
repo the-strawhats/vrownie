@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 import { ButtonContainer } from '../../../../components/Button/style'
-import { InputContent } from '../../../../components/Input/style'
+import {
+  InputContainer,
+  InputContent
+} from '../../../../components/Input/style'
 import { HeadlineThree } from '../../../../components/Typography'
 
 interface SideBarContainerInterface {}
@@ -19,8 +22,13 @@ export const SideBarContainer = styled.div<SideBarContainerInterface>`
   padding-top: 96px;
   background-color: ${({ theme }) => theme.colors.vanilla.light};
 
-  >${InputContent} {
+  > ${InputContent} {
     margin-bottom: 8px;
+    :last-of-type {
+      > ${InputContainer} {
+        height: 80px;
+      }
+    }
   }
 
   > ${HeadlineThree} {
@@ -38,10 +46,10 @@ export const SideBarInputWrapper = styled.div`
   max-width: 238px;
   margin-bottom: 64px;
 
- > ${InputContent} {
-   :first-of-type {
-     margin-right: 8px;
-     max-width: 75px;
-   }
- }
+  > ${InputContent} {
+    :first-of-type {
+      margin-right: 8px;
+      max-width: 75px;
+    }
+  }
 `
