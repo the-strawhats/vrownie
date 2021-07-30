@@ -5,6 +5,7 @@ import {
   InputContent
 } from '../../../../components/Input/style'
 import { HeadlineThree } from '../../../../components/Typography'
+import { devices } from '../../../../constants/devices'
 
 interface SideBarContainerInterface {}
 
@@ -20,7 +21,16 @@ export const SideBarContainer = styled.div<SideBarContainerInterface>`
   width: 100%;
   max-width: 470px;
   padding-top: 96px;
+  box-shadow: -4px 16px 8px rgba(0, 0, 0, 0.05);
   background-color: ${({ theme }) => theme.colors.vanilla.light};
+
+  @media ${devices.mobileL} {
+    position: relative;
+    padding: 26px 44px 32px;
+    height: auto;
+    min-height: 0;
+    margin-bottom: 194px;
+  }
 
   > ${InputContent} {
     margin-bottom: 8px;
@@ -38,6 +48,10 @@ export const SideBarContainer = styled.div<SideBarContainerInterface>`
   > ${ButtonContainer} {
     position: absolute;
     bottom: 53px;
+
+    @media ${devices.mobileL} {
+      display: none;
+    }
   }
 `
 
@@ -51,5 +65,9 @@ export const SideBarInputWrapper = styled.div`
       margin-right: 8px;
       max-width: 75px;
     }
+  }
+
+  @media ${devices.mobileL} {
+    margin-bottom: 40px;
   }
 `
