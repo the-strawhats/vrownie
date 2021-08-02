@@ -5,6 +5,7 @@ export const CounterWrapper = styled.div`
   align-items: center;
   max-width: 50px;
   width: 100%;
+  height: fit-content;
 `
 
 export const CounterLabel = styled.div`
