@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const CounterWrapper = styled.div`
   display: flex;
   align-items: center;
-  max-width: 50px;
   width: 100%;
   height: fit-content;
 `
@@ -16,7 +15,6 @@ export const CounterLabel = styled.div`
   background-color: ${({ theme }) => theme.colors.green.main};
   font-size: 12px;
   color: ${({ theme }) => theme.colors.vanilla.light};
-  min-width: 26px;
   cursor: default;
 `
 
