@@ -95,6 +95,10 @@ export const BodyOne = styled.p<TypographyInterface>`
     color: ${({ theme }) => theme.colors.red.main};
   }
 
+  > .green {
+    color: ${({ theme }) => theme.colors.green.dark};
+  }
+
   @media ${devices.mobileL} {
     font-size: 16px;
     line-height: 22px;
