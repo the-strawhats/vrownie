@@ -3,7 +3,12 @@ import {
   CardPrice,
   HeadlineFour
 } from '../../../../components/Typography'
-import { OrderContainer, SingleOrderContainer } from './style'
+import {
+  OrderContainer,
+  SingleOrderContainer,
+  OrderListWrapper,
+  SingleOrderTextContent
+} from './style'
 import Counter from '../../../../components/Counter'
 import Image from '../../../../components/Image'
 
@@ -17,13 +22,15 @@ const SingleOreder = () => {
         height={62}
       />
       <Counter />
-      <BodyOne weigth="medium">
-        Tradicional<span className="red">.</span>
-      </BodyOne>
+      <SingleOrderTextContent>
+        <BodyOne weigth="medium">
+          Creme de avelã<span className="red">.</span>
+        </BodyOne>
 
-      <CardPrice color="green" variant="dark">
-        $6<span className="red">.</span>00
-      </CardPrice>
+        <CardPrice color="green" variant="dark">
+          $6<span className="red">.</span>00
+        </CardPrice>
+      </SingleOrderTextContent>
     </SingleOrderContainer>
   )
 }
@@ -34,9 +41,20 @@ const Order = () => {
       <HeadlineFour>
         Seu pedido<span className="red">.</span>
       </HeadlineFour>
-      <SingleOreder />
-      <SingleOreder />
-      <SingleOreder />
+      <OrderListWrapper>
+        <SingleOreder />
+        <SingleOreder />
+        <SingleOreder />
+        <SingleOreder />
+        <SingleOreder />
+        <SingleOreder />
+      </OrderListWrapper>
+      <BodyOne weigth="medium">
+        Valor total<span className="red">:</span>{' '}
+        <span className="green">R$33</span>
+        <span className="red">.</span>
+        <span className="green">00</span>
+      </BodyOne>
     </OrderContainer>
   )
 }
