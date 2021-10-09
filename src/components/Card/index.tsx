@@ -8,14 +8,16 @@ import {
 import Image from '../Image'
 import { Caption, CardPrice, CardTitle } from '../Typography'
 import enhancer from './logic'
+import {  CartItem } from '../../utils'
 
 interface CardInterface {
   title: string
-  price: number
+  price: string
   cardRef: () => void
   isAnimated: boolean
   description?: string
   transitionDuration?: number
+  handleCardClick: (data: CartItem) => void
 }
 
 const Card: React.FC<CardInterface> = ({
@@ -24,6 +26,7 @@ const Card: React.FC<CardInterface> = ({
   description,
   cardRef,
   isAnimated = true,
+  handleCardClick
 }) => {
   return (
     <CardContainer ref={cardRef} isAnimated={isAnimated}>
@@ -46,7 +49,7 @@ const Card: React.FC<CardInterface> = ({
             <span className="red">.</span>00
           </CardPrice>
         </CardTextWrapper>
-        <CardButton>+</CardButton>
+        <CardButton onClick={() => handleCardClick({name: title, price, url: ''})}>+</CardButton>
       </CardInformationWrapper>
     </CardContainer>
   )
