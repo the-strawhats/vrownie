@@ -19,8 +19,10 @@ const ImageComponent: React.FC<ImageInterface> = ({
   containerX,
   alt
 }) => {
+  const wrapperHeight = containerY ? containerY : height
+  const wrapperWidth = containerX ? containerX : width
   return (
-    <ImageWrapper height={containerY} width={containerX}>
+    <ImageWrapper height={wrapperHeight} width={wrapperWidth}>
       <Image
         src={src}
         alt={alt}
