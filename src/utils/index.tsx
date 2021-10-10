@@ -4,7 +4,7 @@ export interface CartItem {
   url: String
 }
 
-const getStorageItem = (item: string): any => {
+export const getStorageItem = (item: string): any => {
   return JSON.parse(localStorage.getItem(item))
 }
 
