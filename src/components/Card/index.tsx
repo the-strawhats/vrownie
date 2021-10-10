@@ -12,7 +12,7 @@ import {  CartItem } from '../../utils'
 
 interface CardInterface {
   title: string
-  price: string
+  price: number
   cardRef: () => void
   isAnimated: boolean
   description?: string

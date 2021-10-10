@@ -66,9 +66,9 @@ const Order: React.FC<OrderInterface> = ({ cartList }) => {
         Seu pedido<span className="red">.</span>
       </HeadlineFour>
       <OrderListWrapper>
-        {cartList.map(({ name, price, url, amount }) => {
+        {cartList.map((item, idx) => {
           return (
-            <SingleOreder name={name} price={price} url={url} amount={amount} />
+            <SingleOreder key={idx} {...item} />
           )
         })}
       </OrderListWrapper>

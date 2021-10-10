@@ -1,6 +1,6 @@
 export interface CartItem {
   name: String
-  price: String
+  price: number
   url: String
 }
 

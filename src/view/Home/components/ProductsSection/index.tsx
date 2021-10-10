@@ -32,13 +32,8 @@ const ProductsSection: React.FC<ProductsSectionInterface> = ({
         exploração, humana ou animal.
       </BodyOne>
       <ProductsContent>
-        {browniesMock.map(({ title, price, description }, idx) => (
-          <Card
-            key={idx}
-            title={title}
-            price={price}
-            description={description}
-          />
+        {browniesMock.map((item, idx) => (
+          <Card key={idx} {...item} />
         ))}
       </ProductsContent>
     </ProductsSectionContainer>
