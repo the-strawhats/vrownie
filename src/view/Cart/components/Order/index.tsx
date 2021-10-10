@@ -11,8 +11,31 @@ import {
 } from './style'
 import Counter from '../../../../components/Counter'
 import Image from '../../../../components/Image'
+import enhancer from './logic'
 
-const SingleOreder = () => {
+interface OrderInterface {
+  cartList: Array<{
+    name: String
+    price: String
+    url: String
+    amount: Number
+  }>
+}
+
+interface SingleOrderInterface {
+  name: String
+  price: String
+  url: String
+  amount: Number
+}
+
+const SingleOreder: React.FC<SingleOrderInterface> = ({
+  name,
+  price,
+  amount,
+  url
+}) => {
+  console.log({ price, amount, url })
   return (
     <SingleOrderContainer>
       <Image
@@ -24,7 +47,8 @@ const SingleOreder = () => {
       <Counter />
       <SingleOrderTextContent>
         <BodyOne weigth="medium">
-          Creme de avelã<span className="red">.</span>
+          {name}
+          <span className="red">.</span>
         </BodyOne>
 
         <CardPrice color="green" variant="dark">
@@ -35,19 +59,18 @@ const SingleOreder = () => {
   )
 }
 
-const Order = () => {
+const Order: React.FC<OrderInterface> = ({ cartList }) => {
   return (
     <OrderContainer>
       <HeadlineFour>
         Seu pedido<span className="red">.</span>
       </HeadlineFour>
       <OrderListWrapper>
-        <SingleOreder />
-        <SingleOreder />
-        <SingleOreder />
-        <SingleOreder />
-        <SingleOreder />
-        <SingleOreder />
+        {cartList.map(({ name, price, url, amount }) => {
+          return (
+            <SingleOreder name={name} price={price} url={url} amount={amount} />
+          )
+        })}
       </OrderListWrapper>
       <BodyOne weigth="medium">
         Valor total<span className="red">:</span>{' '}
@@ -59,4 +82,4 @@ const Order = () => {
   )
 }
 
-export default Order
+export default enhancer(Order)
