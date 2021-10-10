@@ -108,6 +108,7 @@ export const SingleOrderContainer = styled.div`
   height: 92px;
   width: 100%;
   border-bottom: ${({ theme }) => `1px solid ${theme.colors.gray.main}`};
+  padding: 8px 0;
 
   @media ${devices.mobileL} {
     grid-column-gap: 5px;
