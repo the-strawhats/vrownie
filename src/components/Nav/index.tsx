@@ -1,5 +1,10 @@
 import React from 'react'
-import { NavContainer, Navlist, NavShopButton } from './style'
+import {
+  NavContainer,
+  Navlist,
+  NavShopButton,
+  NavShopButtonContent
+} from './style'
 import Icon from '../Icon'
 import { BodyOne } from '../Typography'
 import Image from '../Image'
@@ -42,7 +47,9 @@ const Nav: React.FC<NavInterface> = ({ navRef, isAnimated = true }) => {
         containerY={76}
       />
       <NavShopButton isAnimated={isAnimated}>
-        <Icon id="shop" height={20} width={20} />
+        <NavShopButtonContent>
+          <Icon id="shop" height={20} width={20} />
+        </NavShopButtonContent>
       </NavShopButton>
     </NavContainer>
   )

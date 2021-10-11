@@ -5,7 +5,8 @@ import { BodyOne } from '../Typography'
 import { devices } from '../../constants/devices'
 
 interface AnimatedElementInterface {
-  isAnimated: boolean
+  isAnimated?: boolean
+  isButtonActive?: boolean
 }
 
 const navAnimation = keyframes`
@@ -17,6 +18,18 @@ const navAnimation = keyframes`
     transform: translateY(0%);
     opacity: 1;
   }
+`
+
+const activeCartButton = keyframes`
+0% {
+  transform: translateY(0px);
+}
+80% {
+  transform: translateY(8px);
+}
+100% {
+  transform: translateY(0px);
+}
 `
 
 export const NavContainer = styled.nav<AnimatedElementInterface>`
@@ -115,6 +128,8 @@ export const NavShopButton = styled.button<AnimatedElementInterface>`
   transition-duration: 0.8s, 0.3s;
   transition-delay: 400ms, 0s;
   z-index: 1;
+  animation: ${({ isButtonActive }) =>
+    isButtonActive ? `${activeCartButton} ease infinite 1s` : 'none'};
 
   :hover {
     background-color: ${({ theme }) => theme.colors.green.main};
@@ -132,5 +147,27 @@ export const NavShopButton = styled.button<AnimatedElementInterface>`
   @media ${devices.mobileM} {
     top: ${({ isAnimated }) => (isAnimated ? 'calc(100vh - 120px)' : '24px')};
     right: 20px;
+  }
+`
+
+export const NavShopButtonContent = styled.div<AnimatedElementInterface>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  &::before {
+    position: absolute;
+    opacity: ${({ isButtonActive }) => (isButtonActive ? 1 : 0)};
+    transition: all ease 0.3s;
+    top: 0px;
+    right: -5px;
+    background-color: ${({ theme }) => theme.colors.red.main};
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    content: '';
   }
 `
