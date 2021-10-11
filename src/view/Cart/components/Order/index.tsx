@@ -37,7 +37,7 @@ const SingleOreder: React.FC<SingleOrderInterface> = ({
         width={86}
         height={62}
       />
-      <Counter />
+      <Counter amount={amount} />
       <SingleOrderTextContent>
         <BodyOne weigth="medium">
           {name}
