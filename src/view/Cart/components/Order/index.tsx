@@ -20,6 +20,7 @@ interface SingleOrderInterface {
 
 interface OrderInterface {
   cartList: Array<SingleOrderInterface>
+  finalValue: string
 }
 
 const SingleOreder: React.FC<SingleOrderInterface> = ({
@@ -28,7 +29,7 @@ const SingleOreder: React.FC<SingleOrderInterface> = ({
   amount,
   url
 }) => {
-  console.log({ price, amount, url })
+  const [priceStart, priceEnd] = numberToCurrency(price).split('.')
   return (
     <SingleOrderContainer>
       <Image
@@ -45,29 +46,33 @@ const SingleOreder: React.FC<SingleOrderInterface> = ({
         </BodyOne>
 
         <CardPrice color="green" variant="dark">
-          {numberToCurrency(price)}
+          {priceStart}
+          <span className="red">.</span>
+          {priceEnd}
         </CardPrice>
       </SingleOrderTextContent>
     </SingleOrderContainer>
   )
 }
 
-const Order: React.FC<OrderInterface> = ({ cartList }) => {
+const Order: React.FC<OrderInterface> = ({ cartList, finalValue }) => {
+  const [finalValueStart, finalValueEnd] = finalValue.split('.')
   return (
     <OrderContainer>
       <HeadlineFour>
         Seu pedido<span className="red">.</span>
       </HeadlineFour>
       <OrderListWrapper>
-        {cartList && cartList.map((item, idx) => {
-          return <SingleOreder key={idx} {...item} />
-        })}
+        {cartList &&
+          cartList.map((item, idx) => {
+            return <SingleOreder key={idx} {...item} />
+          })}
       </OrderListWrapper>
       <BodyOne weigth="medium">
         Valor total<span className="red">:</span>{' '}
-        <span className="green">R$33</span>
+        <span className="green">{finalValueStart}</span>
         <span className="red">.</span>
-        <span className="green">00</span>
+        <span className="green">{finalValueEnd}</span>
       </BodyOne>
     </OrderContainer>
   )
