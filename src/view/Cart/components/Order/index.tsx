@@ -1,10 +1,7 @@
-import {
-  BodyOne,
-  CardPrice,
-  HeadlineFour
-} from '@components/Typography'
+import { BodyOne, CardPrice, HeadlineFour } from '@components/Typography'
 import Counter from '@components/Counter'
 import Image from '@components/Image'
+import { numberToCurrency } from '@utils/index'
 
 import {
   OrderContainer,
@@ -14,20 +11,15 @@ import {
 } from './style'
 import enhancer from './logic'
 
-interface OrderInterface {
-  cartList: Array<{
-    name: String
-    price: String
-    url: String
-    amount: Number
-  }>
-}
-
 interface SingleOrderInterface {
   name: String
-  price: String
+  price: Number
   url: String
   amount: Number
+}
+
+interface OrderInterface {
+  cartList: Array<SingleOrderInterface>
 }
 
 const SingleOreder: React.FC<SingleOrderInterface> = ({
@@ -53,7 +45,7 @@ const SingleOreder: React.FC<SingleOrderInterface> = ({
         </BodyOne>
 
         <CardPrice color="green" variant="dark">
-          $6<span className="red">.</span>00
+          {numberToCurrency(price)}
         </CardPrice>
       </SingleOrderTextContent>
     </SingleOrderContainer>
@@ -67,10 +59,8 @@ const Order: React.FC<OrderInterface> = ({ cartList }) => {
         Seu pedido<span className="red">.</span>
       </HeadlineFour>
       <OrderListWrapper>
-        {cartList.map((item, idx) => {
-          return (
-            <SingleOreder key={idx} {...item} />
-          )
+        {cartList && cartList.map((item, idx) => {
+          return <SingleOreder key={idx} {...item} />
         })}
       </OrderListWrapper>
       <BodyOne weigth="medium">
