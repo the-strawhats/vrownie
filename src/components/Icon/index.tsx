@@ -1,5 +1,5 @@
 import React from 'react'
-import iconMapper from '../../assets/icons'
+import iconMapper from '@assets/icons'
 import { IconContainer } from './style'
 
 type IconKeys = keyof typeof iconMapper;

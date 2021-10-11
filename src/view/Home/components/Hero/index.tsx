@@ -1,10 +1,10 @@
 import React from 'react'
 import { HeroContainer, HeroTextContent, HeroImageContent } from './style'
-import Parallax from '../../../../components/Parallax'
-import { HeadlineOne, BodyOne } from '../../../../components/Typography'
-import Button from '../../../../components/Button'
-import Icon from '../../../../components/Icon'
-import Image from '../../../../components/Image'
+import Parallax from '@components/Parallax'
+import { HeadlineOne, BodyOne } from '@components/Typography'
+import Button from '@components/Button'
+import Icon from '@components/Icon'
+import Image from '@components/Image'
 
 interface HeroInterface {}
 

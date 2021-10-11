@@ -1,10 +1,10 @@
 import React from 'react'
-import Card from '../../../../components/Card'
-import { BodyOne, HeadlineTwo } from '../../../../components/Typography'
+import Card from '@components/Card'
+import { BodyOne, HeadlineTwo } from '@components/Typography'
 import { ProductsSectionContainer, ProductsContent } from './style'
 import enhancer from './logic'
-import Image from '../../../../components/Image'
-import Icon from '../../../../components/Icon'
+import Image from '@components/Image'
+import Icon from '@components/Icon'
 
 interface ProductsSectionInterface {
   browniesMock: Array<{

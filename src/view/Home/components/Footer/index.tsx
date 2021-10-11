@@ -1,7 +1,7 @@
 import React from 'react'
-import Icon from '../../../../components/Icon'
+import Icon from '@components/Icon'
 import { FooterContainer, FooterMedias } from './style'
-import Image from '../../../../components/Image'
+import Image from '@components/Image'
 
 interface FooterInterface {}
 

@@ -2,15 +2,16 @@ import {
   BodyOne,
   CardPrice,
   HeadlineFour
-} from '../../../../components/Typography'
+} from '@components/Typography'
+import Counter from '@components/Counter'
+import Image from '@components/Image'
+
 import {
   OrderContainer,
   SingleOrderContainer,
   OrderListWrapper,
   SingleOrderTextContent
 } from './style'
-import Counter from '../../../../components/Counter'
-import Image from '../../../../components/Image'
 import enhancer from './logic'
 
 interface OrderInterface {

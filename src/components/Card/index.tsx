@@ -8,7 +8,7 @@ import {
 import Image from '../Image'
 import { Caption, CardPrice, CardTitle } from '../Typography'
 import enhancer from './logic'
-import {  CartItem } from '../../utils'
+import {  CartItem } from '@utils/index'
 
 interface CardInterface {
   title: string

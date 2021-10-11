@@ -1,7 +1,7 @@
 import React from 'react'
-import { BodyOne, HeadlineTwo } from '../../../../components/Typography'
+import { BodyOne, HeadlineTwo } from '@components/Typography'
 import { StorySectionContainer, StorySectionText } from './style'
-import Image from '../../../../components/Image'
+import Image from '@components/Image'
 import enhancer from './logic'
 
 interface StorySectionInterface {

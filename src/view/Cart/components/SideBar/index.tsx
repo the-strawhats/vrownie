@@ -1,8 +1,8 @@
 import { SideBarContainer, SideBarInputWrapper } from './style'
-import { HeadlineThree } from '../../../../components/Typography'
-import SelectInput from '../../../../components/SelectInput'
-import Input from '../../../../components/Input'
-import Button from '../../../../components/Button'
+import { HeadlineThree } from '@components/Typography'
+import SelectInput from '@components/SelectInput'
+import Input from '@components/Input'
+import Button from '@components/Button'
 
 const SideBar = () => {
   return (
