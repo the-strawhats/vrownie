@@ -41,3 +41,9 @@ export const addToCart = (data: CartItem) => {
     addToStorage('cart', cartData)
   }
 }
+
+export const numberToCurrency = (value: Number, currency: String = 'R$') => {
+  console.log(typeof value, value)
+  const num = value.toFixed(2)
+  return `${currency}${num}`
+}
