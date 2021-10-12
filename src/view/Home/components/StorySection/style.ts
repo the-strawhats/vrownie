@@ -2,12 +2,9 @@ import styled from 'styled-components'
 import { ImageWrapper } from '../../../../components/Image/style'
 import { BodyOne, HeadlineTwo } from '../../../../components/Typography'
 import { devices } from '../../../../constants/devices'
+import { AnimatedElementInterface } from '@interface/index'
 
-interface StorySectionInterface {
-  isAnimated: boolean
-}
-
-export const StorySectionContainer = styled.div<StorySectionInterface>`
+export const StorySectionContainer = styled.div<AnimatedElementInterface>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -56,7 +53,7 @@ export const StorySectionContainer = styled.div<StorySectionInterface>`
   }
 `
 
-export const StorySectionText = styled.div<StorySectionInterface>`
+export const StorySectionText = styled.div<AnimatedElementInterface>`
   display: flex;
   justify-content: flex-end;
   width: 100%;

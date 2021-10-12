@@ -1,10 +1,7 @@
 import styled from 'styled-components'
 import { devices } from '../../constants/devices'
 import { CardTitle, Caption } from '../Typography'
-
-interface AnimatedElementInterface {
-  isAnimated: boolean
-}
+import { AnimatedElementInterface } from '@interface/index'
 
 export const CardContainer = styled.div<AnimatedElementInterface>`
   display: flex;
