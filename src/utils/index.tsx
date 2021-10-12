@@ -13,6 +13,7 @@ const addToStorage = (item: string, data: any) => {
 }
 
 export const addToCart = (data: CartItem) => {
+  const storageEvent = new Event('storage')
   const previusData = getStorageItem('cart')
 
   const currentCartValue = previusData ? previusData : []
@@ -36,9 +37,11 @@ export const addToCart = (data: CartItem) => {
 
     const cartData = [...currentCartValue]
     addToStorage('cart', cartData)
+    window.dispatchEvent(storageEvent)
   } else {
     const cartData = [...currentCartValue, currentItem]
     addToStorage('cart', cartData)
+    window.dispatchEvent(storageEvent)
   }
 }
 
