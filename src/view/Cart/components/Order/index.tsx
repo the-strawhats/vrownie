@@ -2,6 +2,7 @@ import { BodyOne, CardPrice, HeadlineFour } from '@components/Typography'
 import Counter from '@components/Counter'
 import Image from '@components/Image'
 import { numberToCurrency } from '@utils/index'
+import { SingleOrderInterface } from '@interface/index'
 
 import {
   OrderContainer,
@@ -10,13 +11,6 @@ import {
   SingleOrderTextContent
 } from './style'
 import enhancer from './logic'
-
-interface SingleOrderInterface {
-  name: String
-  price: Number
-  url: String
-  amount: Number
-}
 
 interface OrderInterface {
   cartList: Array<SingleOrderInterface>

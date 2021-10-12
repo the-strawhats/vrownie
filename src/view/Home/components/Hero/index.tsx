@@ -6,9 +6,7 @@ import Button from '@components/Button'
 import Icon from '@components/Icon'
 import Image from '@components/Image'
 
-interface HeroInterface {}
-
-const Hero: React.FC<HeroInterface> = ({}) => {
+const Hero = () => {
   return (
     <HeroContainer>
       <Icon id="heroBackground" height={900} width={616} />

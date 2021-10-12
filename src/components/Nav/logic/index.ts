@@ -1,13 +1,7 @@
 import { getStorageItem } from '@utils/index'
 import { useRef, useEffect, useState } from 'react'
-import composer from '../../../utils/composer'
-
-interface SingleOrderInterface {
-  name: String
-  price: Number
-  url: String
-  amount: number
-}
+import composer from '@utils/composer'
+import { SingleOrderInterface } from '@interface/index'
 
 const useNavbar = () => {
   const navRef = useRef<HTMLElement | null>()

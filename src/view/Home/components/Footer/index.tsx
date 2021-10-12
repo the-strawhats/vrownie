@@ -3,9 +3,7 @@ import Icon from '@components/Icon'
 import { FooterContainer, FooterMedias } from './style'
 import Image from '@components/Image'
 
-interface FooterInterface {}
-
-const Footer: React.FC<FooterInterface> = ({}) => {
+const Footer = () => {
   return (
     <FooterContainer>
       <Image

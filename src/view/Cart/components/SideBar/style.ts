@@ -7,9 +7,7 @@ import {
 import { HeadlineThree } from '../../../../components/Typography'
 import { devices } from '../../../../constants/devices'
 
-interface SideBarContainerInterface {}
-
-export const SideBarContainer = styled.div<SideBarContainerInterface>`
+export const SideBarContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

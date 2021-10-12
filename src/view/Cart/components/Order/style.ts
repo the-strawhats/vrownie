@@ -8,9 +8,7 @@ import {
 } from '../../../../components/Typography'
 import { devices } from '../../../../constants/devices'
 
-interface OrderContainerInterface {}
-
-export const OrderContainer = styled.div<OrderContainerInterface>`
+export const OrderContainer = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
