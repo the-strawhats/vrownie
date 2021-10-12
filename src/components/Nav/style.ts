@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import { IconContainer } from '../Icon/style'
 import { ImageWrapper } from '../Image/style'
 import { BodyOne } from '../Typography'
@@ -6,7 +6,8 @@ import { devices } from '../../constants/devices'
 
 interface AnimatedElementInterface {
   isAnimated?: boolean
-  isButtonActive?: boolean
+  isCartActive?: boolean
+  cartAmount?: number
 }
 
 const navAnimation = keyframes`
@@ -18,18 +19,6 @@ const navAnimation = keyframes`
     transform: translateY(0%);
     opacity: 1;
   }
-`
-
-const activeCartButton = keyframes`
-0% {
-  transform: translateY(0px);
-}
-80% {
-  transform: translateY(8px);
-}
-100% {
-  transform: translateY(0px);
-}
 `
 
 export const NavContainer = styled.nav<AnimatedElementInterface>`
@@ -128,8 +117,6 @@ export const NavShopButton = styled.button<AnimatedElementInterface>`
   transition-duration: 0.8s, 0.3s;
   transition-delay: 400ms, 0s;
   z-index: 1;
-  animation: ${({ isButtonActive }) =>
-    isButtonActive ? `${activeCartButton} ease infinite 1s` : 'none'};
 
   :hover {
     background-color: ${({ theme }) => theme.colors.green.main};
@@ -160,14 +147,20 @@ export const NavShopButtonContent = styled.div<AnimatedElementInterface>`
 
   &::before {
     position: absolute;
-    opacity: ${({ isButtonActive }) => (isButtonActive ? 1 : 0)};
-    transition: all ease 0.3s;
     top: 0px;
     right: -5px;
-    background-color: ${({ theme }) => theme.colors.red.main};
-    height: 20px;
-    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    width: 25px;
     border-radius: 50%;
-    content: '';
+    opacity: ${({ isCartActive }) => (isCartActive ? 1 : 0)};
+    background-color: ${({ theme }) => theme.colors.red.main};
+    transition: all ease 0.3s;
+    font-size: 12px;
+    color: ${({ theme }) => theme.colors.vanilla.main};
+    content: '${({ cartAmount }) =>
+      cartAmount ? cartAmount : '0'}';
   }
 `

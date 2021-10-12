@@ -11,11 +11,18 @@ import Image from '../Image'
 import enhancer from './logic/index'
 
 interface NavInterface {
-  navRef: () => null
+  navRef: () => void
   isAnimated: boolean
+  isCartActive: boolean
+  cartAmount: number
 }
 
-const Nav: React.FC<NavInterface> = ({ navRef, isAnimated = true }) => {
+const Nav: React.FC<NavInterface> = ({
+  navRef,
+  isAnimated = true,
+  isCartActive,
+  cartAmount
+}) => {
   return (
     <NavContainer isAnimated={isAnimated} ref={navRef}>
       <Navlist isAnimated={isAnimated}>
@@ -46,8 +53,8 @@ const Nav: React.FC<NavInterface> = ({ navRef, isAnimated = true }) => {
         containerX={160}
         containerY={76}
       />
-      <NavShopButton isAnimated={isAnimated}>
-        <NavShopButtonContent>
+      <NavShopButton isAnimated={isAnimated} isCartActive={isCartActive}>
+        <NavShopButtonContent isCartActive={isCartActive} cartAmount={cartAmount}>
           <Icon id="shop" height={20} width={20} />
         </NavShopButtonContent>
       </NavShopButton>
