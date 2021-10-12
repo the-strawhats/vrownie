@@ -1,8 +1,4 @@
-export interface CartItem {
-  name: String
-  price: number
-  url: String
-}
+import { CartItem } from '@interface/index'
 
 export const getStorageItem = (item: string): any => {
   return JSON.parse(localStorage.getItem(item))
@@ -44,6 +40,8 @@ export const addToCart = (data: CartItem) => {
     window.dispatchEvent(storageEvent)
   }
 }
+
+const removeCartItem = (data: CartItem) => {}
 
 export const numberToCurrency = (value: Number, currency: String = 'R$') => {
   console.log(typeof value, value)

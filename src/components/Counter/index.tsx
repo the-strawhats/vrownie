@@ -8,8 +8,8 @@ import {
 import enhancer from './logic/index'
 
 interface CounterInterface {
-  handleIncrease?: () => null
-  handleDecrease?: () => null
+  handleIncrease?: () => void
+  handleDecrease?: () => void
   currentValue?: number
 }
 

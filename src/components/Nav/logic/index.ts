@@ -1,7 +1,7 @@
 import { getStorageItem } from '@utils/index'
 import { useRef, useEffect, useState } from 'react'
 import composer from '@utils/composer'
-import { SingleOrderInterface } from '@interface/index'
+import { CartItem } from '@interface/index'
 
 const useNavbar = () => {
   const navRef = useRef<HTMLElement | null>()
@@ -21,7 +21,7 @@ const useNavbar = () => {
   }
 
   const getCartItemAmount = () => {
-    const cartList: Array<SingleOrderInterface> = getStorageItem('cart')
+    const cartList: Array<CartItem> = getStorageItem('cart')
 
     if (cartList) {
       const cartItemAmount = cartList.reduce((acc, cur) => {

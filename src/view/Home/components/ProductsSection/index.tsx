@@ -5,10 +5,10 @@ import { ProductsSectionContainer, ProductsContent } from './style'
 import enhancer from './logic'
 import Image from '@components/Image'
 import Icon from '@components/Icon'
-import { SingleOrderInterface } from '@interface/index'
+import { CartItem } from '@interface/index'
 
 interface ProductsSectionInterface {
-  browniesMock: Array<SingleOrderInterface>
+  browniesMock: Array<CartItem>
 }
 
 const ProductsSection: React.FC<ProductsSectionInterface> = ({

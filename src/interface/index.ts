@@ -1,4 +1,4 @@
-export interface SingleOrderInterface {
+export interface CartItem {
   name: String
   price: number
   url: String

@@ -2,7 +2,7 @@ import { BodyOne, CardPrice, HeadlineFour } from '@components/Typography'
 import Counter from '@components/Counter'
 import Image from '@components/Image'
 import { numberToCurrency } from '@utils/index'
-import { SingleOrderInterface } from '@interface/index'
+import { CartItem } from '@interface/index'
 
 import {
   OrderContainer,
@@ -13,11 +13,11 @@ import {
 import enhancer from './logic'
 
 interface OrderInterface {
-  cartList: Array<SingleOrderInterface>
+  cartList: Array<CartItem>
   finalValue: string
 }
 
-const SingleOreder: React.FC<SingleOrderInterface> = ({
+const SingleOreder: React.FC<CartItem> = ({
   name,
   price,
   amount,
