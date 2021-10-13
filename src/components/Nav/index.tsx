@@ -15,13 +15,15 @@ interface NavInterface {
   isAnimated: boolean
   isCartActive: boolean
   cartAmount: number
+  disabledCart: boolean
 }
 
 const Nav: React.FC<NavInterface> = ({
   navRef,
   isAnimated = true,
   isCartActive,
-  cartAmount
+  cartAmount,
+  disabledCart = false
 }) => {
   return (
     <NavContainer isAnimated={isAnimated} ref={navRef}>
@@ -53,11 +55,16 @@ const Nav: React.FC<NavInterface> = ({
         containerX={160}
         containerY={76}
       />
-      <NavShopButton isAnimated={isAnimated} isCartActive={isCartActive}>
-        <NavShopButtonContent isCartActive={isCartActive} cartAmount={cartAmount}>
-          <Icon id="shop" height={20} width={20} />
-        </NavShopButtonContent>
-      </NavShopButton>
+      {!disabledCart && (
+        <NavShopButton isAnimated={isAnimated} isCartActive={isCartActive}>
+          <NavShopButtonContent
+            isCartActive={isCartActive}
+            cartAmount={cartAmount}
+          >
+            <Icon id="shop" height={20} width={20} />
+          </NavShopButtonContent>
+        </NavShopButton>
+      )}
     </NavContainer>
   )
 }

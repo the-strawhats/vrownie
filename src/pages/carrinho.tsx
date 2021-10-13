@@ -3,10 +3,10 @@ import CartView from '../view/Cart'
 
 const Cart = () => {
   return (
-  <>
-  <Nav />
-  <CartView />
-  </>
+    <>
+      <Nav disabledCart={true} />
+      <CartView />
+    </>
   )
 }
 
