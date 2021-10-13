@@ -14,6 +14,9 @@
       "@interface/*": [
         "./src/interface/*"
       ],
+      "@constants/*": [
+        "./src/constants/*"
+      ],
     },
     "target": "es5",
     "lib": [
