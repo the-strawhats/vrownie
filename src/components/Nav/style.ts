@@ -1,6 +1,5 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { IconContainer } from '../Icon/style'
-import { ImageWrapper } from '../Image/style'
 import { BodyOne } from '../Typography'
 import { devices } from '../../constants/devices'
 
@@ -20,6 +19,13 @@ const navAnimation = keyframes`
     opacity: 1;
   }
 `
+export const IconActionWrapper = styled.div`
+  display: inline;
+`
+
+export const LogoActionWrapper = styled.div`
+  display: inline;
+`
 
 export const NavContainer = styled.nav<AnimatedElementInterface>`
   position: relative;
@@ -28,7 +34,7 @@ export const NavContainer = styled.nav<AnimatedElementInterface>`
   align-items: center;
   animation: ${navAnimation} 0.5s;
 
-  > ${ImageWrapper} {
+  > ${LogoActionWrapper} {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -56,7 +62,7 @@ export const Navlist = styled.div<AnimatedElementInterface>`
   transform: ${({ isAnimated }) =>
     isAnimated ? 'translateY(-80px)' : 'translateY(0px)'};
 
-  > ${IconContainer} {
+  > ${IconActionWrapper} {
     margin-right: 75px;
 
     @media ${devices.laptop} {
@@ -160,7 +166,6 @@ export const NavShopButtonContent = styled.div<AnimatedElementInterface>`
     transition: all ease 0.3s;
     font-size: 12px;
     color: ${({ theme }) => theme.colors.vanilla.main};
-    content: '${({ cartAmount }) =>
-      cartAmount ? cartAmount : '0'}';
+    content: '${({ cartAmount }) => (cartAmount ? cartAmount : '0')}';
   }
 `

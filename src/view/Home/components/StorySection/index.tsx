@@ -15,6 +15,7 @@ const StorySection: React.FC<StorySectionInterface> = ({
 }) => {
   return (
     <StorySectionContainer
+      id="story"
       isAnimated={isAnimated}
       ref={storySectionContainerRef}
     >

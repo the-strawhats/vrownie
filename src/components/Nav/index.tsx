@@ -3,12 +3,16 @@ import {
   NavContainer,
   Navlist,
   NavShopButton,
-  NavShopButtonContent
+  NavShopButtonContent,
+  IconActionWrapper,
+  LogoActionWrapper
 } from './style'
 import Icon from '../Icon'
 import { BodyOne } from '../Typography'
 import Image from '../Image'
 import enhancer from './logic/index'
+import Link from 'next/link'
+import { scrollIntoView } from '@utils/index'
 
 interface NavInterface {
   navRef: () => void
@@ -28,42 +32,56 @@ const Nav: React.FC<NavInterface> = ({
   return (
     <NavContainer isAnimated={isAnimated} ref={navRef}>
       <Navlist isAnimated={isAnimated}>
-        <Icon id="vegan" height={40} width={40} />
-
-        <ul>
-          <li>
-            <BodyOne fontSize={22} weigth="medium">
-              Produtos
-            </BodyOne>
-          </li>
-          <li>
-            <BodyOne fontSize={22} weigth="medium">
-              Sobre
-            </BodyOne>
-          </li>
-          <li>
-            <BodyOne fontSize={22} weigth="medium">
-              Contato
-            </BodyOne>
-          </li>
-        </ul>
+        <Link href="/">
+          <IconActionWrapper>
+            <Icon id="vegan" height={40} width={40} />
+          </IconActionWrapper>
+        </Link>
+        {!disabledCart && (
+          <ul>
+            <li>
+              <BodyOne
+                onClick={() => scrollIntoView('products')}
+                fontSize={22}
+                weigth="medium"
+              >
+                Produtos
+              </BodyOne>
+            </li>
+            <li>
+              <BodyOne
+                fontSize={22}
+                weigth="medium"
+                onClick={() => scrollIntoView('story')}
+              >
+                Sobre
+              </BodyOne>
+            </li>
+          </ul>
+        )}
       </Navlist>
-      <Image
-        src="/vrownie.png"
-        width={1772}
-        height={846}
-        containerX={160}
-        containerY={76}
-      />
+      <Link href="/">
+        <LogoActionWrapper>
+          <Image
+            src="/vrownie.png"
+            width={1772}
+            height={846}
+            containerX={160}
+            containerY={76}
+          />
+        </LogoActionWrapper>
+      </Link>
       {!disabledCart && (
-        <NavShopButton isAnimated={isAnimated} isCartActive={isCartActive}>
-          <NavShopButtonContent
-            isCartActive={isCartActive}
-            cartAmount={cartAmount}
-          >
-            <Icon id="shop" height={20} width={20} />
-          </NavShopButtonContent>
-        </NavShopButton>
+        <Link href="/carrinho">
+          <NavShopButton isAnimated={isAnimated} isCartActive={isCartActive}>
+            <NavShopButtonContent
+              isCartActive={isCartActive}
+              cartAmount={cartAmount}
+            >
+              <Icon id="shop" height={20} width={20} />
+            </NavShopButtonContent>
+          </NavShopButton>
+        </Link>
       )}
     </NavContainer>
   )

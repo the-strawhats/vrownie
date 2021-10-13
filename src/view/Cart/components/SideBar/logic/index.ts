@@ -3,9 +3,7 @@ import { getStorageItem, cartListToOrder } from '@utils/index'
 import { useState } from 'react'
 
 const useSidebar = () => {
-  const [currentOption, setCurrentOption] = useState<
-    'Selecione...' | 'Metrô' | 'Endereço' | 'Retirada'
-  >('Selecione...')
+  const [currentOption, setCurrentOption] = useState('')
   const handleOrderNow = () => {
     const cartList = getStorageItem('cart')
     const orderText = cartListToOrder(cartList)

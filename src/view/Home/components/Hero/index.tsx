@@ -5,6 +5,7 @@ import { HeadlineOne, BodyOne } from '@components/Typography'
 import Button from '@components/Button'
 import Icon from '@components/Icon'
 import Image from '@components/Image'
+import { scrollIntoView } from '@utils/index'
 
 const Hero = () => {
   return (
@@ -26,7 +27,10 @@ const Hero = () => {
           Veganismo não é sinônimo de algo sem sabor, como muitos pensam, mas um
           leque de possibilidades!
         </BodyOne>
-        <Button label="Pedir agora!" />
+        <Button
+          label="Pedir agora!"
+          onClick={() => scrollIntoView('products')}
+        />
       </HeroTextContent>
       <HeroImageContent>
         <Parallax />

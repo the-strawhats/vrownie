@@ -15,7 +15,7 @@ const ProductsSection: React.FC<ProductsSectionInterface> = ({
   browniesMock
 }) => {
   return (
-    <ProductsSectionContainer>
+    <ProductsSectionContainer id="products">
       <Icon id="productsBackgroundOne" height={363} width={83} />
       <Icon id="productsBackgroundTwo" height={193} width={89} />
       <Icon id="productsBackgroundOne" height={363} width={83} />
