@@ -1,11 +1,13 @@
 import styled from 'styled-components'
-import { ButtonContainer } from '../../../../components/Button/style'
+import { ButtonContainer } from '@components/Button/style'
+import { SelectInputContent } from '@components/SelectInput/style'
+
 import {
   InputContainer,
   InputContent
-} from '../../../../components/Input/style'
-import { HeadlineThree } from '../../../../components/Typography'
-import { devices } from '../../../../constants/devices'
+} from '@components/Input/style'
+import { HeadlineThree } from '@components/Typography'
+import { devices } from '@constants/devices'
 
 export const SideBarContainer = styled.div`
   display: flex;
@@ -28,6 +30,10 @@ export const SideBarContainer = styled.div`
     height: auto;
     min-height: 0;
     margin-bottom: 194px;
+  }
+
+  > ${SelectInputContent} {
+    margin-bottom: 8px;
   }
 
   > ${InputContent} {
