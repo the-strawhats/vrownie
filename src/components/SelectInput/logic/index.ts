@@ -1,7 +1,12 @@
-import composer from '../../../utils/composer'
-import { useState } from 'react'
+import composer from '@utils/composer'
+import { useEffect, useState } from 'react'
 
-const useSelectInput = ({ options }) => {
+const defaultCustomAction = (item: string) => item
+
+const useSelectInput = ({
+  options,
+  handleCustomAction = defaultCustomAction
+}) => {
   const [inputOption, setInputOption] = useState([...options])
   const [isOpened, setIsOpened] = useState(false)
   const [currentValue, setCurrentValue] = useState('Selecione...')
@@ -19,6 +24,10 @@ const useSelectInput = ({ options }) => {
     setIsOpened(false)
     setIsActive(true)
   }
+
+  useEffect(() => {
+    handleCustomAction(currentValue)
+  }, [currentValue])
 
   return {
     currentValue,
