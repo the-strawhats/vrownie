@@ -90,3 +90,9 @@ export const splitPrice = price => {
     priceEnd
   }
 }
+
+export const scrollIntoView = (id: string) => {
+  const element = document.getElementById(id)
+
+  element.scrollIntoView({ block: 'start', behavior: 'smooth' })
+}
