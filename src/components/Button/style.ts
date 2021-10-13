@@ -4,6 +4,7 @@ import { BodyOne } from '../Typography'
 
 interface ButtonContainerInterface {
   fixed: boolean
+  isDisabled: boolean
 }
 
 export const ButtonContainer = styled.button<ButtonContainerInterface>`
@@ -13,8 +14,10 @@ export const ButtonContainer = styled.button<ButtonContainerInterface>`
   background: ${({ theme }) => theme.colors.green.dark};
   box-shadow: ${({ theme }) => `-4px 8px 4px ${theme.colors.green.dark}36`};
   border-radius: 8px;
-  width: ${({ fixed }) => fixed ? '100%' : 'fit-content'};
-  cursor: pointer;
+  width: ${({ fixed }) => (fixed ? '100%' : 'fit-content')};
+  cursor: ${({ isDisabled }) => (isDisabled ? 'not-allowed' : 'pointer')};
+  opacity: ${({ isDisabled }) => (isDisabled ? 0.3 : 1)};
+  pointer-events: ${({ isDisabled }) => (isDisabled ? 'none' : 'auto')};
   transition: all ease 0.3s;
 
   :hover {

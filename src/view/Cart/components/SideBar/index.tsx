@@ -40,7 +40,7 @@ const SideBar: React.FC<SidebarInterface> = ({
       )}
       {isSubway && <Input label="Estação" />}
       <Input label="Observações" />
-      <Button label="Pedir agora!" onClick={handleOrderNow} />
+      <Button label="Pedir agora!" onClick={handleOrderNow} isDisabled={true} />
     </SideBarContainer>
   )
 }
