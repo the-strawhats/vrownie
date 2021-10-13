@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import composer from '@utils/composer'
-import { getStorageItem, numberToCurrency } from '@utils/index'
+import { getStorageItem } from '@utils/index'
 import { CartItem } from '@interface/index'
 
 const useOrder = () => {
@@ -16,7 +16,7 @@ const useOrder = () => {
 
   return {
     cartList,
-    finalValue: numberToCurrency(totalValue)
+    totalValue
   }
 }
 

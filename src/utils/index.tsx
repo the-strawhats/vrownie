@@ -31,8 +31,7 @@ export const addToCart = (data: CartItem) => {
       amount: existingItem.amount + 1
     }
 
-    const cartData = [...currentCartValue]
-    addToStorage('cart', cartData)
+    addToStorage('cart', currentCartValue)
     window.dispatchEvent(storageEvent)
   } else {
     const cartData = [...currentCartValue, currentItem]
@@ -41,10 +40,44 @@ export const addToCart = (data: CartItem) => {
   }
 }
 
-const removeCartItem = (data: CartItem) => {}
+export const removeCartItem = (data: CartItem) => {
+  const storageEvent = new Event('storage')
+  const previusData: Array<CartItem> = getStorageItem('cart')
+
+  const currentCartValue = previusData ? previusData : []
+
+  const existingItemIndex = currentCartValue.findIndex(
+    item => item.name === data.name
+  )
+
+  const existingItem = currentCartValue[existingItemIndex]
+
+  if (existingItem) {
+    const { amount } = existingItem
+
+    if (amount > 1) {
+      existingItem.amount = amount - 1
+      currentCartValue[existingItemIndex] = existingItem
+      addToStorage('cart', currentCartValue)
+      window.dispatchEvent(storageEvent)
+    } else {
+      currentCartValue.splice(existingItemIndex, 1)
+      addToStorage('cart', currentCartValue)
+      window.dispatchEvent(storageEvent)
+    }
+  }
+}
 
 export const numberToCurrency = (value: Number, currency: String = 'R$') => {
-  console.log(typeof value, value)
   const num = value.toFixed(2)
   return `${currency}${num}`
+}
+
+export const splitPrice = price => {
+  const [priceStart, priceEnd] = numberToCurrency(price).split('.')
+
+  return {
+    priceStart,
+    priceEnd
+  }
 }
