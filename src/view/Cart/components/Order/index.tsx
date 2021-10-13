@@ -1,7 +1,7 @@
 import { BodyOne, CardPrice, HeadlineFour } from '@components/Typography'
 import Counter from '@components/Counter'
 import Image from '@components/Image'
-import { numberToCurrency } from '@utils/index'
+import { splitPrice, removeCartItem, addToCart } from '@utils/index'
 import { CartItem } from '@interface/index'
 
 import {
@@ -14,16 +14,12 @@ import enhancer from './logic'
 
 interface OrderInterface {
   cartList: Array<CartItem>
-  finalValue: string
+  totalValue: string
 }
 
-const SingleOreder: React.FC<CartItem> = ({
-  name,
-  price,
-  amount,
-  url
-}) => {
-  const [priceStart, priceEnd] = numberToCurrency(price).split('.')
+const SingleOreder: React.FC<CartItem> = item => {
+  const { name, price, amount, url } = item
+  const { priceStart, priceEnd } = splitPrice(price)
   return (
     <SingleOrderContainer>
       <Image
@@ -32,7 +28,11 @@ const SingleOreder: React.FC<CartItem> = ({
         width={86}
         height={62}
       />
-      <Counter amount={amount} />
+      <Counter
+        amount={amount}
+        customHandleIncrease={() => addToCart(item)}
+        customHandleDecrease={() => removeCartItem(item)}
+      />
       <SingleOrderTextContent>
         <BodyOne weigth="medium">
           {name}
@@ -49,8 +49,8 @@ const SingleOreder: React.FC<CartItem> = ({
   )
 }
 
-const Order: React.FC<OrderInterface> = ({ cartList, finalValue }) => {
-  const [finalValueStart, finalValueEnd] = finalValue.split('.')
+const Order: React.FC<OrderInterface> = ({ cartList, totalValue }) => {
+  const { priceStart, priceEnd } = splitPrice(totalValue)
   return (
     <OrderContainer>
       <HeadlineFour>
@@ -64,9 +64,9 @@ const Order: React.FC<OrderInterface> = ({ cartList, finalValue }) => {
       </OrderListWrapper>
       <BodyOne weigth="medium">
         Valor total<span className="red">:</span>{' '}
-        <span className="green">{finalValueStart}</span>
+        <span className="green">{priceStart}</span>
         <span className="red">.</span>
-        <span className="green">{finalValueEnd}</span>
+        <span className="green">{priceEnd}</span>
       </BodyOne>
     </OrderContainer>
   )
