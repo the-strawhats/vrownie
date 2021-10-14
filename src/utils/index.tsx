@@ -72,7 +72,7 @@ export const cartListToOrder = (data: Array<CartItem>) => {
   const orderlist = data.reduce((acc, cur) => {
     return `${acc}%0a${cur.amount}x ${cur.name}`
   }, '')
-  const finalOrder = ` Olá Vrownie! Porfavor, este é o meu pedido:%0a${orderlist}`
+  const finalOrder = ` Olá Vrownie! Por favor, este é o meu pedido:%0a${orderlist}`
 
   return finalOrder
 }
