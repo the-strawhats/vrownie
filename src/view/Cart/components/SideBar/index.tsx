@@ -9,12 +9,16 @@ interface SidebarInterface {
   handleOrderNow: () => void
   currentOption: string
   setCurrentOption: (option: string) => void
+  handleOnChange: (
+    modal: string
+  ) => (event: React.FormEvent<HTMLInputElement>) => void
 }
 
 const SideBar: React.FC<SidebarInterface> = ({
   handleOrderNow,
   currentOption = '',
-  setCurrentOption
+  setCurrentOption,
+  handleOnChange
 }) => {
   const isAddress = currentOption == 'Endereço'
   const isSubway = currentOption == 'Metrô'
@@ -30,17 +34,22 @@ const SideBar: React.FC<SidebarInterface> = ({
       />
       {isAddress && (
         <>
-          <Input label="Rua" />
-          <Input label="Bairro" />
+          <Input label="Rua" onChange={handleOnChange('street')} />
+          <Input label="Bairro" onChange={handleOnChange('neighborhood')} />
           <SideBarInputWrapper>
-            <Input label="Numero" />
-            <Input label="Bairro" />
+            <Input label="Numero" onChange={handleOnChange('number')} />
+            <Input
+              label="Complemento"
+              onChange={handleOnChange('complement')}
+            />
           </SideBarInputWrapper>
         </>
       )}
-      {isSubway && <Input label="Estação" />}
-      <Input label="Observações" />
-      <Button label="Pedir agora!" onClick={handleOrderNow} isDisabled={true} />
+      {isSubway && (
+        <Input label="Estação" onChange={handleOnChange('station')} />
+      )}
+      <Input label="Observações" onChange={handleOnChange('observation')} />
+      <Button label="Pedir agora!" onClick={handleOrderNow} isDisabled={false} />
     </SideBarContainer>
   )
 }

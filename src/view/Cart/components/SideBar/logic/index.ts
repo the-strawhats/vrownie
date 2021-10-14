@@ -1,9 +1,29 @@
 import composer from '@utils/composer'
 import { getStorageItem, cartListToOrder } from '@utils/index'
-import { useState } from 'react'
+import React, { useState } from 'react'
+
+const initialContentForm = {
+  street: '',
+  neighborhood: '',
+  number: '',
+  complement: '',
+  station: '',
+  observation: ''
+}
 
 const useSidebar = () => {
   const [currentOption, setCurrentOption] = useState('')
+  const [contentForm, setContentForm] = useState(initialContentForm)
+
+  const handleOnChange = (model: string) => (
+    event: React.FormEvent<HTMLInputElement>
+    ) => {
+      const form = contentForm
+      const { value } = event.currentTarget
+      form[model] = value
+      setContentForm(form)
+  }
+
   const handleOrderNow = () => {
     const cartList = getStorageItem('cart')
     const orderText = cartListToOrder(cartList)
@@ -14,7 +34,8 @@ const useSidebar = () => {
   return {
     handleOrderNow,
     currentOption,
-    setCurrentOption
+    setCurrentOption,
+    handleOnChange
   }
 }
 
