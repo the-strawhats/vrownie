@@ -5,11 +5,13 @@ import { Label } from '../Typography'
 interface InputInterface {
   label?: string
   active?: boolean
+  onChange?: (event: React.FormEvent<HTMLInputElement>) => void
 }
 
 const Input: React.FC<InputInterface> = ({
   label,
-  active
+  active,
+  onChange
 }) => {
   return (
     <InputContent>
@@ -17,7 +19,7 @@ const Input: React.FC<InputInterface> = ({
         {label}
         <span className="red">:</span>
       </Label>
-      <InputContainer active={active} />
+      <InputContainer active={active} onChange={onChange}/>
     </InputContent>
   )
 }
