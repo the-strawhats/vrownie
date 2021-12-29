@@ -43,9 +43,12 @@ const SelectInput: React.FC<SelectInputInterface> = ({
         </SelectInputContainer>
         <SelectInputOptions active={isOpened}>
           {isOpened ? (
-            inputOption.map(item => {
+            inputOption.map((item, idx) => {
               return (
-                <SelectInputOptionsItem onClick={handleOptionAction(item)}>
+                <SelectInputOptionsItem
+                  key={idx}
+                  onClick={handleOptionAction(item)}
+                >
                   {item}
                 </SelectInputOptionsItem>
               )
