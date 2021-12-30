@@ -1,4 +1,8 @@
-import { CartItem } from '@interface/index'
+import {
+  AddressPayloadInterface,
+  CartItem,
+  DeliveryType
+} from '@interface/index'
 
 export const getStorageItem = (item: string): any => {
   return JSON.parse(localStorage.getItem(item))
@@ -75,6 +79,52 @@ export const cartListToOrder = (data: Array<CartItem>) => {
   const finalOrder = ` Olá Vrownie! Por favor, este é o meu pedido:%0a${orderlist}`
 
   return finalOrder
+}
+
+const observationToOrder = (addressInformation: AddressPayloadInterface) => {
+  const { observation } = addressInformation
+  const finalAdressText = observation
+    ? `%0a%0aObservações: %0a${observation}`
+    : ''
+
+  return finalAdressText
+}
+
+const adressToOrder = (addressInformation: AddressPayloadInterface) => {
+  const { street, neighborhood, complement } = addressInformation
+  const adressText = `Detalhes do envio: %0a${street}, ${neighborhood}. ${complement}`
+
+  const finalAdressText = `${adressText}${observationToOrder(
+    addressInformation
+  )}`
+
+  return finalAdressText
+}
+
+const subwayToOrder = (addressInformation: AddressPayloadInterface) => {
+  const { station } = addressInformation
+  const stationText = `Detalhes da retirada: %0a- estação ${station}`
+
+  const finalStationText = `${stationText}${observationToOrder(
+    addressInformation
+  )}`
+
+  return finalStationText
+}
+
+export const deliveryFormToOrder = (
+  deliveryType: DeliveryType,
+  addressInformation: AddressPayloadInterface
+) => {
+  if (deliveryType === 'Endereço') {
+    return adressToOrder(addressInformation)
+  }
+  if (deliveryType === 'Metrô') {
+    return subwayToOrder(addressInformation)
+  }
+  if (deliveryType === 'Retirar' || deliveryType === '') {
+    return observationToOrder(addressInformation)
+  }
 }
 
 export const numberToCurrency = (value: Number, currency: String = 'R$') => {
