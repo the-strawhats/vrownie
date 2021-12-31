@@ -89,6 +89,7 @@ export const SingleOrderTextContent = styled.div`
   @media ${devices.mobileL} {
     flex-direction: column;
     align-items: flex-start;
+    margin: 0 auto;
 
     > ${BodyOne} {
       font-size: 14px;
