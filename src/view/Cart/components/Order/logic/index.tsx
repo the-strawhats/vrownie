@@ -8,7 +8,7 @@ const useOrder = () => {
   const [totalValue, setTotalValue] = useState<number>(0)
 
   const getCartListTotalValue = () => {
-    const cartList = getStorageItem('cart')
+    const cartList = getStorageItem('cart') ?? []
     const totalValue = cartList.reduce((acc: number, cur) => {
       return acc + cur.price * cur.amount
     }, 0)
