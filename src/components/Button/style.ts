@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { devices } from '../../constants/devices'
-import { BodyOne } from '../Typography'
+import { Paragraph } from '../Typography'
 
 interface ButtonContainerInterface {
   fixed: boolean
@@ -27,7 +27,7 @@ export const ButtonContainer = styled.button<ButtonContainerInterface>`
   @media ${devices.mobileL} {
     padding: ${({ fixed }) => (fixed ? '16px' : '12px 18px')};
 
-    > ${BodyOne} {
+    > ${Paragraph} {
       font-size: ${({ fixed }) => (fixed ? '24px' : '16px')};
     }
   }

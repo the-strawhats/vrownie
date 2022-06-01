@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 import { IconContainer } from '../Icon/style'
-import { BodyOne } from '../Typography'
+import { Paragraph } from '../Typography'
 import { devices } from '../../constants/devices'
 
 interface AnimatedElementInterface {
@@ -88,7 +88,7 @@ export const Navlist = styled.div<AnimatedElementInterface>`
         margin-right: 20px;
       }
 
-      > ${BodyOne} {
+      > ${Paragraph} {
         transition: all cubic-bezier(0.69, 0.01, 0.25, 1) 0.3s;
         @media ${devices.laptop} {
           font-size: 18px;

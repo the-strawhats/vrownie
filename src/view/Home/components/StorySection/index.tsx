@@ -1,5 +1,5 @@
 import React from 'react'
-import { BodyOne, HeadlineTwo } from '@components/Typography'
+import { Paragraph, HeadlineTwo } from '@components/Typography'
 import { StorySectionContainer, StorySectionText } from './style'
 import Image from '@components/Image'
 import enhancer from './logic'
@@ -24,7 +24,7 @@ const StorySection: React.FC<StorySectionInterface> = ({
       </HeadlineTwo>
       <Image src="/us.png" height={450} width={450} />
       <StorySectionText isAnimated={isAnimated}>
-        <BodyOne>
+        <Paragraph>
           Nós somos Enzo e Samara, um casal vegetariano em transição para o
           veganismo. Entre nossos muitos hobbies está a culinária, que desde o
           início nos ajudou a provar os sabores que a cozinha vegetariana pode
@@ -33,7 +33,7 @@ const StorySection: React.FC<StorySectionInterface> = ({
           proposta de fazer com que veganismo chegue a mais pessoas como algo
           saboroso e que pode ser ainda melhor do que a comida com ingredientes
           de origem animal.
-        </BodyOne>
+        </Paragraph>
       </StorySectionText>
     </StorySectionContainer>
   )

@@ -84,7 +84,7 @@ export const HeadlineFour = styled.h4<TypographyInterface>`
     line-height: 40px;
   }
 `
-export const BodyOne = styled.p<TypographyInterface>`
+export const Paragraph = styled.p<TypographyInterface>`
   font-size: ${({ fontSize = 24 }) => `${fontSize}px`};
   font-weight: ${({ weigth = 'light' }) => typographyWeigthMapper[weigth]};
   line-height: 34px;

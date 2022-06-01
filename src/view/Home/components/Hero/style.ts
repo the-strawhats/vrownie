@@ -3,7 +3,7 @@ import { ButtonContainer } from '../../../../components/Button/style'
 import { IconContainer } from '../../../../components/Icon/style'
 import { ImageWrapper } from '../../../../components/Image/style'
 import { ParallaxContainer } from '../../../../components/Parallax/style'
-import { BodyOne, HeadlineOne } from '../../../../components/Typography'
+import { Paragraph, HeadlineOne } from '../../../../components/Typography'
 import { devices } from '../../../../constants/devices'
 
 const HeroTextContentAnimation = keyframes` 
@@ -123,7 +123,7 @@ export const HeroTextContent = styled.div`
     }
   }
 
-  > ${BodyOne} {
+  > ${Paragraph} {
     position: relative;
     margin-bottom: 24px;
     animation-name: ${HeroTextContentAnimation};

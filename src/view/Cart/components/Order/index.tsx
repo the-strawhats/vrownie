@@ -1,4 +1,4 @@
-import { BodyOne, CardPrice, HeadlineFour } from '@components/Typography'
+import { Paragraph, CardPrice, HeadlineFour } from '@components/Typography'
 import Counter from '@components/Counter'
 import Image from '@components/Image'
 import { splitPrice, removeCartItem, addToCart } from '@utils/index'
@@ -34,10 +34,10 @@ const SingleOreder: React.FC<CartItem> = item => {
         customHandleDecrease={() => removeCartItem(item)}
       />
       <SingleOrderTextContent>
-        <BodyOne weigth="medium">
+        <Paragraph weigth="medium">
           {name}
           <span className="red">.</span>
-        </BodyOne>
+        </Paragraph>
 
         <CardPrice color="green" variant="dark">
           {priceStart}
@@ -62,12 +62,12 @@ const Order: React.FC<OrderInterface> = ({ cartList, totalValue }) => {
             return <SingleOreder key={idx} {...item} />
           })}
       </OrderListWrapper>
-      <BodyOne weigth="medium">
+      <Paragraph weigth="medium">
         Valor total<span className="red">:</span>{' '}
         <span className="green">{priceStart}</span>
         <span className="red">.</span>
         <span className="green">{priceEnd}</span>
-      </BodyOne>
+      </Paragraph>
     </OrderContainer>
   )
 }

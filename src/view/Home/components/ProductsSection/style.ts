@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { IconContainer } from '../../../../components/Icon/style'
 import { ImageWrapper } from '../../../../components/Image/style'
-import { BodyOne, HeadlineTwo } from '../../../../components/Typography'
+import { Paragraph, HeadlineTwo } from '../../../../components/Typography'
 import { devices } from '../../../../constants/devices'
 
 export const ProductsSectionContainer = styled.div`
@@ -16,7 +16,7 @@ export const ProductsSectionContainer = styled.div`
     margin-bottom: 8px;
   }
 
-  > ${BodyOne} {
+  > ${Paragraph} {
     text-align: center;
     margin-bottom: 62px;
     max-width: 775px;

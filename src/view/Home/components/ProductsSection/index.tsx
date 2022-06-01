@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from '@components/Card'
-import { BodyOne, HeadlineTwo } from '@components/Typography'
+import { Paragraph, HeadlineTwo } from '@components/Typography'
 import { ProductsSectionContainer, ProductsContent } from './style'
 import enhancer from './logic'
 import Image from '@components/Image'
@@ -24,10 +24,10 @@ const ProductsSection: React.FC<ProductsSectionInterface> = ({
       <HeadlineTwo>
         Nossos brownies<span className="red">.</span>
       </HeadlineTwo>
-      <BodyOne>
+      <Paragraph>
         Trabalhamos com ingredientes de respeito, livres de qualquer tipo de
         exploração, humana ou animal.
-      </BodyOne>
+      </Paragraph>
       <ProductsContent>
         {browniesMock.map((item, idx) => (
           <Card key={idx} {...item} />
