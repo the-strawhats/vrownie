@@ -17,6 +17,12 @@
       "@constants/*": [
         "./src/constants/*"
       ],
+      "@styles/*": [
+        "./src/styles/*"
+      ],
+      "@view/*": [
+        "./src/view/*"
+      ],
     },
     "target": "es5",
     "lib": [
