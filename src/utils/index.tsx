@@ -84,9 +84,9 @@ export const cartListToOrder = (data: Array<CartItem>) => {
 const observationToOrder = (addressInformation: AddressPayloadInterface) => {
   const { observation } = addressInformation
   const observationText = observation.trim()
-    ? `%0a%0aObservações: %0a${observation}`
+    ? `Observações: %0a${observation}%0a%0a`
     : ''
-  const finalAdressText = observationText + `%0a%0aQual o endereço de retirada?`
+  const finalAdressText = observationText + `Qual o endereço de retirada?`
   return finalAdressText
 }
 

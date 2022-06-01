@@ -3,7 +3,7 @@ import composer from '@utils/composer'
 import { getStorageItem } from '@utils/index'
 import { CartItem } from '@interface/index'
 
-const useOrder = () => {
+export const useOrder = () => {
   const [cartList, setCartList] = useState<Array<CartItem>>([])
   const [totalValue, setTotalValue] = useState<number>(0)
 
