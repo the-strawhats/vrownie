@@ -8,6 +8,7 @@ import Document, {
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 import React from 'react'
+import Favicon from '@components/Favicon'
 
 export default class MyDocument extends Document {
   static async getInitialProps(
@@ -47,6 +48,7 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;500;800&display=swap"
             rel="stylesheet"
           />
+          <Favicon/>
         </Head>
         <body>
           <Main />
