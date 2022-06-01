@@ -23,6 +23,10 @@ export const OrderContainer = styled.div`
   box-shadow: -4px 16px 8px rgba(0, 0, 0, 0.05);
   border-radius: 16px;
 
+  @media ${devices.laptop} {
+    max-width: 100%;
+  }
+
   @media ${devices.mobileL} {
     padding: 31px 24px 54px;
     height: 450px;

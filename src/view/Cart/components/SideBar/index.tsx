@@ -4,7 +4,7 @@ import SelectInput from '@components/SelectInput'
 import Input from '@components/Input'
 import Button from '@components/Button'
 import enhancer from './logic/index'
-import {useOrder} from 'src/view/Cart/components/Order/logic'
+import { useOrder } from 'src/view/Cart/components/Order/logic'
 
 interface SidebarInterface {
   handleOrderNow: () => void
@@ -20,9 +20,9 @@ const SideBar: React.FC<SidebarInterface> = ({
   currentOption = '',
   setCurrentOption,
   handleOnChange,
-  
+
 }) => {
-  const {cartList} = useOrder()
+  const { cartList } = useOrder()
   const isAddress = currentOption == 'Endereço'
   const isSubway = currentOption == 'Metrô'
   return (

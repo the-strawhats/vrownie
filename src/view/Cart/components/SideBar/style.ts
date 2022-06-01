@@ -24,11 +24,11 @@ export const SideBarContainer = styled.div`
   box-shadow: -4px 16px 8px rgba(0, 0, 0, 0.05);
   background-color: ${({ theme }) => theme.colors.vanilla.light};
 
-  @media ${devices.mobileL} {
+  @media ${devices.laptop} {
+    min-height: auto;
+    max-width: 100%;
     position: relative;
     padding: 26px 44px 32px;
-    height: auto;
-    min-height: 0;
     margin-bottom: 194px;
   }
 
@@ -50,8 +50,9 @@ export const SideBarContainer = styled.div`
   }
 
   > ${ButtonContainer} {
-    position: absolute;
     bottom: 53px;
+    margin-top: 16px;
+    margin-bottom: 32px;
 
     @media ${devices.mobileL} {
       display: none;
@@ -61,17 +62,22 @@ export const SideBarContainer = styled.div`
 
 export const SideBarInputWrapper = styled.div`
   display: flex;
-  max-width: 238px;
+  /*max-width: 238px;*/
   margin-bottom: 64px;
 
   > ${InputContent} {
     :first-of-type {
       margin-right: 8px;
-      max-width: 75px;
+      /*max-width: 75px;*/
     }
   }
 
   @media ${devices.mobileL} {
     margin-bottom: 40px;
+  }
+
+  @media ${devices.laptop} {
+    margin-bottom: 40px;
+    max-width: 100%;
   }
 `
