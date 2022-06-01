@@ -33,8 +33,11 @@ const useSidebar = () => {
     const cartList = getStorageItem('cart')
     const orderText = cartListToOrder(cartList)
     const addressText = deliveryFormToOrder(currentOption, contentForm)
+    const phoneNumber = process.env.REACT_APP_PHONE_NUMBER ?? `5511988256175`
+    const finalMessage = `${orderText}%0a%0a${addressText}`
+    
     window.open(
-      `https://api.whatsapp.com/send?phone=5511967389394&text=${orderText}%0a%0a${addressText}`
+      `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${finalMessage}`
     )
   }
   return {
