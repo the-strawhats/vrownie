@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { CounterWrapper } from '../../../../components/Counter/style'
 import { ImageWrapper } from '../../../../components/Image/style'
 import {
-  BodyOne,
+  Paragraph,
   CardPrice,
   HeadlineFour
 } from '../../../../components/Typography'
@@ -37,7 +37,7 @@ export const OrderContainer = styled.div`
     }
   }
 
-  > ${BodyOne} {
+  > ${Paragraph} {
     position: absolute;
     bottom: 36px;
     right: 60px;
@@ -91,7 +91,7 @@ export const SingleOrderTextContent = styled.div`
     align-items: flex-start;
     margin: 0 auto;
 
-    > ${BodyOne} {
+    > ${Paragraph} {
       font-size: 14px;
     }
     > ${CardPrice} {

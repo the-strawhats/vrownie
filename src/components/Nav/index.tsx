@@ -8,7 +8,7 @@ import {
   LogoActionWrapper
 } from './style'
 import Icon from '../Icon'
-import { BodyOne } from '../Typography'
+import { Paragraph } from '../Typography'
 import Image from '../Image'
 import enhancer from './logic/index'
 import Link from 'next/link'
@@ -40,22 +40,22 @@ const Nav: React.FC<NavInterface> = ({
         {!disabledCart && (
           <ul>
             <li>
-              <BodyOne
+              <Paragraph
                 onClick={() => scrollIntoView('products')}
                 fontSize={22}
                 weigth="medium"
               >
                 Produtos
-              </BodyOne>
+              </Paragraph>
             </li>
             <li>
-              <BodyOne
+              <Paragraph
                 fontSize={22}
                 weigth="medium"
                 onClick={() => scrollIntoView('story')}
               >
                 Sobre
-              </BodyOne>
+              </Paragraph>
             </li>
           </ul>
         )}

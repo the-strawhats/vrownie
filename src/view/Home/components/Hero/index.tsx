@@ -1,7 +1,7 @@
 import React from 'react'
 import { HeroContainer, HeroTextContent, HeroImageContent } from './style'
 import Parallax from '@components/Parallax'
-import { HeadlineOne, BodyOne } from '@components/Typography'
+import { HeadlineOne, Paragraph } from '@components/Typography'
 import Button from '@components/Button'
 import Icon from '@components/Icon'
 import Image from '@components/Image'
@@ -15,18 +15,18 @@ const Hero = () => {
       <HeroTextContent>
         <span>
           <Icon id="eco" height={24} width={24} />
-          <BodyOne fontSize={16}>
+          <Paragraph fontSize={16}>
             <span className="red">Embalagens ecológicas</span>
-          </BodyOne>
+          </Paragraph>
         </span>
         <HeadlineOne>
           Brownies <span className="green">veganos</span> de respeito
           <span className="red">.</span>
         </HeadlineOne>
-        <BodyOne>
+        <Paragraph>
           Veganismo não é sinônimo de algo sem sabor, como muitos pensam, mas um
           leque de possibilidades!
-        </BodyOne>
+        </Paragraph>
         <Button
           label="Pedir agora!"
           onClick={() => scrollIntoView('products')}

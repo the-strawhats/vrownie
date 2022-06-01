@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { ImageWrapper } from '../../../../components/Image/style'
-import { BodyOne, HeadlineTwo } from '../../../../components/Typography'
+import { Paragraph, HeadlineTwo } from '../../../../components/Typography'
 import { devices } from '../../../../constants/devices'
 import { AnimatedElementInterface } from '@interface/index'
 
@@ -62,7 +62,7 @@ export const StorySectionText = styled.div<AnimatedElementInterface>`
     justify-content: center;
   }
 
-  > ${BodyOne} {
+  > ${Paragraph} {
     max-width: 545px;
     margin-bottom: 104px;
     padding-right: 60px;
@@ -72,6 +72,11 @@ export const StorySectionText = styled.div<AnimatedElementInterface>`
     transition: ease 0.6s;
     transition-property: transform opacity;
     transition-delay: 0.3s, 0.3s;
+
+    @media ${devices.mobileL} {
+      padding-left: 64px;
+      padding-right: 64px;
+    }
 
     @media ${devices.laptop} {
       margin-bottom: 64px;

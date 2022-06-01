@@ -1,6 +1,6 @@
 import React from 'react'
 import { ButtonContainer } from './style'
-import { BodyOne } from '../Typography'
+import { Paragraph } from '../Typography'
 
 interface ButtonInterface {
   label: string
@@ -12,7 +12,7 @@ interface ButtonInterface {
 const Button: React.FC<ButtonInterface> = ({ label, onClick, fixed, isDisabled = false  }) => {
   return (
     <ButtonContainer fixed={fixed} onClick={onClick} isDisabled={isDisabled}>
-      <BodyOne weigth='bold' color="vanilla">{label}</BodyOne>
+      <Paragraph weigth='bold' color="vanilla">{label}</Paragraph>
     </ButtonContainer>
   )
 }
