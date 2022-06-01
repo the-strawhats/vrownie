@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Label } from '../Typography'
+import { Label } from '@components/Typography'
 
 interface InputContainerInterface {
   active?: boolean

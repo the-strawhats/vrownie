@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import React from 'react'
-import HomeView from '../view/Home'
+import HomeView from '@view/Home'
 import Nav from '@components/Nav'
 import styled from 'styled-components'
 

@@ -6,7 +6,7 @@ import {
   SelectInputOptions,
   SelectInputOptionsItem
 } from './style'
-import { Label } from '../Typography'
+import { Label } from '@components/Typography'
 import enhancer from './logic/index'
 
 interface SelectInputInterface {

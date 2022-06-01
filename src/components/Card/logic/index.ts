@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react'
-import { addToCart, CartItem } from '../../../utils'
-import composer from '../../../utils/composer'
+import { addToCart } from '@utils/index'
+import { CartItem } from '@interface/index'
+import composer from '@utils/composer'
 
 const useCard = () => {
   const cardRef = useRef<HTMLElement | null>()

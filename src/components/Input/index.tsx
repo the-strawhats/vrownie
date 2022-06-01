@@ -1,6 +1,6 @@
 import React from 'react'
 import { InputContent, InputContainer } from './style'
-import { Label } from '../Typography'
+import { Label } from '@components/Typography'
 
 interface InputInterface {
   label?: string

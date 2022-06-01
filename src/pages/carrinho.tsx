@@ -1,5 +1,5 @@
 import Nav from '@components/Nav'
-import CartView from '../view/Cart'
+import CartView from '@view/Cart'
 
 const Cart = () => {
   return (

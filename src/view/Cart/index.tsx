@@ -1,4 +1,4 @@
-import { Container } from '../../styles/global'
+import { Container } from '@styles/global'
 import SideBar from './components/SideBar'
 import Order from './components/Order'
 

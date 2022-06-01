@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react'
-import composer from '../../../../../utils/composer'
+import composer from '@utils/composer'
 
 const useCard = () => {
   const storySectionContainerRef = useRef<HTMLElement | null>()

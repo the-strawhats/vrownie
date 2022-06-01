@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { devices } from '../../constants/devices'
-import { CardTitle, Caption } from '../Typography'
+import { devices } from '@constants/devices'
+import { CardTitle, Caption } from '@components/Typography'
 import { AnimatedElementInterface } from '@interface/index'
 
 export const CardContainer = styled.div<AnimatedElementInterface>`

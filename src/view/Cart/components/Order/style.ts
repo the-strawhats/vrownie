@@ -1,12 +1,7 @@
 import styled from 'styled-components'
-import { CounterWrapper } from '../../../../components/Counter/style'
-import { ImageWrapper } from '../../../../components/Image/style'
-import {
-  Paragraph,
-  CardPrice,
-  HeadlineFour
-} from '../../../../components/Typography'
-import { devices } from '../../../../constants/devices'
+import { CounterWrapper } from '@components/Counter/style'
+import { Paragraph, CardPrice, HeadlineFour } from '@components/Typography'
+import { devices } from '@constants/devices'
 
 export const OrderContainer = styled.div`
   display: flex;

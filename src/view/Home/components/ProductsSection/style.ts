@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { IconContainer } from '../../../../components/Icon/style'
-import { ImageWrapper } from '../../../../components/Image/style'
-import { Paragraph, HeadlineTwo } from '../../../../components/Typography'
-import { devices } from '../../../../constants/devices'
+import { IconContainer } from '@components/Icon/style'
+import { ImageWrapper } from '@components/Image/style'
+import { Paragraph, HeadlineTwo } from '@components/Typography'
+import { devices } from '@constants/devices'
 
 export const ProductsSectionContainer = styled.div`
   position: relative;

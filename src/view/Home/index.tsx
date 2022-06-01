@@ -3,7 +3,7 @@ import Hero from './components/Hero'
 import ProductsSection from './components/ProductsSection'
 import StorySection from './components/StorySection'
 import Footer from './components/Footer'
-import { Container } from '../../styles/global'
+import { Container } from '@styles/global'
 
 const Home = () => {
   return (
