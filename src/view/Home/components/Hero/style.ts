@@ -1,12 +1,12 @@
 import styled, { keyframes } from 'styled-components'
-import { ButtonContainer } from '../../../../components/Button/style'
-import { IconContainer } from '../../../../components/Icon/style'
-import { ImageWrapper } from '../../../../components/Image/style'
-import { ParallaxContainer } from '../../../../components/Parallax/style'
-import { Paragraph, HeadlineOne } from '../../../../components/Typography'
-import { devices } from '../../../../constants/devices'
+import { ButtonContainer } from '@components/Button/style'
+import { IconContainer } from '@components/Icon/style'
+import { ImageWrapper } from '@components/Image/style'
+import { ParallaxContainer } from '@components/Parallax/style'
+import { Paragraph, HeadlineOne } from '@components/Typography'
+import { devices } from '@constants/devices'
 
-const HeroTextContentAnimation = keyframes` 
+const HeroTextContentAnimation = keyframes`
   from {
     opacity: 0;
     transform: translateX(-80px);
@@ -17,7 +17,7 @@ const HeroTextContentAnimation = keyframes`
   }
 `
 
-const elementsBeforeAnimation = keyframes` 
+const elementsBeforeAnimation = keyframes`
   from {
     opacity: 1;
   }
@@ -26,7 +26,7 @@ const elementsBeforeAnimation = keyframes`
   }
 `
 
-const buttonMobileAnimation = keyframes` 
+const buttonMobileAnimation = keyframes`
   0% {
     opacity: 0;
   }

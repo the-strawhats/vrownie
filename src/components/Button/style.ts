@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { devices } from '../../constants/devices'
-import { Paragraph } from '../Typography'
+import { devices } from '@constants/devices'
+import { Paragraph } from '@components/Typography'
 
 interface ButtonContainerInterface {
   fixed: boolean

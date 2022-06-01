@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { ImageWrapper } from '../../../../components/Image/style'
-import { Paragraph, HeadlineTwo } from '../../../../components/Typography'
-import { devices } from '../../../../constants/devices'
+import { ImageWrapper } from '@components/Image/style'
+import { Paragraph, HeadlineTwo } from '@components/Typography'
+import { devices } from '@constants/devices'
 import { AnimatedElementInterface } from '@interface/index'
 
 export const StorySectionContainer = styled.div<AnimatedElementInterface>`

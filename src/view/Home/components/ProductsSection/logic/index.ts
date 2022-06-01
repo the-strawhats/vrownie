@@ -1,4 +1,4 @@
-import composer from '../../../../../utils/composer'
+import composer from '@utils/composer'
 
 const useProductSection = () => {
   const browniesMock = [

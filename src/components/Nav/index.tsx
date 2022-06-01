@@ -7,9 +7,9 @@ import {
   IconActionWrapper,
   LogoActionWrapper
 } from './style'
-import Icon from '../Icon'
-import { Paragraph } from '../Typography'
-import Image from '../Image'
+import Icon from '@components/Icon'
+import { Paragraph } from '@components/Typography'
+import Image from '@components/Image'
 import enhancer from './logic/index'
 import Link from 'next/link'
 import { scrollIntoView } from '@utils/index'

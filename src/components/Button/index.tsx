@@ -1,6 +1,6 @@
 import React from 'react'
 import { ButtonContainer } from './style'
-import { Paragraph } from '../Typography'
+import { Paragraph } from '@components/Typography'
 
 interface ButtonInterface {
   label: string

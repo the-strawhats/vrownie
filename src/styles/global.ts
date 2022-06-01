@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
-import { devices } from '../constants/devices'
+import { devices } from '@constants/devices'
 
 export default createGlobalStyle`
   * {

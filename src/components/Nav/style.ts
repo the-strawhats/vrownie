@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components'
-import { IconContainer } from '../Icon/style'
-import { Paragraph } from '../Typography'
-import { devices } from '../../constants/devices'
+import { IconContainer } from '@components/Icon/style'
+import { Paragraph } from '@components/Typography'
+import { devices } from '@constants/devices'
 
 interface AnimatedElementInterface {
   isAnimated?: boolean

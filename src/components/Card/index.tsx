@@ -5,10 +5,10 @@ import {
   CardTextWrapper,
   CardButton
 } from './style'
-import Image from '../Image'
-import { Caption, CardPrice, CardTitle } from '../Typography'
+import Image from '@components/Image'
+import { Caption, CardPrice, CardTitle } from '@components/Typography'
 import enhancer from './logic'
-import {  CartItem } from '@utils/index'
+import { CartItem } from '@interface/index'
 
 interface CardInterface {
   title: string
@@ -49,7 +49,11 @@ const Card: React.FC<CardInterface> = ({
             <span className="red">.</span>00
           </CardPrice>
         </CardTextWrapper>
-        <CardButton onClick={() => handleCardClick({name: title, price, url: ''})}>+</CardButton>
+        <CardButton
+          onClick={() => handleCardClick({ name: title, price, url: '' })}
+        >
+          +
+        </CardButton>
       </CardInformationWrapper>
     </CardContainer>
   )

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import composer from '../../../utils/composer'
+import composer from '@utils/composer'
 
 const useParallax = () => {
   const parallaxContainerRef = useRef<HTMLElement | null>(null)
