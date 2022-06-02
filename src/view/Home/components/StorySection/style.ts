@@ -36,7 +36,7 @@ export const StorySectionContainer = styled.div<AnimatedElementInterface>`
     transition: all ease 0.8s;
 
     @media ${devices.laptopL} {
-      left: 120px;
+      left: 0px;
     }
 
     @media ${devices.laptop} {
