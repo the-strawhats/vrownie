@@ -5,6 +5,8 @@ import Input from '@components/Input'
 import Button from '@components/Button'
 import enhancer from './logic/index'
 import { useOrder } from 'src/view/Cart/components/Order/logic'
+import FloatingAction from '@components/FloattingAction'
+import { Fragment } from 'react'
 
 interface SidebarInterface {
   handleOrderNow: () => void
@@ -19,41 +21,47 @@ const SideBar: React.FC<SidebarInterface> = ({
   handleOrderNow,
   currentOption = '',
   setCurrentOption,
-  handleOnChange,
-
+  handleOnChange
 }) => {
   const { cartList } = useOrder()
   const isAddress = currentOption == 'Endereço'
   const isSubway = currentOption == 'Metrô'
   return (
-    <SideBarContainer>
-      <HeadlineThree>
-        Entrega<span className="red">.</span>
-      </HeadlineThree>
-      <SelectInput
-        options={['Endereço', 'Metrô', 'Retirar']}
-        label="Opção de entrega"
-        handleCustomAction={setCurrentOption}
-      />
-      {isAddress && (
-        <>
-          <Input label="Rua" onChange={handleOnChange('street')} />
-          <Input label="Bairro" onChange={handleOnChange('neighborhood')} />
-          <SideBarInputWrapper>
-            <Input label="Numero" onChange={handleOnChange('number')} />
-            <Input
-              label="Complemento"
-              onChange={handleOnChange('complement')}
-            />
-          </SideBarInputWrapper>
-        </>
-      )}
-      {isSubway && (
-        <Input label="Estação" onChange={handleOnChange('station')} />
-      )}
-      <Input label="Observações" onChange={handleOnChange('observation')} />
-      <Button label="Pedir agora!" onClick={handleOrderNow} isDisabled={(cartList ?? []).length === 0} />
-    </SideBarContainer>
+    <Fragment>
+      <SideBarContainer>
+        <HeadlineThree>
+          Entrega<span className="red">.</span>
+        </HeadlineThree>
+        <SelectInput
+          options={['Endereço', 'Metrô', 'Retirar']}
+          label="Opção de entrega"
+          handleCustomAction={setCurrentOption}
+        />
+        {isAddress && (
+          <>
+            <Input label="Rua" onChange={handleOnChange('street')} />
+            <Input label="Bairro" onChange={handleOnChange('neighborhood')} />
+            <SideBarInputWrapper>
+              <Input label="Numero" onChange={handleOnChange('number')} />
+              <Input
+                label="Complemento"
+                onChange={handleOnChange('complement')}
+              />
+            </SideBarInputWrapper>
+          </>
+        )}
+        {isSubway && (
+          <Input label="Estação" onChange={handleOnChange('station')} />
+        )}
+        <Input label="Observações" onChange={handleOnChange('observation')} />
+        <Button
+          label="Pedir agora!"
+          onClick={handleOrderNow}
+          isDisabled={(cartList ?? []).length === 0}
+        />
+      </SideBarContainer>
+      <FloatingAction onClick={handleOrderNow} isDisabled={(cartList ?? []).length === 0}/>
+    </Fragment>
   )
 }
 
