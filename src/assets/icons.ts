@@ -1,27 +1,27 @@
-import vegan from './vegan.svg'
-import eco from './eco.svg'
-import shop from './shop.svg'
-import hamburguer from './hamburguer.svg'
-import whatsapp from './whatsapp.svg'
-import instagram from './instagram.svg'
-import facebook from './facebook.svg'
-import heroBackground from './heroBackground.svg'
-import heroBackgroundMobile from './heroBackgroundMobile.svg'
-import productsBackgroundOne from './productsBackgroundOne.svg'
-import productsBackgroundTwo from './productsBackgroundTwo.svg'
+const vegan = require( './vegan.svg')
+const eco = require( './eco.svg')
+const shop = require( './shop.svg')
+const hamburguer = require( './hamburguer.svg')
+const whatsapp = require( './whatsapp.svg')
+const instagram = require( './instagram.svg')
+const facebook = require( './facebook.svg')
+const heroBackground = require( './heroBackground.svg')
+const heroBackgroundMobile = require( './heroBackgroundMobile.svg')
+const productsBackgroundOne = require( './productsBackgroundOne.svg')
+const productsBackgroundTwo = require( './productsBackgroundTwo.svg')
 
 const iconMapper = {
-  vegan: vegan,
-  eco: eco,
-  shop: shop,
-  hamburguer: hamburguer,
-  whatsapp: whatsapp,
-  instagram: instagram,
-  facebook: facebook,
-  heroBackground: heroBackground,
-  heroBackgroundMobile: heroBackgroundMobile,
-  productsBackgroundOne: productsBackgroundOne,
-  productsBackgroundTwo: productsBackgroundTwo
+  vegan,
+  eco,
+  shop,
+  hamburguer,
+  whatsapp,
+  instagram,
+  facebook,
+  heroBackground,
+  heroBackgroundMobile,
+  productsBackgroundOne,
+  productsBackgroundTwo,
 }
 
 export default iconMapper
