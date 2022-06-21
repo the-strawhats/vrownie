@@ -8,12 +8,10 @@ import Icon from '@components/Icon'
 import { CartItem } from '@interface/index'
 
 interface ProductsSectionInterface {
-  browniesMock: Array<CartItem>
+  products: Array<CartItem>
 }
 
-const ProductsSection: React.FC<ProductsSectionInterface> = ({
-  browniesMock
-}) => {
+const ProductsSection: React.FC<ProductsSectionInterface> = ({ products }) => {
   return (
     <ProductsSectionContainer id="products">
       <Icon id="productsBackgroundOne" height={363} width={83} />
@@ -29,7 +27,7 @@ const ProductsSection: React.FC<ProductsSectionInterface> = ({
         exploração, humana ou animal.
       </Paragraph>
       <ProductsContent>
-        {browniesMock.map((item, idx) => (
+        {products.map((item, idx) => (
           <Card key={idx} {...item} />
         ))}
       </ProductsContent>
