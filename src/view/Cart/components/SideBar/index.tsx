@@ -10,20 +10,20 @@ import { Fragment } from 'react'
 
 interface SidebarInterface {
   handleOrderNow: () => void
-  hasCardList: Boolean
-  isAddress: Boolean
-  isSubway: Boolean
-  setCurrentOption: (option: string) => void
+  isButtonDisabled: boolean
+  isAddress: boolean
+  isSubway: boolean
+  handleSelectChange: (option: string) => void
   handleOnChange: (
     modal: string
   ) => (event: React.FormEvent<HTMLInputElement>) => void
 }
 
 const SideBar: React.FC<SidebarInterface> = ({
-  setCurrentOption,
+  handleSelectChange,
+  isButtonDisabled,
   handleOrderNow,
   handleOnChange,
-  hasCardList,
   isAddress,
   isSubway
 }) => {
@@ -36,7 +36,7 @@ const SideBar: React.FC<SidebarInterface> = ({
         <SelectInput
           options={['Endereço', 'Metrô', 'Retirar']}
           label="Opção de entrega"
-          handleCustomAction={setCurrentOption}
+          handleCustomAction={handleSelectChange}
         />
         {isAddress && (
           <>
@@ -58,10 +58,10 @@ const SideBar: React.FC<SidebarInterface> = ({
         <Button
           label="Pedir agora!"
           onClick={handleOrderNow}
-          isDisabled={!hasCardList}
+          isDisabled={isButtonDisabled}
         />
       </SideBarContainer>
-      <FloatingAction onClick={handleOrderNow} isDisabled={!hasCardList} />
+      <FloatingAction onClick={handleOrderNow} isDisabled={isButtonDisabled} />
     </Fragment>
   )
 }
