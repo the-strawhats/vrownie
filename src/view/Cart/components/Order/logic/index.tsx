@@ -25,6 +25,7 @@ export const useOrder = () => {
 
   return {
     cartList,
+    hasCardList: cartList.length > 0,
     totalValue
   }
 }

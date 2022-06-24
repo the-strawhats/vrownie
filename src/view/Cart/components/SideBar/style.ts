@@ -63,6 +63,7 @@ export const SideBarContainer = styled.div`
 export const SideBarInputWrapper = styled.div`
   display: flex;
   margin-bottom: 64px;
+  max-width: 238px;
 
   > ${InputContent} {
     :first-of-type {

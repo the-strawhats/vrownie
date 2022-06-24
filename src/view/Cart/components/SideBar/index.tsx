@@ -10,22 +10,23 @@ import { Fragment } from 'react'
 
 interface SidebarInterface {
   handleOrderNow: () => void
-  currentOption: string
-  setCurrentOption: (option: string) => void
+  isButtonDisabled: boolean
+  isAddress: boolean
+  isSubway: boolean
+  handleSelectChange: (option: string) => void
   handleOnChange: (
     modal: string
   ) => (event: React.FormEvent<HTMLInputElement>) => void
 }
 
 const SideBar: React.FC<SidebarInterface> = ({
+  handleSelectChange,
+  isButtonDisabled,
   handleOrderNow,
-  currentOption = '',
-  setCurrentOption,
-  handleOnChange
+  handleOnChange,
+  isAddress,
+  isSubway
 }) => {
-  const { cartList } = useOrder()
-  const isAddress = currentOption == 'Endereço'
-  const isSubway = currentOption == 'Metrô'
   return (
     <Fragment>
       <SideBarContainer>
@@ -35,7 +36,7 @@ const SideBar: React.FC<SidebarInterface> = ({
         <SelectInput
           options={['Endereço', 'Metrô', 'Retirar']}
           label="Opção de entrega"
-          handleCustomAction={setCurrentOption}
+          handleCustomAction={handleSelectChange}
         />
         {isAddress && (
           <>
@@ -57,10 +58,10 @@ const SideBar: React.FC<SidebarInterface> = ({
         <Button
           label="Pedir agora!"
           onClick={handleOrderNow}
-          isDisabled={(cartList ?? []).length === 0}
+          isDisabled={isButtonDisabled}
         />
       </SideBarContainer>
-      <FloatingAction onClick={handleOrderNow} isDisabled={(cartList ?? []).length === 0}/>
+      <FloatingAction onClick={handleOrderNow} isDisabled={isButtonDisabled} />
     </Fragment>
   )
 }
