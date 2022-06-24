@@ -10,7 +10,9 @@ import { Fragment } from 'react'
 
 interface SidebarInterface {
   handleOrderNow: () => void
-  currentOption: string
+  hasCardList: Boolean
+  isAddress: Boolean
+  isSubway: Boolean
   setCurrentOption: (option: string) => void
   handleOnChange: (
     modal: string
@@ -18,14 +20,13 @@ interface SidebarInterface {
 }
 
 const SideBar: React.FC<SidebarInterface> = ({
-  handleOrderNow,
-  currentOption = '',
   setCurrentOption,
-  handleOnChange
+  handleOrderNow,
+  handleOnChange,
+  hasCardList,
+  isAddress,
+  isSubway
 }) => {
-  const { cartList } = useOrder()
-  const isAddress = currentOption == 'Endereço'
-  const isSubway = currentOption == 'Metrô'
   return (
     <Fragment>
       <SideBarContainer>
@@ -57,10 +58,10 @@ const SideBar: React.FC<SidebarInterface> = ({
         <Button
           label="Pedir agora!"
           onClick={handleOrderNow}
-          isDisabled={(cartList ?? []).length === 0}
+          isDisabled={!hasCardList}
         />
       </SideBarContainer>
-      <FloatingAction onClick={handleOrderNow} isDisabled={(cartList ?? []).length === 0}/>
+      <FloatingAction onClick={handleOrderNow} isDisabled={!hasCardList} />
     </Fragment>
   )
 }
