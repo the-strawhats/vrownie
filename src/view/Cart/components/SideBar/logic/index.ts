@@ -6,6 +6,7 @@ import {
   deliveryFormToOrder
 } from '@utils/index'
 import React, { useState } from 'react'
+import { useOrder } from '../../Order/logic'
 
 const initialContentForm = {
   street: '',
@@ -35,16 +36,23 @@ const useSidebar = () => {
     const addressText = deliveryFormToOrder(currentOption, contentForm)
     const phoneNumber = process.env.REACT_APP_PHONE_NUMBER ?? `5511988256175`
     const finalMessage = `${orderText}%0a%0a${addressText}`
-    
+
     window.open(
       `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${finalMessage}`
     )
   }
+  const { hasCardList } = useOrder()
+  const isAddress = currentOption === 'Endereço'
+  const isSubway = currentOption === 'Metrô'
+
   return {
     handleOrderNow,
     currentOption,
     setCurrentOption,
-    handleOnChange
+    handleOnChange,
+    hasCardList,
+    isAddress,
+    isSubway
   }
 }
 
