@@ -1,4 +1,5 @@
 import axios from 'axios'
+import image from 'next/image'
 
 export class GraphCMS {
   url: string
@@ -24,7 +25,10 @@ export class GraphCMS {
       query
     })
 
-    return response.data.data.products
+    return response.data.data.products.map(({image: [image],...product}) => ({
+      ...product,
+      imageUrl: image.url
+    }))
   }
 }
 
@@ -32,7 +36,7 @@ export namespace GraphCMS {
   export type Result = {
     name: string
     price: string
-    image: string
+    imageUrl: string
     description: string
   }
 }
