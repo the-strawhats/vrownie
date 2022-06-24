@@ -3,12 +3,13 @@ import React from 'react'
 import HomeView from '@view/Home'
 import Nav from '@components/Nav'
 import styled from 'styled-components'
+import { GraphCMS } from 'src/services/products'
 
 const HomeWrapper = styled.div`
   overflow: hidden;
 `
 
-const Home = () => {
+const Home = ({products}) => {
   return (
     <>
       <Head>
@@ -16,10 +17,18 @@ const Home = () => {
       </Head>
       <HomeWrapper>
         <Nav />
-        <HomeView />
+        <HomeView products={products} />
       </HomeWrapper>
     </>
   )
+}
+
+export async function getServerSideProps(context) {
+  const api = new GraphCMS()
+  const products = await api.load()
+  return {
+    props: { products }, 
+  }
 }
 
 export default Home

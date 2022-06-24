@@ -11,7 +11,7 @@ interface ProductsSectionInterface {
   products: Array<CartItem>
 }
 
-const ProductsSection: React.FC<ProductsSectionInterface> = ({ products }) => {
+const ProductsSection: React.FC<ProductsSectionInterface> = ({ products = [] }) => {
   return (
     <ProductsSectionContainer id="products">
       <Icon id="productsBackgroundOne" height={363} width={83} />

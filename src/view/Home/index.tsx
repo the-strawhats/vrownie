@@ -5,11 +5,11 @@ import StorySection from './components/StorySection'
 import Footer from './components/Footer'
 import { Container } from '@styles/global'
 
-const Home = () => {
+const Home = ({products}) => {
   return (
     <Container>
       <Hero />
-      <ProductsSection />
+      <ProductsSection products={products}/>
       <StorySection />
       <Footer />
     </Container>
