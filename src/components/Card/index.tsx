@@ -11,7 +11,7 @@ import enhancer from './logic'
 import { CartItem } from '@interface/index'
 
 interface CardInterface {
-  title: string
+  name: string
   price: number
   cardRef: () => void
   isAnimated: boolean
@@ -21,7 +21,7 @@ interface CardInterface {
 }
 
 const Card: React.FC<CardInterface> = ({
-  title,
+  name,
   price,
   description,
   cardRef,
@@ -39,7 +39,7 @@ const Card: React.FC<CardInterface> = ({
       <CardInformationWrapper>
         <CardTextWrapper>
           <CardTitle color="black">
-            {title}
+            {name}
             <span className="red">.</span>
           </CardTitle>
           {description && <Caption color="gray">{description}</Caption>}
@@ -49,9 +49,7 @@ const Card: React.FC<CardInterface> = ({
             <span className="red">.</span>00
           </CardPrice>
         </CardTextWrapper>
-        <CardButton
-          onClick={() => handleCardClick({ name: title, price, url: '' })}
-        >
+        <CardButton onClick={() => handleCardClick({ name, price, url: '' })}>
           +
         </CardButton>
       </CardInformationWrapper>
