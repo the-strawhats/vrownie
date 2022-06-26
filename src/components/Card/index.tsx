@@ -54,7 +54,7 @@ const Card: React.FC<CardInterface> = ({
             {digitsAfterComma}
           </CardPrice>
         </CardTextWrapper>
-        <CardButton onClick={() => handleCardClick({ name, price, url: '' })}>
+        <CardButton onClick={() => handleCardClick({ name, price, url: imageUrl })}>
           +
         </CardButton>
       </CardInformationWrapper>

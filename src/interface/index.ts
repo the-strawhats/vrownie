@@ -1,7 +1,7 @@
 export interface CartItem {
-  name: String
+  name: string
   price: number
-  url: String
+  url: string
   amount?: number
 }
 

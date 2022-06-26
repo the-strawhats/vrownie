@@ -17,17 +17,12 @@ interface OrderInterface {
   totalValue: string
 }
 
-const SingleOreder: React.FC<CartItem> = item => {
+const SingleOrder: React.FC<CartItem> = item => {
   const { name, price, amount, url } = item
   const { priceStart, priceEnd } = splitPrice(price)
   return (
     <SingleOrderContainer>
-      <Image
-        src="/tradicional-brownie.png"
-        alt="Picture of a brownie"
-        width={86}
-        height={62}
-      />
+      <Image src={url} alt="Picture of a brownie" width={86} height={62} />
       <Counter
         amount={amount}
         customHandleIncrease={() => addToCart(item)}
@@ -59,7 +54,7 @@ const Order: React.FC<OrderInterface> = ({ cartList, totalValue }) => {
       <OrderListWrapper>
         {cartList &&
           cartList.map((item, idx) => {
-            return <SingleOreder key={idx} {...item} />
+            return <SingleOrder key={idx} {...item} />
           })}
       </OrderListWrapper>
       <Paragraph weigth="medium">
