@@ -23,7 +23,7 @@ const SingleOreder: React.FC<CartItem> = item => {
   return (
     <SingleOrderContainer>
       <Image
-        src="/tradicional-brownie.png"
+        src={url}
         alt="Picture of a brownie"
         width={86}
         height={62}
