@@ -57,7 +57,7 @@ export const StorySectionText = styled.div<AnimatedElementInterface>`
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  text-align: justify;
+  text-align: left;
 
   @media ${devices.laptop} {
     justify-content: center;
