@@ -43,6 +43,8 @@ export const StorySectionContainer = styled.div<AnimatedElementInterface>`
       position: static;
       margin-bottom: 32px;
       left: 0;
+      height: inherit;
+      width: inherit;
     }
   }
 
@@ -57,7 +59,7 @@ export const StorySectionText = styled.div<AnimatedElementInterface>`
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  text-align: justify;
+  text-align: left;
 
   @media ${devices.laptop} {
     justify-content: center;
@@ -73,11 +75,6 @@ export const StorySectionText = styled.div<AnimatedElementInterface>`
     transition: ease 0.6s;
     transition-property: transform opacity;
     transition-delay: 0.3s, 0.3s;
-
-    @media ${devices.mobileL} {
-      padding-left: 64px;
-      padding-right: 64px;
-    }
 
     @media ${devices.laptop} {
       margin-bottom: 64px;
