@@ -6,7 +6,7 @@ import {
   InputContainer,
   InputContent
 } from '@components/Input/style'
-import { HeadlineThree } from '@components/Typography'
+import { HeadlineThree, Paragraph } from '@components/Typography'
 import { devices } from '@constants/devices'
 
 export const SideBarContainer = styled.div`
