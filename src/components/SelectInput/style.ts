@@ -33,9 +33,12 @@ export const SelectInputContainer = styled.div<InputContainerInterface>`
     active
       ? `2px solid ${theme.colors.green.main}`
       : `2px solid ${theme.colors.gray.main}`};
+  border-bottom: ${({ theme, active }) =>
+    active
+      ? `4px solid ${theme.colors.green.main}`
+      : `4px solid ${theme.colors.gray.main}`};
   border-radius: 10px;
   background: ${({ theme }) => theme.colors.vanilla.light};
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
   padding: 8px 48px;
   font-size: 16px;
   transition: all ease 0.3s;

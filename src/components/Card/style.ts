@@ -12,7 +12,7 @@ export const CardContainer = styled.div<AnimatedElementInterface>`
   width: 260px;
   min-height: 200px;
   background: ${({ theme }) => theme.colors.vanilla.light};
-  box-shadow: -4px 8px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 8px 30px rgb(0 0 0 / 10%);
   border-radius: 16px;
   opacity: ${({ isAnimated }) => (isAnimated ? '1' : '0')};
   transition-timing-function: ease;
