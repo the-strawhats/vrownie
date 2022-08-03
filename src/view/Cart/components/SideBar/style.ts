@@ -21,7 +21,7 @@ export const SideBarContainer = styled.div`
   width: 100%;
   max-width: 470px;
   padding-top: 96px;
-  box-shadow: -4px 16px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 8px 30px rgb(0 0 0 / 10%);
   background-color: ${({ theme }) => theme.colors.vanilla.light};
 
   @media ${devices.laptop} {
