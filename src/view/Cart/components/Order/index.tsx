@@ -49,7 +49,7 @@ const Order: React.FC<OrderInterface> = ({ cartList, totalValue }) => {
   return (
     <OrderContainer>
       <HeadlineFour>
-        Tá tudo certinho ?
+        Tá tudo certinho <span className="red">?</span>
       </HeadlineFour>
       <OrderListWrapper>
         {cartList &&
