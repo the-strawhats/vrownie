@@ -20,7 +20,8 @@ const Hero = () => {
           </Paragraph>
         </span>
         <HeadlineOne>
-          Brownies <span className="green">veganos</span> de respeito
+          <span className="green">Brownies</span> <br />{' '}
+          <span>de respeito</span>
           <span className="red">.</span>
         </HeadlineOne>
         <Paragraph>
