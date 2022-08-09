@@ -15,7 +15,7 @@ const FloatingAction = ({ onClick, isDisabled, totalValue }: FloatingActionIntef
           <span>Total:</span>
           <span className="green">{totalValue}</span>
       </Paragraph>
-      <Button label="Pedir agora!" onClick={onClick} isDisabled={isDisabled} />
+      <Button label="Quero encomendar!" onClick={onClick} isDisabled={isDisabled} />
     </FloatingActionWrapper>
   )
 }
