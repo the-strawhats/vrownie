@@ -28,7 +28,7 @@ const Hero = () => {
           leque de possibilidades!
         </Paragraph>
         <Button
-          label="Pedir agora!"
+          label="Quero encomendar!"
           onClick={() => scrollIntoView('products')}
         />
       </HeroTextContent>
