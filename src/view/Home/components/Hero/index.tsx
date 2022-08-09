@@ -13,15 +13,8 @@ const Hero = () => {
       <Icon id="heroBackground" height={900} width={616} />
       <Image src="/heroBackgroundMobile.png" height={2970} width={1668} />
       <HeroTextContent>
-        <span>
-          <Icon id="eco" height={24} width={24} />
-          <Paragraph fontSize={16}>
-            <span className="red">Embalagens ecológicas</span>
-          </Paragraph>
-        </span>
         <HeadlineOne>
           Brownies <span className="green">veganos</span> de respeito
-          <span className="red">.</span>
         </HeadlineOne>
         <Paragraph>
           Veganismo não é sinônimo de algo sem sabor, como muitos pensam, mas um
