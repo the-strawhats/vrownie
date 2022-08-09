@@ -4,11 +4,13 @@ import SelectInput from '@components/SelectInput'
 import Input from '@components/Input'
 import Button from '@components/Button'
 import enhancer from './logic/index'
-import { useOrder } from 'src/view/Cart/components/Order/logic'
 import FloatingAction from '@components/FloattingAction'
 import { Fragment } from 'react'
+import enhanceCart from '@view/Cart/components/Order/logic'
+import { formatCurrency } from '@utils/format'
 
 interface SidebarInterface {
+  totalValue: string
   handleOrderNow: () => void
   isButtonDisabled: boolean
   isAddress: boolean
@@ -25,8 +27,11 @@ const SideBar: React.FC<SidebarInterface> = ({
   handleOrderNow,
   handleOnChange,
   isAddress,
-  isSubway
+  isSubway,
+  totalValue,
 }) => {
+  const formattedTotalValue = formatCurrency(Number(totalValue))
+
   return (
     <Fragment>
       <SideBarContainer>
@@ -56,14 +61,14 @@ const SideBar: React.FC<SidebarInterface> = ({
         )}
         <Input label="Observações" onChange={handleOnChange('observation')} />
         <Button
-          label="Pedir agora!"
+          label="Quero encomendar!"
           onClick={handleOrderNow}
           isDisabled={isButtonDisabled}
         />
       </SideBarContainer>
-      <FloatingAction onClick={handleOrderNow} isDisabled={isButtonDisabled} />
+      <FloatingAction onClick={handleOrderNow} isDisabled={isButtonDisabled} totalValue={formattedTotalValue} />
     </Fragment>
   )
 }
 
-export default enhancer(SideBar)
+export default enhanceCart(enhancer(SideBar))

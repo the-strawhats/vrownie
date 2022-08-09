@@ -15,7 +15,7 @@ export const OrderContainer = styled.div`
   padding: 48px 64px 36px;
 
   background-color: ${({ theme }) => theme.colors.vanilla.light};
-  box-shadow: -4px 16px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 8px 30px rgb(0 0 0 / 10%);
   border-radius: 16px;
 
   @media ${devices.laptop} {
@@ -54,6 +54,7 @@ export const OrderListWrapper = styled.div`
   height: 100%;
   overflow-y: auto;
   width: 100%;
+  padding-right: 8px;
 
   ::-webkit-scrollbar {
     -webkit-appearance: none;
