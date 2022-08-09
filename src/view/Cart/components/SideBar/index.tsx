@@ -16,6 +16,7 @@ interface SidebarInterface {
   isAddress: boolean
   isButtonDisabled: boolean
   handleOrderNow: () => void
+  isAddressFormDisabled: boolean
   handleSelectChange: (option: string) => void
   handleOnChange: (
     modal: string
@@ -32,7 +33,8 @@ const SideBar: React.FC<SidebarInterface> = ({
   handleOnChange,
   isButtonDisabled,
   handleSelectChange,
-  handleZipCodeChange
+  handleZipCodeChange,
+  isAddressFormDisabled
 }) => {
   const formattedTotalValue = formatCurrency(Number(totalValue))
 
@@ -56,13 +58,13 @@ const SideBar: React.FC<SidebarInterface> = ({
               value={street}
               label="Rua"
               onChange={handleOnChange('street')}
-              isDisabled
+              isDisabled={isAddressFormDisabled}
             />
             <Input
               value={neighborhood}
               label="Bairro"
               onChange={handleOnChange('neighborhood')}
-              isDisabled
+              isDisabled={isAddressFormDisabled}
             />
             <SideBarInputWrapper>
               <Input label="Numero" onChange={handleOnChange('number')} />

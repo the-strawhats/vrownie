@@ -20,9 +20,10 @@ const initialContentForm = {
 
 const useSidebar = () => {
   const [currentOption, setCurrentOption] = useState<DeliveryType>('')
-  const [contentForm, setContentForm] = useState(initialContentForm)
   const [isFormValid, setIsFormValid] = useState(false)
   const [ignorableValues, setIgnorableValues] = useState([])
+  const [contentForm, setContentForm] = useState(initialContentForm)
+  const [isAddressFormDisabled, setIsAddressFormDisabled] = useState(true)
 
   const { hasCardList } = useOrder()
   const isAddress = currentOption === 'Endereço'
@@ -75,7 +76,7 @@ const useSidebar = () => {
   const handleOnChange = (model: string) => (
     event: React.FormEvent<HTMLInputElement>
   ) => {
-    const form = contentForm
+    const form = { ...contentForm }
     const { value } = event.currentTarget
     form[model] = value
 
@@ -97,7 +98,13 @@ const useSidebar = () => {
       const { getByZipCode } = api
 
       getByZipCode({ cep: value }).then(res => {
-        const { logradouro, bairro } = res
+        const { logradouro, bairro, erro } = res
+
+        const error = erro && JSON.parse(erro) === true
+
+        if (error) {
+          return setIsAddressFormDisabled(false)
+        }
 
         const currentContentForm = {
           ...contentForm,
@@ -149,7 +156,8 @@ const useSidebar = () => {
     isButtonDisabled,
     setCurrentOption,
     handleSelectChange,
-    handleZipCodeChange
+    handleZipCodeChange,
+    isAddressFormDisabled
   }
 }
 
