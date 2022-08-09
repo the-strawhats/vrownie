@@ -7,6 +7,7 @@ import {
 } from '@utils/index'
 import React, { useState } from 'react'
 import { useOrder } from '../../Order/logic'
+import { Address } from 'src/services/address'
 
 const initialContentForm = {
   street: '',
@@ -85,6 +86,30 @@ const useSidebar = () => {
     setContentForm(form)
   }
 
+  const handleZipCodeChange = (event: React.FormEvent<HTMLInputElement>) => {
+    handleOnChange('cep')(event)
+    const { value } = event.currentTarget
+
+    const hasFullZipCode = value.length === 8
+
+    if (hasFullZipCode) {
+      const api = new Address()
+      const { getByZipCode } = api
+
+      getByZipCode({ cep: value }).then(res => {
+        const { logradouro, bairro } = res
+
+        const currentContentForm = {
+          ...contentForm,
+          street: logradouro,
+          neighborhood: bairro
+        }
+
+        setContentForm(currentContentForm)
+      })
+    }
+  }
+
   const handleOrderNow = () => {
     const cartList = getStorageItem('cart')
     const orderText = cartListToOrder(cartList)
@@ -115,14 +140,16 @@ const useSidebar = () => {
   const isButtonDisabled = !isFormValid || !hasCardList
 
   return {
-    handleSelectChange,
-    isButtonDisabled,
-    handleOrderNow,
-    currentOption,
-    setCurrentOption,
-    handleOnChange,
+    isSubway,
     isAddress,
-    isSubway
+    contentForm,
+    currentOption,
+    handleOrderNow,
+    handleOnChange,
+    isButtonDisabled,
+    setCurrentOption,
+    handleSelectChange,
+    handleZipCodeChange
   }
 }
 
