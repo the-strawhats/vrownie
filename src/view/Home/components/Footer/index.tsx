@@ -21,8 +21,6 @@ const Footer = () => {
         <AnchorCask href="https://api.whatsapp.com/send?phone=5511988256175">
           <Icon id="whatsapp" height={32} width={32} />
         </AnchorCask>
-
-        {/* Waiting for the current Facebook url or other link  */}
       </FooterMedias>
     </FooterContainer>
   )

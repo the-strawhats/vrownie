@@ -14,10 +14,7 @@ export const FooterMedias = styled.div`
 
 export const AnchorCask = styled.a`
   cursor: pointer;
-
-  :nth-child(1) {
-    margin: 0 8px;
-  }
+  margin: 0 8px;
 
   :nth-child(2) {
     margin: 0 8px;
