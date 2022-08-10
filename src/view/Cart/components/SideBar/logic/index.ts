@@ -28,7 +28,7 @@ const useSidebar = () => {
   const isSubway = currentOption === 'Metrô'
 
   const ignorableValuesMapper = {
-    Endereço: ['station', 'observation'],
+    Endereço: ['station', 'observation', 'complement'],
     Metrô: ['street', 'neighborhood', 'number', 'complement', 'observation'],
     Retirar: [
       'station',
