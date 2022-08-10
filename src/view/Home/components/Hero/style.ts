@@ -99,7 +99,7 @@ export const HeroContainer = styled.div`
 export const HeroTextContent = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 453px;
+  max-width: 494px;
 
   > ${HeadlineOne} {
     position: relative;
