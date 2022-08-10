@@ -13,15 +13,8 @@ const Hero = () => {
       <Icon id="heroBackground" height={900} width={616} />
       <Image src="/heroBackgroundMobile.png" height={2970} width={1668} />
       <HeroTextContent>
-        <span>
-          <Icon id="eco" height={24} width={24} />
-          <Paragraph fontSize={16}>
-            <span className="red">Embalagens ecológicas</span>
-          </Paragraph>
-        </span>
         <HeadlineOne>
-          <span className="green">Brownies</span> <br />{' '}
-          <span>de respeito</span>
+          <span className="green">Brownies</span> <br /> de respeito
           <span className="red">.</span>
         </HeadlineOne>
         <Paragraph>

@@ -204,7 +204,7 @@ export const HeroTextContent = styled.div`
   }
 
   @media ${devices.mobileL} {
-    max-width: 272px;
+    max-width: 304px;
   }
 `
 
