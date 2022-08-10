@@ -3,6 +3,16 @@ import { CounterWrapper } from '@components/Counter/style'
 import { Paragraph, CardPrice, HeadlineFour } from '@components/Typography'
 import { devices } from '@constants/devices'
 
+export const DeleteButton = styled.span`
+  color: #a4351d;
+  cursor: pointer;
+  font-size: 12px;
+
+  &:hover {
+    font-weight: bold;
+  }
+`
+
 export const OrderContainer = styled.div`
   display: flex;
   position: relative;
@@ -101,8 +111,8 @@ export const SingleOrderTextContent = styled.div`
 `
 export const SingleOrderContainer = styled.div`
   display: inline-grid;
-  grid-template-columns: 1fr 1fr 3fr;
-  grid-column-gap: 24px;
+  grid-template-columns: 1fr 1fr 1fr 10fr 1fr;
+  grid-column-gap: 16px;
   align-items: center;
   height: 92px;
   width: 100%;

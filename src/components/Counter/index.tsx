@@ -18,9 +18,15 @@ const Counter: React.FC<CounterInterface> = ({
   handleDecrease,
   currentValue
 }) => {
+  const limitMinimum = () => {
+    if (currentValue <= 1)
+      return
+    handleDecrease()
+  }
+
   return (
     <CounterWrapper>
-      <CounterActionLeft onClick={handleDecrease}>-</CounterActionLeft>
+      <CounterActionLeft onClick={limitMinimum}>-</CounterActionLeft>
       <CounterLabel>
         <span>{currentValue}</span>
       </CounterLabel>
