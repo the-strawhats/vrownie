@@ -14,7 +14,6 @@ interface SidebarInterface {
   handleOrderNow: () => void
   isButtonDisabled: boolean
   isAddress: boolean
-  isSubway: boolean
   handleSelectChange: (option: string) => void
   handleOnChange: (
     modal: string
@@ -27,8 +26,7 @@ const SideBar: React.FC<SidebarInterface> = ({
   handleOrderNow,
   handleOnChange,
   isAddress,
-  isSubway,
-  totalValue,
+  totalValue
 }) => {
   const formattedTotalValue = formatCurrency(Number(totalValue))
 
@@ -39,7 +37,7 @@ const SideBar: React.FC<SidebarInterface> = ({
           Entrega<span className="red">.</span>
         </HeadlineThree>
         <SelectInput
-          options={['Endereço', 'Metrô', 'Retirar']}
+          options={['Endereço', 'Retirar']}
           label="Opção de entrega"
           handleCustomAction={handleSelectChange}
         />
@@ -56,9 +54,6 @@ const SideBar: React.FC<SidebarInterface> = ({
             </SideBarInputWrapper>
           </>
         )}
-        {isSubway && (
-          <Input label="Estação" onChange={handleOnChange('station')} />
-        )}
         <Input label="Observações" onChange={handleOnChange('observation')} />
         <Button
           label="Quero encomendar!"
@@ -66,7 +61,11 @@ const SideBar: React.FC<SidebarInterface> = ({
           isDisabled={isButtonDisabled}
         />
       </SideBarContainer>
-      <FloatingAction onClick={handleOrderNow} isDisabled={isButtonDisabled} totalValue={formattedTotalValue} />
+      <FloatingAction
+        onClick={handleOrderNow}
+        isDisabled={isButtonDisabled}
+        totalValue={formattedTotalValue}
+      />
     </Fragment>
   )
 }
