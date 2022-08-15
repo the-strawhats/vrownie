@@ -3,13 +3,16 @@ import { CounterWrapper } from '@components/Counter/style'
 import { Paragraph, CardPrice, HeadlineFour } from '@components/Typography'
 import { devices } from '@constants/devices'
 
-export const DeleteButton = styled.span`
+export const DeleteButton = styled.button`
+  background: transparent;
+  border: none;
   color: #a4351d;
   cursor: pointer;
   font-size: 12px;
+  padding: 8px 0 0 16px;
 
   &:hover {
-    font-weight: bold;
+    color: #8cb175;
   }
 `
 

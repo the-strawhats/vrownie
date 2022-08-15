@@ -12,6 +12,7 @@ import {
   DeleteButton
 } from './style'
 import enhancer from './logic'
+import Icon from '@components/Icon'
 
 interface OrderInterface {
   cartList: Array<CartItem>
@@ -23,7 +24,7 @@ const SingleOrder: React.FC<CartItem> = item => {
   const { priceStart, priceEnd } = splitPrice(price)
   return (
     <SingleOrderContainer>
-      <DeleteButton onClick={() => removeCartItem(name)}>Excluir</DeleteButton>
+      <DeleteButton onClick={() => removeCartItem(name)}><Icon id='trash'/></DeleteButton>
       <Image src={url} alt="Picture of a brownie" width={86} height={62} />
       <Counter
         amount={amount}

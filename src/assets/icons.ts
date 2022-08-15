@@ -1,3 +1,4 @@
+const trash = require( './trash.svg')
 const vegan = require( './vegan.svg')
 const eco = require( './eco.svg')
 const shop = require( './shop.svg')
@@ -11,6 +12,7 @@ const productsBackgroundOne = require( './productsBackgroundOne.svg')
 const productsBackgroundTwo = require( './productsBackgroundTwo.svg')
 
 const iconMapper = {
+  trash,
   vegan,
   eco,
   shop,
