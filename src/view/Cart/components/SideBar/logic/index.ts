@@ -7,7 +7,7 @@ import {
 } from '@utils/index'
 import React, { useState } from 'react'
 import { useOrder } from '../../Order/logic'
-import { redirectToWhatsappMessage } from '../../../../../utils/redirectToWhatsappMessage'
+import { redirectToWhatsappMessage } from '@utils/redirectToWhatsappMessage'
 
 const initialContentForm = {
   street: '',
