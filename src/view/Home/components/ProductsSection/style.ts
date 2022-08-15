@@ -12,6 +12,10 @@ export const ProductsSectionContainer = styled.div`
   padding-top: 146px;
   min-height: 100vh;
 
+  @media ${devices.mobileM} {
+    padding-top: 0px;
+  }
+
   > ${HeadlineTwo} {
     margin-bottom: 8px;
   }
