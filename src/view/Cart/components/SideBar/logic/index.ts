@@ -7,6 +7,7 @@ import {
 } from '@utils/index'
 import React, { useState } from 'react'
 import { useOrder } from '../../Order/logic'
+import { redirectToWhatsappMessage } from '@utils/redirectToWhatsappMessage'
 
 const initialContentForm = {
   street: '',
@@ -89,12 +90,9 @@ const useSidebar = () => {
     const cartList = getStorageItem('cart')
     const orderText = cartListToOrder(cartList)
     const addressText = deliveryFormToOrder(currentOption, contentForm)
-    const phoneNumber = process.env.REACT_APP_PHONE_NUMBER ?? `5511988256175`
     const finalMessage = `${orderText}%0a%0a${addressText}`
 
-    window.open(
-      `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${finalMessage}`
-    )
+    redirectToWhatsappMessage(finalMessage)
   }
 
   const handleSelectChange = value => {
@@ -127,3 +125,4 @@ const useSidebar = () => {
 }
 
 export default composer(useSidebar)
+
