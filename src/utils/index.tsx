@@ -16,7 +16,7 @@ export function findCartItem(name: string) {
   const storageEvent = new Event('storage')
   const previusData: Array<CartItem> = getStorageItem('cart')
 
-  const currentCartValue = previusData ? previusData : []
+  const currentCartValue = previusData || []
 
   const existingItemIndex = currentCartValue.findIndex(
     item => item.name === name
