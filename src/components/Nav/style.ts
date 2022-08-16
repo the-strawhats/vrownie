@@ -21,6 +21,7 @@ const navAnimation = keyframes`
 `
 export const IconActionWrapper = styled.div`
   display: inline;
+  cursor: pointer;
 `
 
 export const LogoActionWrapper = styled.div`

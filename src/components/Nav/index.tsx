@@ -39,6 +39,9 @@ const Nav: React.FC<NavInterface> = ({
         <Link href="/">
           <IconActionWrapper>
             <Icon id="vegan" height={40} width={40} />
+            {disabledCart && (
+              <span>Voltar</span>
+            )}
           </IconActionWrapper>
         </Link>
         {!disabledCart && (
