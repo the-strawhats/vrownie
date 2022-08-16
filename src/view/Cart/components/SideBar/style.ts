@@ -16,7 +16,7 @@ export const SideBarContainer = styled.div`
   position: absolute;
   top: 0px;
   right: 0px;
-  height: 100%;
+  height: 120vh;
   min-height: 100vh;
   width: 100%;
   max-width: 470px;
