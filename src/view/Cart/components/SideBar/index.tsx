@@ -25,7 +25,7 @@ interface SidebarInterface {
 const SideBar: React.FC<SidebarInterface> = ({
   isAddress,
   totalValue,
-  contentForm,
+  contentForm = {},
   handleOrderNow,
   handleOnChange,
   isButtonDisabled,

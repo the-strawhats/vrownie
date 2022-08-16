@@ -8,9 +8,11 @@ import {
   OrderContainer,
   SingleOrderContainer,
   OrderListWrapper,
+  EmptyCartMessage,
   SingleOrderTextContent
 } from './style'
 import enhancer from './logic'
+import Link from 'next/link'
 
 interface OrderInterface {
   cartList: Array<CartItem>
@@ -56,6 +58,14 @@ const Order: React.FC<OrderInterface> = ({ cartList, totalValue }) => {
           cartList.map((item, idx) => {
             return <SingleOrder key={idx} {...item} />
           })}
+        {!cartList && (
+          <Link href="/">
+            <EmptyCartMessage>
+              <h1>Seu carrinho está vazio! :(</h1>
+              <p>Clique aqui para voltar a página inicial.</p>
+            </EmptyCartMessage>
+          </Link>
+        )}
       </OrderListWrapper>
       <Paragraph weigth="medium">
         Valor total<span className="red">:</span>{' '}

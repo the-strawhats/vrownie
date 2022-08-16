@@ -127,3 +127,20 @@ export const SingleOrderContainer = styled.div`
     text-align: end;
   }
 `
+
+export const EmptyCartMessage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  cursor: pointer;
+
+  h1 {
+    color: ${({theme}) => theme.colors.black.main}
+  }
+
+  p {
+    color: ${({theme}) => theme.colors.green.dark}
+  }
+`
