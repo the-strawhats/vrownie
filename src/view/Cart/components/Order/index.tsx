@@ -7,11 +7,13 @@ import { CartItem } from '@interface/index'
 import {
   OrderContainer,
   SingleOrderContainer,
+  EmptyCartMessage,
+  DeleteButton,
   OrderListWrapper,
   SingleOrderTextContent,
-  DeleteButton
 } from './style'
 import enhancer from './logic'
+import Link from 'next/link'
 import Icon from '@components/Icon'
 
 interface OrderInterface {
@@ -53,13 +55,21 @@ const Order: React.FC<OrderInterface> = ({ cartList, totalValue }) => {
   return (
     <OrderContainer>
       <HeadlineFour>
-        Seu pedido<span className="red">.</span>
+        Tá tudo certinho <span className="red">?</span>
       </HeadlineFour>
       <OrderListWrapper>
         {cartList &&
           cartList.map((item, idx) => {
             return <SingleOrder key={idx} {...item} />
           })}
+        {!cartList && (
+          <Link href="/">
+            <EmptyCartMessage>
+              <h1>Seu carrinho está vazio! :(</h1>
+              <p>Clique aqui para voltar a página inicial.</p>
+            </EmptyCartMessage>
+          </Link>
+        )}
       </OrderListWrapper>
       <Paragraph weigth="medium">
         Valor total<span className="red">:</span>{' '}

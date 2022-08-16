@@ -2,6 +2,7 @@ import { getStorageItem } from '@utils/index'
 import { useRef, useEffect, useState } from 'react'
 import composer from '@utils/composer'
 import { CartItem } from '@interface/index'
+import { redirectToWhatsappMessage } from '@utils/redirectToWhatsappMessage'
 
 const useNavbar = () => {
   const navRef = useRef<HTMLElement | null>()
@@ -36,6 +37,10 @@ const useNavbar = () => {
     }
   }
 
+  const askForHelp = () => {
+    redirectToWhatsappMessage("Estou com uma dúvida: ")
+  }
+
   useEffect(() => {
     const observer = new IntersectionObserver(callBack, options)
     observer.observe(navRef.current)
@@ -52,7 +57,8 @@ const useNavbar = () => {
     navRef,
     isAnimated,
     isCartActive,
-    cartAmount
+    cartAmount,
+    askForHelp
   }
 }
 

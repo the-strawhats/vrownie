@@ -1,5 +1,4 @@
 import axios from 'axios'
-import image from 'next/image'
 
 export class GraphCMS {
   url: string

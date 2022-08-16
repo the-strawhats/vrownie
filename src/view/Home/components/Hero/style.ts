@@ -51,7 +51,7 @@ export const HeroContainer = styled.div`
 
   @media ${devices.mobileM} {
     min-height: calc(100vh - 72px);
-  }
+    padding-top: 176px;  }
 
   > ${ImageWrapper} {
     position: absolute;
@@ -99,7 +99,7 @@ export const HeroContainer = styled.div`
 export const HeroTextContent = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 453px;
+  max-width: 494px;
 
   > ${HeadlineOne} {
     position: relative;
@@ -204,7 +204,7 @@ export const HeroTextContent = styled.div`
   }
 
   @media ${devices.mobileL} {
-    max-width: 272px;
+    max-width: 304px;
   }
 `
 

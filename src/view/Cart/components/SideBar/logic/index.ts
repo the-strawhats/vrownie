@@ -7,29 +7,29 @@ import {
 } from '@utils/index'
 import React, { useState } from 'react'
 import { useOrder } from '../../Order/logic'
+import { redirectToWhatsappMessage } from '@utils/redirectToWhatsappMessage'
+import { Address } from 'src/services/address'
 
 const initialContentForm = {
   street: '',
   neighborhood: '',
   number: '',
   complement: '',
-  station: '',
   observation: ''
 }
 
 const useSidebar = () => {
   const [currentOption, setCurrentOption] = useState<DeliveryType>('')
-  const [contentForm, setContentForm] = useState(initialContentForm)
   const [isFormValid, setIsFormValid] = useState(false)
   const [ignorableValues, setIgnorableValues] = useState([])
+  const [contentForm, setContentForm] = useState(initialContentForm)
+  const [isAddressFormDisabled, setIsAddressFormDisabled] = useState(true)
 
   const { hasCardList } = useOrder()
   const isAddress = currentOption === 'Endereço'
-  const isSubway = currentOption === 'Metrô'
 
   const ignorableValuesMapper = {
-    Endereço: ['station', 'observation'],
-    Metrô: ['street', 'neighborhood', 'number', 'complement', 'observation'],
+    Endereço: ['station', 'observation', 'complement'],
     Retirar: [
       'station',
       'street',
@@ -74,7 +74,7 @@ const useSidebar = () => {
   const handleOnChange = (model: string) => (
     event: React.FormEvent<HTMLInputElement>
   ) => {
-    const form = contentForm
+    const form = { ...contentForm }
     const { value } = event.currentTarget
     form[model] = value
 
@@ -85,16 +85,43 @@ const useSidebar = () => {
     setContentForm(form)
   }
 
+  const handleZipCodeChange = (event: React.FormEvent<HTMLInputElement>) => {
+    handleOnChange('cep')(event)
+    const { value } = event.currentTarget
+
+    const hasFullZipCode = value.length === 8
+
+    if (hasFullZipCode) {
+      const api = new Address()
+      const { getByZipCode } = api
+
+      getByZipCode({ cep: value }).then(res => {
+        const { logradouro, bairro, erro } = res
+
+        const error = erro && JSON.parse(erro) === true
+
+        if (error) {
+          return setIsAddressFormDisabled(false)
+        }
+
+        const currentContentForm = {
+          ...contentForm,
+          street: logradouro,
+          neighborhood: bairro
+        }
+
+        setContentForm(currentContentForm)
+      })
+    }
+  }
+
   const handleOrderNow = () => {
     const cartList = getStorageItem('cart')
     const orderText = cartListToOrder(cartList)
     const addressText = deliveryFormToOrder(currentOption, contentForm)
-    const phoneNumber = process.env.REACT_APP_PHONE_NUMBER ?? `5511988256175`
     const finalMessage = `${orderText}%0a%0a${addressText}`
 
-    window.open(
-      `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${finalMessage}`
-    )
+    redirectToWhatsappMessage(finalMessage)
   }
 
   const handleSelectChange = value => {
@@ -115,14 +142,15 @@ const useSidebar = () => {
   const isButtonDisabled = !isFormValid || !hasCardList
 
   return {
-    handleSelectChange,
-    isButtonDisabled,
-    handleOrderNow,
-    currentOption,
-    setCurrentOption,
-    handleOnChange,
     isAddress,
-    isSubway
+    contentForm,
+    handleOnChange,
+    handleOrderNow,
+    isButtonDisabled,
+    setCurrentOption,
+    handleSelectChange,
+    handleZipCodeChange,
+    isAddressFormDisabled
   }
 }
 

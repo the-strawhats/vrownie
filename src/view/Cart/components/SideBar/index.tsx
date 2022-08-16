@@ -10,27 +10,33 @@ import enhanceCart from '@view/Cart/components/Order/logic'
 import { formatCurrency } from '@utils/format'
 
 interface SidebarInterface {
+  contentForm
   totalValue: string
   handleOrderNow: () => void
   isButtonDisabled: boolean
   isAddress: boolean
-  isSubway: boolean
   handleSelectChange: (option: string) => void
   handleOnChange: (
     modal: string
   ) => (event: React.FormEvent<HTMLInputElement>) => void
+  handleZipCodeChange: (event: React.FormEvent<HTMLInputElement>) => void
+  isAddressFormDisabled
 }
 
 const SideBar: React.FC<SidebarInterface> = ({
-  handleSelectChange,
-  isButtonDisabled,
+  isAddress,
+  totalValue,
+  contentForm = {},
   handleOrderNow,
   handleOnChange,
-  isAddress,
-  isSubway,
-  totalValue,
+  isButtonDisabled,
+  handleSelectChange,
+  handleZipCodeChange,
+  isAddressFormDisabled
 }) => {
   const formattedTotalValue = formatCurrency(Number(totalValue))
+
+  const { street = '', neighborhood } = contentForm
 
   return (
     <Fragment>
@@ -39,14 +45,25 @@ const SideBar: React.FC<SidebarInterface> = ({
           Entrega<span className="red">.</span>
         </HeadlineThree>
         <SelectInput
-          options={['Endereço', 'Metrô', 'Retirar']}
+          options={['Endereço', 'Retirar']}
           label="Opção de entrega"
           handleCustomAction={handleSelectChange}
         />
         {isAddress && (
           <>
-            <Input label="Rua" onChange={handleOnChange('street')} />
-            <Input label="Bairro" onChange={handleOnChange('neighborhood')} />
+            <Input label="Cep" onChange={handleZipCodeChange} />
+            <Input
+              value={street}
+              label="Rua"
+              onChange={handleOnChange('street')}
+              isDisabled={isAddressFormDisabled}
+            />
+            <Input
+              value={neighborhood}
+              label="Bairro"
+              onChange={handleOnChange('neighborhood')}
+              isDisabled={isAddressFormDisabled}
+            />
             <SideBarInputWrapper>
               <Input label="Numero" onChange={handleOnChange('number')} />
               <Input
@@ -56,9 +73,6 @@ const SideBar: React.FC<SidebarInterface> = ({
             </SideBarInputWrapper>
           </>
         )}
-        {isSubway && (
-          <Input label="Estação" onChange={handleOnChange('station')} />
-        )}
         <Input label="Observações" onChange={handleOnChange('observation')} />
         <Button
           label="Quero encomendar!"
@@ -66,7 +80,11 @@ const SideBar: React.FC<SidebarInterface> = ({
           isDisabled={isButtonDisabled}
         />
       </SideBarContainer>
-      <FloatingAction onClick={handleOrderNow} isDisabled={isButtonDisabled} totalValue={formattedTotalValue} />
+      <FloatingAction
+        onClick={handleOrderNow}
+        isDisabled={isButtonDisabled}
+        totalValue={formattedTotalValue}
+      />
     </Fragment>
   )
 }
