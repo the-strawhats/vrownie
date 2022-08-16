@@ -1,5 +1,5 @@
 import { SideBarContainer, SideBarInputWrapper } from './style'
-import { HeadlineThree } from '@components/Typography'
+import { HeadlineFour, HeadlineThree } from '@components/Typography'
 import SelectInput from '@components/SelectInput'
 import Input from '@components/Input'
 import Button from '@components/Button'
@@ -44,6 +44,9 @@ const SideBar: React.FC<SidebarInterface> = ({
         <HeadlineThree>
           Entrega<span className="red">.</span>
         </HeadlineThree>
+        <h4>
+          Entregas e retiradas aos sábados.
+        </h4>
         <SelectInput
           options={['Endereço', 'Retirar']}
           label="Opção de entrega"

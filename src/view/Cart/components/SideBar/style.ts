@@ -24,6 +24,15 @@ export const SideBarContainer = styled.div`
   box-shadow: 0px 8px 30px rgb(0 0 0 / 10%);
   background-color: ${({ theme }) => theme.colors.vanilla.light};
 
+  ${HeadlineThree} {
+    margin-bottom: 8px !important;
+  }
+
+  h4 {
+    color: ${({theme}) => theme.colors.red.main};
+    margin-bottom: 8px;
+  }
+
   @media ${devices.laptop} {
     min-height: auto;
     max-width: 100%;
