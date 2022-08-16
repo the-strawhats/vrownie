@@ -5,7 +5,9 @@ import {
   NavShopButton,
   NavShopButtonContent,
   IconActionWrapper,
-  LogoActionWrapper
+  LogoActionWrapper,
+  NavWhatsappButton,
+  NavWhatsappButtonTooltip
 } from './style'
 import Icon from '@components/Icon'
 import { Paragraph } from '@components/Typography'
@@ -20,6 +22,7 @@ interface NavInterface {
   isCartActive: boolean
   cartAmount: number
   disabledCart: boolean
+  askForHelp: () => void
 }
 
 const Nav: React.FC<NavInterface> = ({
@@ -27,7 +30,8 @@ const Nav: React.FC<NavInterface> = ({
   isAnimated = true,
   isCartActive,
   cartAmount,
-  disabledCart = false
+  disabledCart = false,
+  askForHelp,
 }) => {
   return (
     <NavContainer isAnimated={isAnimated} ref={navRef}>
@@ -83,6 +87,10 @@ const Nav: React.FC<NavInterface> = ({
           </NavShopButton>
         </Link>
       )}
+      <NavWhatsappButton onClick={askForHelp}>
+        <Icon id="whatsapp" height={28} width={28} />
+        <NavWhatsappButtonTooltip>Precisa de ajuda? → </NavWhatsappButtonTooltip>
+      </NavWhatsappButton>
     </NavContainer>
   )
 }
