@@ -84,15 +84,15 @@ export const cartListToOrder = (data: Array<CartItem>) => {
 const observationToOrder = (addressInformation: AddressPayloadInterface) => {
   const { observation } = addressInformation
   const observationText = observation.trim()
-    ? `Observações: %0a${observation}%0a%0a`
+    ? `%0a%0aObservações: %0a${observation}%0a%0a`
     : ''
-  const finalAdressText = observationText + `Qual o endereço de retirada?`
-  return finalAdressText
+
+  return observationText
 }
 
 const adressToOrder = (addressInformation: AddressPayloadInterface) => {
   const { street, neighborhood, complement } = addressInformation
-  const adressText = `Detalhes do envio: %0a${street}, ${neighborhood}. ${complement}`
+  const adressText = `Detalhes do envio: %0a${street}, ${neighborhood}, ${complement}`
 
   const finalAdressText = `${adressText}${observationToOrder(
     addressInformation
@@ -109,7 +109,10 @@ export const deliveryFormToOrder = (
     return adressToOrder(addressInformation)
   }
   if (deliveryType === 'Retirar' || deliveryType === '') {
-    return observationToOrder(addressInformation)
+    const observation = observationToOrder(addressInformation)
+    const finalMessage = `${observation}.%0a%0a Qual o endereço de retirada?`
+
+    return finalMessage
   }
 }
 

@@ -40,9 +40,9 @@ export const NavContainer = styled.nav<AnimatedElementInterface>`
     top: 50%;
     transition: all cubic-bezier(0.69, 0.01, 0.25, 1) 0.5s;
     transform: ${({ isAnimated }) =>
-      isAnimated
-        ? 'translateX(-50%) translateY(-128px)'
-        : 'translateX(-50%) translateY(-50%)'};
+    isAnimated
+      ? 'translateX(-50%) translateY(-128px)'
+      : 'translateX(-50%) translateY(-50%)'};
 
     @media ${devices.mobileM} {
       width: 115px;
@@ -106,7 +106,7 @@ export const Navlist = styled.div<AnimatedElementInterface>`
 `
 
 export const NavShopButton = styled.button<AnimatedElementInterface>`
-  top: ${({ isAnimated }) => (isAnimated ? 'calc(100vh - 116px)' : '40px')};
+  top: calc(100vh - 136px);
   right: 40px;
   position: fixed;
   display: flex;
@@ -118,27 +118,13 @@ export const NavShopButton = styled.button<AnimatedElementInterface>`
   background-color: ${({ theme }) => theme.colors.green.dark};
   border: none;
   cursor: pointer;
-  transition-property: top, background-color;
-  transition-timing-function: cubic-bezier(0.69, 0.01, 0.25, 1);
-  transition-duration: 0.8s, 0.3s;
-  transition-delay: 400ms, 0s;
   z-index: 1;
 
   :hover {
     background-color: ${({ theme }) => theme.colors.green.main};
   }
 
-  @media ${devices.mobileL} {
-    height: 40px;
-    width: 40px;
-    > ${IconContainer} {
-      height: 13px;
-      width: 13px;
-    }
-  }
-
   @media ${devices.mobileM} {
-    top: ${({ isAnimated }) => (isAnimated ? 'calc(100vh - 120px)' : '24px')};
     right: 20px;
   }
 `
@@ -167,5 +153,70 @@ export const NavShopButtonContent = styled.div<AnimatedElementInterface>`
     font-size: 12px;
     color: ${({ theme }) => theme.colors.vanilla.main};
     content: '${({ cartAmount }) => (cartAmount ? cartAmount : '0')}';
+  }
+`
+
+export const NavWhatsappButtonTooltip = styled.span`
+  width: 150px;
+  background-color: rgba(0,0,0, 80%);
+  
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  border-radius: 6px;
+  left: -160px;
+ 
+  position: absolute;
+  z-index: 1;
+
+  animation: move 1s alternate infinite, disapear 10s forwards;
+
+  @keyframes move {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-18px);
+    }
+  }
+
+  @keyframes disapear {
+    0% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+`
+
+export const NavWhatsappButton = styled.button<AnimatedElementInterface>`
+  top: calc(100vh - 72px);
+  right: 40px;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 55px;
+  width: 55px;
+  border-radius: 100%;
+  background-color: ${({ theme }) => theme.colors.green.dark};
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+
+  path {
+    fill: white;
+  }
+
+  :hover {
+    background-color: ${({ theme }) => theme.colors.green.main};
+  }
+
+  @media ${devices.mobileM} {
+    right: 20px;
   }
 `

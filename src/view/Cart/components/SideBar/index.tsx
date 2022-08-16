@@ -10,6 +10,7 @@ import enhanceCart from '@view/Cart/components/Order/logic'
 import { formatCurrency } from '@utils/format'
 
 interface SidebarInterface {
+  contentForm
   totalValue: string
   handleOrderNow: () => void
   isButtonDisabled: boolean
@@ -18,17 +19,23 @@ interface SidebarInterface {
   handleOnChange: (
     modal: string
   ) => (event: React.FormEvent<HTMLInputElement>) => void
+  handleZipCodeChange: (event: React.FormEvent<HTMLInputElement>) => void
 }
 
 const SideBar: React.FC<SidebarInterface> = ({
-  handleSelectChange,
-  isButtonDisabled,
+  isAddress,
+  totalValue,
+  contentForm,
   handleOrderNow,
   handleOnChange,
-  isAddress,
-  totalValue
+  isButtonDisabled,
+  handleSelectChange,
+  handleZipCodeChange,
+  isAddressFormDisabled
 }) => {
   const formattedTotalValue = formatCurrency(Number(totalValue))
+
+  const { street, neighborhood } = contentForm
 
   return (
     <Fragment>
@@ -43,8 +50,19 @@ const SideBar: React.FC<SidebarInterface> = ({
         />
         {isAddress && (
           <>
-            <Input label="Rua" onChange={handleOnChange('street')} />
-            <Input label="Bairro" onChange={handleOnChange('neighborhood')} />
+            <Input label="Cep" onChange={handleZipCodeChange} />
+            <Input
+              value={street}
+              label="Rua"
+              onChange={handleOnChange('street')}
+              isDisabled={isAddressFormDisabled}
+            />
+            <Input
+              value={neighborhood}
+              label="Bairro"
+              onChange={handleOnChange('neighborhood')}
+              isDisabled={isAddressFormDisabled}
+            />
             <SideBarInputWrapper>
               <Input label="Numero" onChange={handleOnChange('number')} />
               <Input
