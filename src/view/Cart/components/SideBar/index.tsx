@@ -61,7 +61,7 @@ const SideBar: React.FC<SidebarInterface> = ({
         )}
         <Input label="Observações" onChange={handleOnChange('observation')} />
         <Button
-          label="Quero encomendar!"
+          label="Encomendar!"
           onClick={handleOrderNow}
           isDisabled={isButtonDisabled}
         />
