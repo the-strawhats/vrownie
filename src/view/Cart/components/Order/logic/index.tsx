@@ -12,6 +12,7 @@ export const useOrder = () => {
     const totalValue = cartList.reduce((acc: number, cur) => {
       return acc + cur.price * cur.amount
     }, 0)
+    setCartList(cartList)
     setTotalValue(totalValue)
   }
 

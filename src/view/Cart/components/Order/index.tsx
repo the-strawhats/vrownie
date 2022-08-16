@@ -1,18 +1,20 @@
 import { Paragraph, CardPrice, HeadlineFour } from '@components/Typography'
 import Counter from '@components/Counter'
 import Image from '@components/Image'
-import { splitPrice, removeCartItem, addToCart } from '@utils/index'
+import { splitPrice, removeUnitCartItem, addToCart, removeCartItem } from '@utils/index'
 import { CartItem } from '@interface/index'
 
 import {
   OrderContainer,
   SingleOrderContainer,
-  OrderListWrapper,
   EmptyCartMessage,
-  SingleOrderTextContent
+  DeleteButton,
+  OrderListWrapper,
+  SingleOrderTextContent,
 } from './style'
 import enhancer from './logic'
 import Link from 'next/link'
+import Icon from '@components/Icon'
 
 interface OrderInterface {
   cartList: Array<CartItem>
@@ -24,17 +26,18 @@ const SingleOrder: React.FC<CartItem> = item => {
   const { priceStart, priceEnd } = splitPrice(price)
   return (
     <SingleOrderContainer>
+      <DeleteButton onClick={() => removeCartItem(name)}><Icon id='trash'/></DeleteButton>
       <Image src={url} alt="Picture of a brownie" width={86} height={62} />
       <Counter
         amount={amount}
         customHandleIncrease={() => addToCart(item)}
-        customHandleDecrease={() => removeCartItem(item)}
+        customHandleDecrease={() => removeUnitCartItem(item)}
       />
+      <Paragraph weigth="medium">
+        {name}
+        <span className="red">.</span>
+      </Paragraph>
       <SingleOrderTextContent>
-        <Paragraph weigth="medium">
-          {name}
-          <span className="red">.</span>
-        </Paragraph>
 
         <CardPrice color="green" variant="dark">
           {priceStart}
@@ -48,6 +51,7 @@ const SingleOrder: React.FC<CartItem> = item => {
 
 const Order: React.FC<OrderInterface> = ({ cartList, totalValue }) => {
   const { priceStart, priceEnd } = splitPrice(totalValue)
+
   return (
     <OrderContainer>
       <HeadlineFour>
@@ -58,7 +62,7 @@ const Order: React.FC<OrderInterface> = ({ cartList, totalValue }) => {
           cartList.map((item, idx) => {
             return <SingleOrder key={idx} {...item} />
           })}
-        {!cartList && (
+        {!cartList.length && (
           <Link href="/">
             <EmptyCartMessage>
               <h1>Seu carrinho está vazio! :(</h1>

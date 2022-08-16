@@ -12,6 +12,21 @@ const addToStorage = (item: string, data: any) => {
   localStorage.setItem(item, JSON.stringify(data))
 }
 
+export function findCartItem(name: string) {
+  const storageEvent = new Event('storage')
+  const previusData: Array<CartItem> = getStorageItem('cart')
+
+  const currentCartValue = previusData || []
+
+  const existingItemIndex = currentCartValue.findIndex(
+    item => item.name === name
+  )
+
+  const existingItem = currentCartValue[existingItemIndex]
+  return { existingItem, currentCartValue, existingItemIndex, storageEvent }
+}
+
+
 export const addToCart = (data: CartItem) => {
   const storageEvent = new Event('storage')
   const previusData = getStorageItem('cart')
@@ -44,17 +59,8 @@ export const addToCart = (data: CartItem) => {
   }
 }
 
-export const removeCartItem = (data: CartItem) => {
-  const storageEvent = new Event('storage')
-  const previusData: Array<CartItem> = getStorageItem('cart')
-
-  const currentCartValue = previusData ? previusData : []
-
-  const existingItemIndex = currentCartValue.findIndex(
-    item => item.name === data.name
-  )
-
-  const existingItem = currentCartValue[existingItemIndex]
+export const removeUnitCartItem = (data: CartItem) => {
+  const { existingItem, currentCartValue, existingItemIndex, storageEvent } = findCartItem(data.name)
 
   if (existingItem) {
     const { amount } = existingItem
@@ -64,11 +70,16 @@ export const removeCartItem = (data: CartItem) => {
       currentCartValue[existingItemIndex] = existingItem
       addToStorage('cart', currentCartValue)
       window.dispatchEvent(storageEvent)
-    } else {
-      currentCartValue.splice(existingItemIndex, 1)
-      addToStorage('cart', currentCartValue)
-      window.dispatchEvent(storageEvent)
     }
+  }
+}
+
+export const removeCartItem = (name: string) => {
+  const { existingItem, currentCartValue, existingItemIndex, storageEvent } = findCartItem(name)
+  if (existingItem) {
+    currentCartValue.splice(existingItemIndex, 1)
+    addToStorage('cart', currentCartValue)
+    window.dispatchEvent(storageEvent)
   }
 }
 
