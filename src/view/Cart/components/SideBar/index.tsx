@@ -20,6 +20,7 @@ interface SidebarInterface {
     modal: string
   ) => (event: React.FormEvent<HTMLInputElement>) => void
   handleZipCodeChange: (event: React.FormEvent<HTMLInputElement>) => void
+  isAddressFormDisabled
 }
 
 const SideBar: React.FC<SidebarInterface> = ({
@@ -35,7 +36,7 @@ const SideBar: React.FC<SidebarInterface> = ({
 }) => {
   const formattedTotalValue = formatCurrency(Number(totalValue))
 
-  const { street, neighborhood } = contentForm
+  const { street = '', neighborhood } = contentForm
 
   return (
     <Fragment>
