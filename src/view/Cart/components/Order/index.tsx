@@ -62,7 +62,7 @@ const Order: React.FC<OrderInterface> = ({ cartList, totalValue }) => {
           cartList.map((item, idx) => {
             return <SingleOrder key={idx} {...item} />
           })}
-        {!cartList && (
+        {!cartList.length && (
           <Link href="/">
             <EmptyCartMessage>
               <h1>Seu carrinho está vazio! :(</h1>
