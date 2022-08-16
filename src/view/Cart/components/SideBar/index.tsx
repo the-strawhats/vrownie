@@ -68,12 +68,17 @@ const SideBar: React.FC<SidebarInterface> = ({
               <Input label="Numero" onChange={handleOnChange('number')} />
               <Input
                 label="Complemento"
+                placeholder="(opcional)"
                 onChange={handleOnChange('complement')}
               />
             </SideBarInputWrapper>
           </>
         )}
-        <Input label="Observações" onChange={handleOnChange('observation')} />
+        <Input
+          placeholder="(opcional)"
+          label="Observações"
+          onChange={handleOnChange('observation')}
+        />
         <Button
           label="Quero encomendar!"
           onClick={handleOrderNow}

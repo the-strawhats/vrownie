@@ -33,4 +33,8 @@ export const InputContainer = styled.input<InputContainerInterface>`
   :focus {
     border: ${({ theme }) => `2px solid ${theme.colors.green.dark}`};
   }
+
+  ::placeholder {
+    font-size: 12px;
+  }
 `

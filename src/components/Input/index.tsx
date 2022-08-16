@@ -5,6 +5,7 @@ import { Label } from '@components/Typography'
 interface InputInterface {
   value?: string
   label?: string
+  placeholder?: string
   active?: boolean
   onChange?: (event: React.FormEvent<HTMLInputElement>) => void
   isDisabled?: boolean
@@ -13,6 +14,7 @@ interface InputInterface {
 const Input: React.FC<InputInterface> = ({
   value,
   label,
+  placeholder,
   active,
   onChange,
   isDisabled
@@ -28,6 +30,7 @@ const Input: React.FC<InputInterface> = ({
         onChange={onChange}
         disabled={isDisabled}
         value={value}
+        placeholder={placeholder}
       />
     </InputContent>
   )
