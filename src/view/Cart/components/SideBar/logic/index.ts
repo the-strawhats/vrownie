@@ -15,7 +15,6 @@ const initialContentForm = {
   neighborhood: '',
   number: '',
   complement: '',
-  station: '',
   observation: ''
 }
 
@@ -28,11 +27,9 @@ const useSidebar = () => {
 
   const { hasCardList } = useOrder()
   const isAddress = currentOption === 'Endereço'
-  const isSubway = currentOption === 'Metrô'
 
   const ignorableValuesMapper = {
     Endereço: ['station', 'observation', 'complement'],
-    Metrô: ['street', 'neighborhood', 'number', 'complement', 'observation'],
     Retirar: [
       'station',
       'street',
@@ -145,12 +142,9 @@ const useSidebar = () => {
   const isButtonDisabled = !isFormValid || !hasCardList
 
   return {
-    isSubway,
     isAddress,
-    contentForm,
-    currentOption,
-    handleOrderNow,
     handleOnChange,
+    handleOrderNow,
     isButtonDisabled,
     setCurrentOption,
     handleSelectChange,

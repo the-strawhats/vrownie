@@ -18,4 +18,4 @@ export interface AddressPayloadInterface {
   observation?: string
 }
 
-export type DeliveryType = 'Endereço' | 'Metrô' | 'Retirar' | ''
+export type DeliveryType = 'Endereço' | 'Retirar' | ''

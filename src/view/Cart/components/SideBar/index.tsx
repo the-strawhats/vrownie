@@ -11,12 +11,10 @@ import { formatCurrency } from '@utils/format'
 
 interface SidebarInterface {
   contentForm
-  isSubway: boolean
   totalValue: string
-  isAddress: boolean
-  isButtonDisabled: boolean
   handleOrderNow: () => void
-  isAddressFormDisabled: boolean
+  isButtonDisabled: boolean
+  isAddress: boolean
   handleSelectChange: (option: string) => void
   handleOnChange: (
     modal: string
@@ -25,7 +23,6 @@ interface SidebarInterface {
 }
 
 const SideBar: React.FC<SidebarInterface> = ({
-  isSubway,
   isAddress,
   totalValue,
   contentForm,
@@ -47,7 +44,7 @@ const SideBar: React.FC<SidebarInterface> = ({
           Entrega<span className="red">.</span>
         </HeadlineThree>
         <SelectInput
-          options={['Endereço', 'Metrô', 'Retirar']}
+          options={['Endereço', 'Retirar']}
           label="Opção de entrega"
           handleCustomAction={handleSelectChange}
         />
@@ -74,9 +71,6 @@ const SideBar: React.FC<SidebarInterface> = ({
               />
             </SideBarInputWrapper>
           </>
-        )}
-        {isSubway && (
-          <Input label="Estação" onChange={handleOnChange('station')} />
         )}
         <Input label="Observações" onChange={handleOnChange('observation')} />
         <Button

@@ -101,26 +101,12 @@ const adressToOrder = (addressInformation: AddressPayloadInterface) => {
   return finalAdressText
 }
 
-const subwayToOrder = (addressInformation: AddressPayloadInterface) => {
-  const { station } = addressInformation
-  const stationText = `Detalhes da retirada: %0a- estação ${station}`
-
-  const finalStationText = `${stationText}${observationToOrder(
-    addressInformation
-  )}`
-
-  return finalStationText
-}
-
 export const deliveryFormToOrder = (
   deliveryType: DeliveryType,
   addressInformation: AddressPayloadInterface
 ) => {
   if (deliveryType === 'Endereço') {
     return adressToOrder(addressInformation)
-  }
-  if (deliveryType === 'Metrô') {
-    return subwayToOrder(addressInformation)
   }
   if (deliveryType === 'Retirar' || deliveryType === '') {
     const observation = observationToOrder(addressInformation)
