@@ -6,13 +6,13 @@ import { devices } from '@constants/devices'
 export const DeleteButton = styled.button`
   background: transparent;
   border: none;
-  color: #a4351d;
+  color: ${({theme}) => theme.colors.red.main };
   cursor: pointer;
   font-size: 12px;
   padding: 8px 0 0 16px;
 
   &:hover {
-    color: #8cb175;
+    color: ${({theme}) => theme.colors.green.main };
   }
 `
 
