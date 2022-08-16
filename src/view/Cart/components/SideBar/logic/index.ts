@@ -8,6 +8,7 @@ import {
 import React, { useState } from 'react'
 import { useOrder } from '../../Order/logic'
 import { redirectToWhatsappMessage } from '@utils/redirectToWhatsappMessage'
+import { Address } from 'src/services/address'
 
 const initialContentForm = {
   street: '',
@@ -20,9 +21,10 @@ const initialContentForm = {
 
 const useSidebar = () => {
   const [currentOption, setCurrentOption] = useState<DeliveryType>('')
-  const [contentForm, setContentForm] = useState(initialContentForm)
   const [isFormValid, setIsFormValid] = useState(false)
   const [ignorableValues, setIgnorableValues] = useState([])
+  const [contentForm, setContentForm] = useState(initialContentForm)
+  const [isAddressFormDisabled, setIsAddressFormDisabled] = useState(true)
 
   const { hasCardList } = useOrder()
   const isAddress = currentOption === 'Endereço'
@@ -75,7 +77,7 @@ const useSidebar = () => {
   const handleOnChange = (model: string) => (
     event: React.FormEvent<HTMLInputElement>
   ) => {
-    const form = contentForm
+    const form = { ...contentForm }
     const { value } = event.currentTarget
     form[model] = value
 
@@ -84,6 +86,36 @@ const useSidebar = () => {
 
     setIsFormValid(currentIsFormValid)
     setContentForm(form)
+  }
+
+  const handleZipCodeChange = (event: React.FormEvent<HTMLInputElement>) => {
+    handleOnChange('cep')(event)
+    const { value } = event.currentTarget
+
+    const hasFullZipCode = value.length === 8
+
+    if (hasFullZipCode) {
+      const api = new Address()
+      const { getByZipCode } = api
+
+      getByZipCode({ cep: value }).then(res => {
+        const { logradouro, bairro, erro } = res
+
+        const error = erro && JSON.parse(erro) === true
+
+        if (error) {
+          return setIsAddressFormDisabled(false)
+        }
+
+        const currentContentForm = {
+          ...contentForm,
+          street: logradouro,
+          neighborhood: bairro
+        }
+
+        setContentForm(currentContentForm)
+      })
+    }
   }
 
   const handleOrderNow = () => {
@@ -113,14 +145,17 @@ const useSidebar = () => {
   const isButtonDisabled = !isFormValid || !hasCardList
 
   return {
-    handleSelectChange,
-    isButtonDisabled,
-    handleOrderNow,
-    currentOption,
-    setCurrentOption,
-    handleOnChange,
+    isSubway,
     isAddress,
-    isSubway
+    contentForm,
+    currentOption,
+    handleOrderNow,
+    handleOnChange,
+    isButtonDisabled,
+    setCurrentOption,
+    handleSelectChange,
+    handleZipCodeChange,
+    isAddressFormDisabled
   }
 }
 

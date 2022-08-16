@@ -10,27 +10,35 @@ import enhanceCart from '@view/Cart/components/Order/logic'
 import { formatCurrency } from '@utils/format'
 
 interface SidebarInterface {
-  totalValue: string
-  handleOrderNow: () => void
-  isButtonDisabled: boolean
-  isAddress: boolean
+  contentForm
   isSubway: boolean
+  totalValue: string
+  isAddress: boolean
+  isButtonDisabled: boolean
+  handleOrderNow: () => void
+  isAddressFormDisabled: boolean
   handleSelectChange: (option: string) => void
   handleOnChange: (
     modal: string
   ) => (event: React.FormEvent<HTMLInputElement>) => void
+  handleZipCodeChange: (event: React.FormEvent<HTMLInputElement>) => void
 }
 
 const SideBar: React.FC<SidebarInterface> = ({
-  handleSelectChange,
-  isButtonDisabled,
+  isSubway,
+  isAddress,
+  totalValue,
+  contentForm,
   handleOrderNow,
   handleOnChange,
-  isAddress,
-  isSubway,
-  totalValue,
+  isButtonDisabled,
+  handleSelectChange,
+  handleZipCodeChange,
+  isAddressFormDisabled
 }) => {
   const formattedTotalValue = formatCurrency(Number(totalValue))
+
+  const { street, neighborhood } = contentForm
 
   return (
     <Fragment>
@@ -45,8 +53,19 @@ const SideBar: React.FC<SidebarInterface> = ({
         />
         {isAddress && (
           <>
-            <Input label="Rua" onChange={handleOnChange('street')} />
-            <Input label="Bairro" onChange={handleOnChange('neighborhood')} />
+            <Input label="Cep" onChange={handleZipCodeChange} />
+            <Input
+              value={street}
+              label="Rua"
+              onChange={handleOnChange('street')}
+              isDisabled={isAddressFormDisabled}
+            />
+            <Input
+              value={neighborhood}
+              label="Bairro"
+              onChange={handleOnChange('neighborhood')}
+              isDisabled={isAddressFormDisabled}
+            />
             <SideBarInputWrapper>
               <Input label="Numero" onChange={handleOnChange('number')} />
               <Input
@@ -66,7 +85,11 @@ const SideBar: React.FC<SidebarInterface> = ({
           isDisabled={isButtonDisabled}
         />
       </SideBarContainer>
-      <FloatingAction onClick={handleOrderNow} isDisabled={isButtonDisabled} totalValue={formattedTotalValue} />
+      <FloatingAction
+        onClick={handleOrderNow}
+        isDisabled={isButtonDisabled}
+        totalValue={formattedTotalValue}
+      />
     </Fragment>
   )
 }
