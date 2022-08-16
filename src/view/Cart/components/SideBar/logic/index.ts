@@ -143,6 +143,7 @@ const useSidebar = () => {
 
   return {
     isAddress,
+    contentForm,
     handleOnChange,
     handleOrderNow,
     isButtonDisabled,
@@ -154,4 +155,3 @@ const useSidebar = () => {
 }
 
 export default composer(useSidebar)
-
